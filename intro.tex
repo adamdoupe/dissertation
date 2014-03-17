@@ -1,0 +1,76 @@
+%
+%  Introduction
+%
+
+%-- Chapter Title
+\chapter{Introduction}
+
+
+\begin{quote}
+
+{\em A quote is always nice to have.}
+
+\hspace{\stretch{1}} The Quotee (1492-1493)
+
+\end{quote}
+
+
+\noindent
+A paragraph without indentation.
+
+
+
+\section{What this dissertation is about}
+
+\section{What this dissertation is not about}
+
+
+
+% --------------------------------------------------------------------
+% Thesis Statement
+% --------------------------------------------------------------------
+\pagebreak
+\section*{A section that's not in the Table of Contents}
+
+Also read Chapter~\ref{chap:Chapter2}.
+
+
+\section{How to make a figure}
+
+See Figure~\ref{fig:figure_reference}.
+
+\begin{figure}[htb]
+\figsp
+\begin{center}
+% \epsfig{figure=figure_filename,width=\linewidth}
+\end{center}
+\caption{This caption goes into the list of figures:}
+while this text only shows up under the figure itself.
+\label{fig:figure_reference}
+\end{figure}
+
+
+\section{And this is a table}
+
+See Table~\ref{tab:table_reference} on page~\pageref{tab:table_reference}.
+
+\begin{table}[htb]
+\figsp
+\caption{This caption goes into the list of tables:}
+and this text doesn't. 
+
+\begin{center}
+\begin{tabular}{|c||c|}
+\hline
+a & table \\
+\hline
+can & be \\
+\hline
+very & pretty \\
+\hline
+\end{tabular}
+\end{center}
+
+\label{tab:table_reference}
+
+\end{table}

@@ -1,0 +1,73 @@
+% Root File for a UCSB Dissertation
+%
+%
+
+\documentclass[12pt,twoside,draft]{ucthesis}
+% todo: final options: [12pt,oneside,final]
+
+\usepackage{graphics,epsfig,slashbox}
+%\usepackage{amssymb, amsmath, amsfonts, epsfig, graphicx, graphics, latexsym, makeidx, psfig, subeqn, verbatim, xspace,textcomp}
+
+
+%% Document Parts
+
+% run latex with only these files; it's faster without all eps figures etc.
+%\includeonly{Title,Front,Intro}
+%\includeonly{Title,Front,Intro,Literature,Chapter1,Chapter2,Conclusions}
+
+%%% Document Portion:
+
+\begin{document}
+
+%% Front Matter:
+\input{Title}          % First Page
+\maketitle             % Make Title Page
+
+\begin{frontmatter}
+\approvalpage
+\copyrightpage
+\input{Dedicate}
+\input{Acknowledgements}
+\input{Vitae}
+%\input{Preface}
+\input{Abstract}
+\tableofcontents
+\listoffigures
+\listoftables
+\end{frontmatter}
+
+
+% the chapters
+
+% spacing in figures and tables and their captions can be
+% changed here (\ssp for single-space, empty for same as surrounding 
+% text); for this to work, the command \figsp has to be included
+% in every figure and table right after the \begin{figure}
+\def\figsp{\ssp}
+%\def\figsp{}
+
+
+\include{Intro}
+
+%\include{Literature}
+
+%\include{Chapter1}
+
+%\include{Chapter2}
+
+%\include{Conclusions}
+
+\ssp   % bibliography can be single-spaced for UC thesis format
+\bibliography{mybibfile}
+\bibliographystyle{abbrv}%{unsrt}%{alpha}{siam}{apalike}{ieeetr}{plain}{acm}{abbrv}
+%\bibliographystyle{IEEE-Alpha} 
+
+
+\part*{\addcontentsline{toc}{part}{Appendices}Appendices}
+\appendix
+
+\include{Appendix}
+
+\end{document}
+
+
