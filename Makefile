@@ -34,6 +34,9 @@ clean:
         $(DOC:.tex=.ps)  \
         $(DOC:.tex=.bbl) \
         $(DOC:.tex=.blg) \
+        $(DOC:.tex=.lof) \
+        $(DOC:.tex=.lot) \
+        $(DOC:.tex=.loc) \
 	$(DOC:.tex=-src.tar.gz)
 
 veryclean: clean

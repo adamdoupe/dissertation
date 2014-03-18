@@ -6,3 +6,6 @@
 *.ps
 *.bbl
 *.blg
+*.lof
+*.lot
+*.toc
