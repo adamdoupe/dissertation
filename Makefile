@@ -24,11 +24,10 @@ all: pdf
 
 
 clean:
+	find . -name "*.aux" | xargs rm -f
+	find . -name "*.log" | xargs rm -f
+	find . -name "*.out" | xargs rm -f
 	@\rm -f \
-	*.aux \
-        $(DOC:.tex=.aux) \
-        $(DOC:.tex=.log) \
-        $(DOC:.tex=.out) \
         $(DOC:.tex=.dvi) \
         $(DOC:.tex=.pdf) \
         $(DOC:.tex=.ps)  \

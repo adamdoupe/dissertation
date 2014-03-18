@@ -2,11 +2,20 @@
 %
 %
 
-\documentclass[12pt,twoside,draft]{ucthesis}
+\documentclass[12pt,twoside,final]{ucthesis}
 % todo: final options: [12pt,oneside,final]
 
 \usepackage{graphics,epsfig,slashbox}
-%\usepackage{amssymb, amsmath, amsfonts, epsfig, graphicx, graphics, latexsym, makeidx, psfig, subeqn, verbatim, xspace,textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{cite}
+\usepackage{times}
+\usepackage{url}
+\usepackage{paralist}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{import}
 
 
 %% Document Parts
@@ -52,7 +61,7 @@
 
 \include{related-work}
 
-%\include{Chapter1}
+\subincludefrom{black-box/}{black-box}
 
 %\include{Chapter2}
 
