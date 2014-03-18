@@ -11,6 +11,7 @@
 
 %% Document Parts
 
+
 % run latex with only these files; it's faster without all eps figures etc.
 %\includeonly{Title,Front,Intro}
 %\includeonly{Title,Front,Intro,Literature,Chapter1,Chapter2,Conclusions}
@@ -20,17 +21,17 @@
 \begin{document}
 
 %% Front Matter:
-\input{Title}          % First Page
+\input{title}          % First Page
 \maketitle             % Make Title Page
 
 \begin{frontmatter}
 \approvalpage
 \copyrightpage
-\input{Dedicate}
-\input{Acknowledgements}
-\input{Vitae}
+\input{dedicate}
+\input{acknowledgements}
+\input{vitae}
 %\input{Preface}
-\input{Abstract}
+\input{abstract}
 \tableofcontents
 \listoffigures
 \listoftables
@@ -47,7 +48,7 @@
 %\def\figsp{}
 
 
-\include{Intro}
+\include{intro}
 
 %\include{Literature}
 
@@ -58,7 +59,7 @@
 %\include{Conclusions}
 
 \ssp   % bibliography can be single-spaced for UC thesis format
-\bibliography{mybibfile}
+\bibliography{dissertation}
 \bibliographystyle{abbrv}%{unsrt}%{alpha}{siam}{apalike}{ieeetr}{plain}{acm}{abbrv}
 %\bibliographystyle{IEEE-Alpha} 
 
@@ -66,7 +67,7 @@
 \part*{\addcontentsline{toc}{part}{Appendices}Appendices}
 \appendix
 
-\include{Appendix}
+\include{appendix}
 
 \end{document}
 
