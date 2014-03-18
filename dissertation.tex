@@ -18,6 +18,14 @@
 \usepackage{import}
 
 
+% Cool stuff I took from here:
+% http://tex.stackexchange.com/questions/73112/how-to-create-local-labels-refs-in-latex
+% macro to define a local label
+\newcommand\locallabel[1]{\label{\currentprefix:#1}}
+% macro to use a local reference
+\newcommand\localref[1]{\ref{\currentprefix:#1}}
+
+
 %% Document Parts
 
 
