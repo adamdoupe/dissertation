@@ -1,0 +1,9 @@
+digraph G {
+	rankdir=LR;
+	size="3,100";
+
+	"S_0" -> "S_0" [label="index.php"];
+	"S_0" -> "S_1" [label="login.php"];
+	"S_1" -> "S_1" [label="index.php"];
+	"S_1":e -> "S_1":e [label="view.php"];
+}

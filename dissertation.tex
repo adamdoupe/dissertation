@@ -16,6 +16,18 @@
 \usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{import}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage{url}
+\usepackage{cite}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage{breakurl} % Note this is to fix the extra long URLs in the
+                      % bibliography. Necessary when going from tex -> dvi
+                      % -> postscript -> pdf
+\usepackage{multirow}
+\usepackage{listings}
+
 
 
 % Cool stuff I took from here:
@@ -24,6 +36,42 @@
 \newcommand\locallabel[1]{\label{\currentprefix:#1}}
 % macro to use a local reference
 \newcommand\localref[1]{\ref{\currentprefix:#1}}
+
+
+% Commands for the scanners used in the papers:
+\newcommand{\acunetix}{Acunetix}
+\newcommand{\appscan}{AppScan}
+\newcommand{\burp}{Burp}
+\newcommand{\grendelscan}{Grendel-Scan}
+\newcommand{\hailstorm}{Hailstorm}
+\newcommand{\milescan}{Milescan}
+\newcommand{\nstalker}{N-Stalker}
+\newcommand{\ntospider}{NTOSpider}
+\newcommand{\paros}{Paros}
+\newcommand{\webinspect}{Webinspect}
+\newcommand{\waf}{w3af}
+\newcommand{\wget}{wget}
+\newcommand{\skipfish}{skipfish}
+\newcommand{\crawler}{state-aware-scanner}
+
+
+\newcommand{\initial}{INITIAL}
+\newcommand{\config}{CONFIG}
+\newcommand{\manual}{MANUAL}
+
+% commands to refer to the applications
+\newcommand{\wackopicko}{WackoPicko v2}
+\newcommand{\vanillaforums}{Vanilla Forums}
+\newcommand{\wordpress}{WordPress v3}
+\newcommand{\wordpresstwo}{WordPress v2}
+\newcommand{\gallery}{Gallery}
+\newcommand{\phpbbtwo}{PhpBB v2}
+\newcommand{\phpbbthree}{PhpBB v3}
+\newcommand{\scarf}{SCARF}
+\newcommand{\simplecms}{Simple CMS}
+\newcommand{\finalapp}{TODO FINAL}
+
+
 
 
 %% Document Parts

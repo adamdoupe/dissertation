@@ -1,0 +1,45 @@
+digraph G{
+	rankdir=TB;
+	size="5,100";
+	
+	APT [label="APT"];
+	11 [penwidth="4", label="(/html/body/div/span/a, /html/body/div/form)"];
+	12 [label="REDIRECT"];
+	13 [label="(/html/body/table/div/a)"];
+	21 [penwidth="4", label="(/user, /post)"];
+	22 [label="/messages"];
+	23 [label="(/comments)"];
+	31 [penwidth="4", label="(profile.php, edit.php)"];
+	32 [label="show.php"];
+	33 [label="(all.php)"];
+	41 [penwidth="4", label="((id, page), (all, sorted), (text, email, id))"];
+	42 [label="(id)"];
+	43 [label="(sorted)"];
+	51 [penwidth="4", label="((0), (0, 1), (5), (NULL), (5))"];
+	52 [label="((5), (5, 3), (1), (YES), (10))"];
+	53 [label="(1)"];
+	54 [label="(NULL)"];
+	55 [label="(ASC)"];
+	56 [label="(DSC)"];
+	57 [label="(RAND)"];
+
+	APT -> 11;
+	APT -> 12;
+	APT -> 13;
+	11 -> 21;
+	12 -> 22;
+	13 -> 23;
+	21 -> 31;
+	22 -> 32;
+	23 -> 33;
+	31 -> 41;
+	32 -> 42;
+	33 -> 43;
+	41 -> 51;
+	41 -> 52;
+	42 -> 53;
+	43 -> 54;
+	43 -> 55;
+	43 -> 56;
+	43 -> 57;
+}

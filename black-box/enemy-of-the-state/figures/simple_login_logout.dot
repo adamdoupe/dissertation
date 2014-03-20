@@ -1,0 +1,7 @@
+digraph G {
+	guest;
+	logged_in;
+
+	guest -> logged_in[label="POST /login.php"];
+	logged_in -> guest[label="GET /logout.php"];
+}

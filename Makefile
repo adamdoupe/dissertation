@@ -1,6 +1,6 @@
 DOC = dissertation.tex
 DOC_BASE := $(shell basename $(DOC) .tex)
-PDFLATEX = pdflatex 
+PDFLATEX = latex 
 BIBTEX = bibtex
 RERUN = "(There were undefined (references|citations)|Rerun to get (cross-references|the bars) right)"
 RERUNBIB = "No file.*\.bbl|Citation.*undefined"
@@ -19,8 +19,8 @@ all: pdf
 	egrep $(RERUN) $*.log && ($(PDFLATEX) $<) ; true
 	egrep $(RERUN) $*.log && ($(PDFLATEX) $<) ; true
 	egrep -i "(Reference|Citation).*undefined" $*.log ; true
-#	dvips -o $(DOC_BASE).ps -t letter $(DOC_BASE).dvi
-#	ps2pdf14 -dPDFSETTINGS=/prepress -dEmbedAllFonts=true $(DOC_BASE).ps
+	dvips -o $(DOC_BASE).ps -t letter $(DOC_BASE).dvi
+	ps2pdf14 -dPDFSETTINGS=/prepress -dEmbedAllFonts=true $(DOC_BASE).ps
 
 
 clean:

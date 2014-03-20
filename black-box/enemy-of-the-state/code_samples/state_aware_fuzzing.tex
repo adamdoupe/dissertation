@@ -1,0 +1,11 @@
+\begin{lstlisting}[language=Python, caption=Psuedocode for fuzzing state-changing request., label=\currentprefix:code:state-aware-fuzzing, float, belowskip=-2ex]
+def fuzz_state_changing( fuzz_request ):
+  make_request( fuzz_request )
+  if state_has_changed():
+    if state_is_reversible():
+      make_requests_to_revert_state()
+      if not back_in_previous_state():
+        reset_and_put_in_previous_state()
+    else:
+      reset_and_put_in_previous_state()
+\end{lstlisting}

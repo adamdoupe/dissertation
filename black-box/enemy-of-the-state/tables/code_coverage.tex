@@ -1,0 +1,54 @@
+\begin{table*}[tb]
+  \small
+  \centering
+  \begin{tabular}{lll|rrrr}
+\hline
+ Scanner   &  Application    &  \% over Baseline  & \multicolumn{4}{c}{Vulnerabilities}  \\
+             &               &                    &  Reported & True & Unique & False \\     
+\hline
+ \crawler{}   &  \gallery{}        &  16.20\%           & 0 & 0 & 0 & 0 \\
+ \waf{}      &  \gallery{}        &  15.77\%           & 3 & 0 & 0 & 3 \\
+ \skipfish{}  &  \gallery{}        &  10.96\%           & 0 & 0 & 0 & 0 \\
+ \wget{}      &  \gallery{}        &  0\%                & & & & \\
+\hline
+ \crawler{}   &  \phpbbtwo{}         &  38.34\%           & 4 & 3 & 1 & 1 \\
+ \skipfish{}  &  \phpbbtwo{}         &  5.10\%            & 3 & 2 & 0 & 1 \\
+ \waf{}      &  \phpbbtwo{}         &  1.04\%            & 5 & 1 & 0 & 4 \\
+ \wget{}      &  \phpbbtwo{}         &  0\%                & & & & \\
+\hline
+ \crawler{}   &  \phpbbthree{}         &  115.45\%          & 0 & 0 &0 & 0 \\
+ \skipfish{}  &  \phpbbthree{}         &  60.21\%           & 2 & 0 &0 & 2 \\
+ \waf{}      &  \phpbbthree{}         &  16.16\%           & 0 & 0 &0 & 0 \\
+ \wget{}      &  \phpbbthree{}         &  0\%                & & & & \\
+\hline
+ \crawler{}   &  \scarf{}          &  67.03\%           & 1 & 1 & 1 & 0 \\
+ \skipfish{}  &  \scarf{}          &  55.66\%           & 0 & 0 & 0 & 0 \\
+ \waf{}      &  \scarf{}          &  21.55\%           & 0 & 0 & 0 & 0 \\
+ \wget{}      &  \scarf{}          &  0\%                & & & & \\
+\hline
+ \crawler{}   &  \vanillaforums{}  &  30.89\%           & 0 & 0 & 0 & 0 \\
+ \waf{}      &  \vanillaforums{}  &  1.06\%            & 0 & 0 & 0& 0 \\
+ \wget{}      &  \vanillaforums{}  &  0\%                & & & & \\
+ \skipfish{}  &  \vanillaforums{}  &  -2.32\%           & 17 & 15 & 2 & 2 \\
+\hline
+ \crawler{}   &  \wackopicko{}     &  241.86\%          & 5 & 5 & 1 & 0 \\
+ \skipfish{}  &  \wackopicko{}     &  194.77\%          & 4 & 3 & 1 & 1 \\
+ \waf{}      &  \wackopicko{}     &  101.15\%          & 5 & 5 & 1 & 0 \\
+ \wget{}      &  \wackopicko{}     &  0\%                & & & & \\
+\hline
+ \crawler{}   &  \wordpresstwo{}     &  14.49\%           & 0 & 0 & 0 & 0 \\
+ \waf{}      &  \wordpresstwo{}     &  12.49\%           & 0 & 0 & 0 & 0 \\
+ \wget{}      &  \wordpresstwo{}     &  0\%                & & & & \\
+ \skipfish{}  &  \wordpresstwo{}     &  -18.34\%          & 1 & 0 & 0 & 1 \\
+\hline
+ \crawler{}   &  \wordpress{}      &  9.84\%             & 0 & 0 & 0 & 0 \\
+ \waf{}      &  \wordpress{}      &  9.23\%             & 3 & 0 & 0 & 3 \\
+ \skipfish{}  &  \wordpress{}      &  3.89\%             & 1 & 0 & 0 & 1 \\
+ \wget{}      &  \wordpress{}      &  0\%                & & & & \\
+\hline
+  \end{tabular}
+  \caption{Results of each of the black-box web vulnerability scanners
+    against each application. The table is sorted by the percent
+    increase in code coverage over the baseline scanner, \wget{}.}
+  \locallabel{code-coverage}
+\end{table*}

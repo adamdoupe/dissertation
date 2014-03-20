@@ -3,8 +3,18 @@
 @string{www             = "Proceedings of the International World Wide Web Conference (WWW)"}
 @string{dsn             = "Proceedings of the Conference on Dependable Systems and Networks (DSN)"}
 @string{raid-old        = "Proceedings of the Symposium on Recent Advances in Intrusion Detection (RAID)"}
+@string{ieee-oakland    = "Proceedings of the IEEE Symposium on Security and Privacy"}
+@string{acsac           = "Proceedings of the Annual Computer Security Applications Conference (ACSAC)"}
+@string{codaspy         = "Proceedings of the ACM Conference on Data and Application Security and Privacy (CODASPY)"}
+@string{ccgrid          = "Proceedings of the IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGRID)"}
+@string{icwe            = "Proceedings of the International Conference on Web Engineering (ICWE)"}
+@string{icst            = "Proceedings of the IEEE International Conference on Software Testing, Verification and Validation (ICST)"}
+@string{csmr            = "Proceedings of the European Conference on Software Maintenance and Reengineering (CSMR)"}
+@string{fase            = "Proceedings of the International Conference on Fundamental Approaches to Software Engineering (FASE)"}
+@string{vldb            = "Proceedings of the International Conference on Very Large Data Bases (VLDB)"}
+@string{wcre            = "Proceedings of the Working Conference on Reverse Engineering (WCRE)"}
 
-@inproceedings{small08predator,
+@inproceedings{small08:predator,
     author = {S. Small and J. Mason and F. Monrose and N. Provos and A. Stubblefield},
     title = {{To Catch a Predator: A Natural Language Approach for
                   Eliciting Malicious Payloads}},
@@ -12,21 +22,29 @@
     year = 2008
 }
 
-@inproceedings{provos08iframes,
+@inproceedings{provos08:iframes,
     author = {N. Provos and P. Mavrommatis and M. Rajab and F. Monrose},
     title = {{All Your iFRAMEs Point to Us}},
     booktitle = usenix-security,
     year = 2008
 }
 
-@InProceedings{balzarotti07mimosa,
+@InProceedings{balzarotti07:mimosa,
   title={{Multi-module Vulnerability Analysis of Web-based Applications}},
   author={Balzarotti, D. and Cova, M. and Felmetsger, V. and Vigna, G.},
   booktitle=acm-ccs,
   year={2007}
 }
 
-@inproceedings{kals06secubat,
+@inproceedings{balzarotti08:saner,
+  title={{Saner: Composing Static and Dynamic Analysis to Validate Sanitization in Web Applications}},
+  author={Balzarotti, D. and Cova, M. and Felmetsger, V. and Jovanovic, N. and Kirda, E. and Kruegel, C. and Vigna, G.},
+  booktitle=ieee-oakland,
+  year={2008},
+}
+
+
+@inproceedings{kals06:secubat,
     author = {S. Kals and E. Kirda and C. Kruegel and N. Jovanovic},
     title = {{SecuBat: A Web Vulnerability Scanner}},
     booktitle = www,
@@ -47,6 +65,138 @@
     year = 2008
 }
 
+@inproceedings{robertson09,
+    author = {William Robertson and Giovanni Vigna},
+    title = {{Static Enforcement of Web Application Integrity Through Strong Typing}},
+    booktitle = usenix-security,
+    year = {2009},
+}
+
+@inproceedings{chong07,
+  title={{SIF: Enforcing confidentiality and integrity in web applications}},
+  author={Chong, S. and Vikram, K. and Myers, A.C.},
+  booktitle=usenix-security,
+  year={2007},
+}
+
+@InProceedings{felmetsger10:logic,
+  author =       {V. Felmetsger and L. Cavedon and C. Kruegel and G. Vigna},
+  title =        {{Toward Automated Detection of Logic Vulnerabilities in Web Applications}},
+  booktitle = usenix-security,
+  year =         2010,
+}
+
+@inproceedings{huang03:web,
+ author = {Huang, Yao-Wen and Huang, Shih-Kun and Lin, Tsung-Po and Tsai, Chung-Hung},
+ title = {{Web Application Security Assessment by Fault Injection and Behavior Monitoring}},
+ booktitle = www,
+ year = {2003},
+} 
+
+@InProceedings{doupe11fear-the-ear,
+  author = 	 {Adam Doup\'e and Bryce Boe and Christopher Kruegel and Giovanni Vigna},
+  title = 	 {{Fear the EAR: Discovering and Mitigating Execution After Redirect Vulnerabilities}},
+  booktitle = ccs,
+  year = 	 2011,
+}
+
+@inproceedings{berg08,
+  title={{Regular Inference for State Machines using Domains with Equality Tests}},
+  author={Berg, T. and Jonsson, B. and Raffelt, H.},
+  booktitle=fase,
+  year={2008},
+}
+
+@inproceedings{bau10:state,
+  title={{State of the Art: Automated Black-Box Web Application Vulnerability Testing}},
+  author={Bau, J. and Bursztein, E. and Gupta, D. and Mitchell, J. C.},
+  booktitle=ieee-oakland,
+  year={2010},
+}
+
+@InProceedings{li11:BLOCK,
+  author = 		 {Xiaowei Li and Yuan Xue},
+  title = 		 {{BLOCK: A Black-box Approach for Detection of State Violation Attacks Towards Web Applications}},
+  booktitle = acsac,
+  year = 	 2011,
+}
+
+@InProceedings{cova07:swaddler,
+  author    = {M. Cova and D. Balzarotti and V. Felmetsger and G. Vigna},
+  title = {{Swaddler: An Approach for the Anomaly-based Detection of State Violations in Web Applications}},
+  booktitle = raid-old,
+  year      = 2007,
+}
+
+@inproceedings{li12:sentinel,
+  author    = {Xiaowei Li and Wei Yan and Yuan Xue},
+  title     = {{SENTINEL: Securing Database from Logic Flaws in Web Applications}},
+  booktitle = codaspy,
+  year      = {2012},
+}
+
+@INPROCEEDINGS{nurmi09:eucalyptus, 
+author={Nurmi, D. and Wolski, R. and Grzegorczyk, C. and Obertelli, G. and Soman, S. and Youseff, L. and Zagorodnov, D.}, 
+booktitle=ccgrid,
+title={{The Eucalyptus Open-Source Cloud-Computing System}}, 
+year=2009, 
+}
+
+@INPROCEEDINGS{mesbah09:crawljax, 
+author={Mesbah, A. and Bozdag, E. and van Deursen, A.}, 
+booktitle=icwe, 
+title={{Crawling AJAX by Inferring User Interface State Changes}}, 
+year=2008, 
+}
+
+@inproceedings{halfond09:penetration,
+  title={{Penetration Testing with Improved Input Vector Identification}},
+  author={William G.J. Halfond and Shauvik Roy Choudhary and Alessandro Orso},
+  booktitle=icst,
+  year={2009},
+}
+
+@inproceedings{huang04:securing,
+ author = {Yao-Wen Huang and Fang Yu and Christian Hang and Chung-Hung Tsai and Der-Tsai Lee and Sy-Yen Kuo},
+ title = {{Securing Web Application Code by Static Analysis and Runtime Protection}},
+ booktitle = www,
+ year = {2004},
+ }
+
+@inproceedings{di02:ware,
+  title={{WARE: a tool for the Reverse Engineering of Web applications}},
+  author={Di Lucca, G. A. and Fasolino, A. R. and Pace, F. and Tramontana, P. and De Carlini, U.},
+  booktitle=csmr,
+  year={2002}
+}
+
+@inproceedings{scott02,
+  title={{Abstracting Application-Level Web Security}},
+  author={Scott, D. and Sharp, R.},
+  booktitle=www,
+  year={2002},
+}
+
+@inproceedings{raghavan01:hidden-web,
+  title={{Crawling the Hidden Web}},
+  author={Raghavan, S. and Garcia-Molina, H.},
+  booktitle=vldb,
+  year={2001},
+}
+
+@inproceedings{amalfitano08,
+  title={{Reverse Engineering Finite State Machines from Rich Internet Applications}},
+  author={Amalfitano, D. and Fasolino, A.R. and Tramontana, P.},
+  booktitle=wcre,
+  year={2008},
+}
+
+
+
+
+
+
+
 
 @inproceedings{grossman04,
     author = {J. Grossman},
@@ -55,8 +205,22 @@
     year = 2004
 }
 
+@book{jensen94:graph,
+  author={Jensen, Tommy R. and Toft, Bjarne},
+  title={{Graph Coloring Problems}},
+  publisher={Wiley},
+  series={Wiley-Interscience Series on Discrete Mathematics and Optimization},
+  year={1994}
+}
 
 
+
+@article{steve07,
+  title={{Vulnerability Type Distributions in CVE}},
+  author={Steve, C. and Martin, R.},
+  journal={Mitre report, May},
+  year={2007}
+}
 
 @article{ curphey06,
 author = {Mark Curphey and Rudolph Araujo},
@@ -70,6 +234,52 @@ pages = {32-41},
 publisher = {IEEE Computer Society},
 address = {Los Alamitos, CA, USA},
 }
+
+
+@article{jovanovic10:static,
+  title={{Static analysis for detecting taint-style vulnerabilities in web applications}},
+  author={Jovanovic, N. and Kruegel, C. and Kirda, E.},
+  journal={Journal of Computer Security},
+  volume={18},
+  number={5},
+  pages={861--907},
+  issn={0926-227X},
+  year={2010},
+  publisher={IOS Press}
+}
+
+@Article{dijkstra59:shortestpath,
+  author =	 {Edsger W. Dijkstra},
+  title =	 {{A Note on Two Problems in Connexion with Graphs}},
+  journal =	 {Numerische Mathematik},
+  year =	 1959,
+  volume =	 1,
+  pages =	 {269--271},
+}
+
+@article{csallner08:dsd,
+  title={{DSD-Crasher: A hybrid analysis tool for bug finding}},
+  author={Csallner, C. and Smaragdakis, Y. and Xie, T.},
+  journal={ACM Transactions on Software Engineering and Methodology (TOSEM)},
+  volume={17},
+  number={2},
+  pages={1--37},
+  issn={1049-331X},
+  year={2008},
+  publisher={ACM}
+}
+
+@article{artzi10:finding,
+  title={{Finding Bugs in Web Applications Using Dynamic Test Generation and Explicit-State Model Checking}},
+  author={Artzi, S. and Kiezun, A. and Dolby, J. and Tip, F. and Dig, D. and Paradkar, A. and Ernst, M. D.},
+  journal={IEEE Transactions on Software Engineering},
+  issn={0098-5589},
+  year={2010},
+  publisher={Published by the IEEE Computer Society}
+}
+
+
+
 
 
 
@@ -90,6 +300,16 @@ address = {Los Alamitos, CA, USA},
   number = 	 {048.06},
   month = 	 {January}}
 
+@TechReport{fossi09:symantec,
+  author = 	 {M. Fossi},
+  title = 	 {{Symantec Global Internet Security Threat Report}},
+  institution =  {Symantec},
+  year = 	 2009,
+  month =	 {April},
+  note =	 {Volume XIV}
+}
+
+
 
 
 @Unpublished{anantasec09,
@@ -108,7 +328,7 @@ address = {Los Alamitos, CA, USA},
   year = 	 2007}
 
 
-@Misc{suto10webscanners,
+@Misc{suto10:webscanners,
     author = {Larry Suto},
     title = {{Analyzing the Accuracy and Time Costs of Web Application Security Scanners}},
     month = {Feburary},
@@ -185,4 +405,67 @@ address = {Los Alamitos, CA, USA},
     author = {{Open Web Application Security Project (OWASP)}},
     title = {{Web Input Vector Extractor Teaser}},
     howpublished = "\url{http://code.google.com/p/wivet/}"
+}
+
+@misc{garrett05:ajax,
+  author={Garrett, Jesse James},
+  title={{Ajax: A New Approach to Web Applications}},
+  month=feb,
+  year=2005,
+  howpublished={\url{http://www.adaptivepath.com/ideas/essays/archives/000385.php}}
+}
+
+@misc{w3af,
+  author={Riancho, Andrés},
+  title={{w3af -- Web Application Attack and Audit Framework}},
+  howpublished={\url{http://w3af.sourceforge.net/}},
+}
+
+@misc{htmlunit,
+  author={{Gargoyle Software Inc.}},
+  title={{HtmlUnit}},
+  howpublished={\url{http://htmlunit.sourceforge.net/}},
+}
+
+@misc{grendelscan,
+  author={Byrne, David},
+  title={{Grendel-Scan}},
+  howpublished={\url{http://www.grendel-scan.com/}},
+}
+
+@misc{paros,
+  author={{Chinotec Technologies}},
+  title={{Paros}},
+  howpublished={\url{http://www.parosproxy.org/}},
+}
+
+@misc{acunetix,
+  author={{Acunetix}},
+  title={{Acunetix Web Vulnerbility Scanner}},
+  howpublished={\url{http://www.acunetix.com/}},
+}
+
+@misc{appscan,
+  author={{IBM}},
+  title={{AppScan}},
+  howpublished={\url{http://www-01.ibm.com/software/awdtools/appscan/}},
+}
+
+@misc{burp,
+  author={{PortSwigger}},
+  title={{Burp Proxy}},
+  howpublished={\url{http://www.portswigger.net/burp/}},
+}
+
+@misc{webinspect,
+  author={{HP}},
+  title={{WebInspect}},
+  howpublished={\url{https://download.hpsmartupdate.com/webinspect/}},
+}
+
+@misc{spi02:complete,
+  title={{Complete Web Application Security: Phase 1 -- Building Web Application Security into Your Development Process}},
+  author={{SPI Dynamics}},
+  howpublished={{SPI Dynamics Whitepaper}},
+  year=2002
 }

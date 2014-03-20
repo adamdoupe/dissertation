@@ -1,0 +1,6 @@
+digraph G {
+	size="2,100";
+	
+0 -> 46  [label="POST /login.php"];
+46 -> 0  [label="GET /login.php?logout=1"];
+}

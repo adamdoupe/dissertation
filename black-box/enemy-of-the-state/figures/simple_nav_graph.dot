@@ -1,0 +1,18 @@
+digraph G {
+	rankdir=LR;
+	size="2.5,100";
+
+	login [label="login.php"];
+
+	subgraph G2{
+		rank=same;
+		
+		index [label="index.php"];
+		view [label="view.php"];
+	}
+
+	index -> login;
+	login -> index;
+	index -> view;
+	view -> index;
+}

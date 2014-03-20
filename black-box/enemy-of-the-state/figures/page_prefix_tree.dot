@@ -1,0 +1,34 @@
+digraph G{
+	rankdir=TB;
+	size="3,100";
+	Page [label="Page"];
+	11 [penwidth="4", label="/html/body/div/span/a"];
+	12 [label="/html/body/div/form"];
+	21 [penwidth="4", label="/user"];
+	22 [label="/post"];
+	31 [penwidth="4", label="profile.php"];
+	32 [label="edit.php"];
+	41 [penwidth="4", label="(id, page)"];
+	42 [label="(all, sorted)"];
+	43 [label="(text, email, id)"];
+	51 [penwidth="4", label="(0)"];
+	52 [label="(0, 1)"];
+	53 [label="(5)"];
+	54 [label="(NULL)"];
+	55 [label="(5)"];
+
+	Page -> 11;
+	Page -> 12;
+	11 -> 21;
+	12 -> 22;
+	21 -> 31;
+	22 -> 32;
+	31 -> 41;
+	31 -> 42;
+	32 -> 43;
+	41 -> 51;
+	41 -> 52;
+	41 -> 53;
+	42 -> 54;
+	43 -> 55;
+}

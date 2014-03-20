@@ -1,0 +1,7 @@
+digraph G {
+	size="3,2.5";	
+68 -> 146  [label="POST /wp-comments-post.php"];
+0 -> 68  [label="POST /wp-comments-post.php"];
+226 -> 293  [label="POST /wp-comments-post.php"];
+146 -> 226  [label="POST /wp-comments-post.php"];
+}
