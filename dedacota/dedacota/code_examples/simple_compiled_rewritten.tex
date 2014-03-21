@@ -1,0 +1,14 @@
+\begin{lstlisting}[language={[Sharp]C}, caption={The result of the rewriting algorithm applied to Listing~\ref{code:simple-compiled-cs}. Specifically, here we show the transformation of Lines 7--9 in Listing~\ref{code:simple-compiled-cs}.}, label=code:simple-compiled-rewritten, float]
+w.Write("</title></head>\n  <body>\n   ");
+
+Session["7"] = "\n    var username = \"");
+Session["7"] += this.Username;
+Session["7"] += "\";\n    ";
+
+var hashName = Hash(Session["7"]) + ".js";
+WriteToFile(hashName, Session["7"]);
+
+w.Write("<script src=\"" + hashName + "\"></script>");
+
+w.Write("\n  </body>\n</html>");
+\end{lstlisting}

@@ -1,0 +1,19 @@
+digraph G{
+	rankdir=TB;
+	ranksep=".25";
+		
+	1 [label="$\langle$\texttt{<html>}$,$ Line 2$\rangle$"];
+	2 [label="$\langle$\texttt{<head><tile>}$,$ Line 5$\rangle$"];
+	3 [label="$\langle$\texttt{Example}$,$ Line 6$\rangle$"];
+	4 [label="$\langle$\texttt{</title></head><body><script>var username = \symbol{34}}$,$ Line 7$\rangle$"];
+	5 [label="$\langle$\texttt{*}$,$ Line 8$\rangle$", style=dotted];
+	6 [label="$\langle$\texttt{\symbol{34};</script></body></html>}$,$ Line 9$\rangle$"];
+
+	1 -> 2 [len=".0"];
+	2 -> 3;
+	3 -> 4;
+	4 -> 5;
+	5 -> 6;
+}
+	
+	

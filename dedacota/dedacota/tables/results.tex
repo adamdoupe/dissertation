@@ -1,0 +1,21 @@
+\begin{table}[tb]
+  \scriptsize
+  \centering
+\begin{tabular}{lllp{12ex}p{15ex}}
+\hline
+Application & Total JS & Static  & Safe Dynamic &  Unsafe Dynamic \\
+\hline
+BugTracker.NET & 46 & 41 & 3 & 2 (4) \\
+BlogEngine.NET & 18 & 4 & 10 & 4 (4) \\
+BlogSA.NET & 12 & 10 & 1 & 1 (4) \\
+ScrewTurn Wiki & 35 & 27 & 4 & 4 (4) \\
+WebGoat.NET &  6 & 6 & 0 & 0 (4) \\
+ChronoZoom & 5 & 5 & 0 & 0 (4) \\
+\hline
+\end{tabular}
+\caption{Results of running \dedacota against the ASP.NET Web Form
+  applications. Safe Dynamic is the number of dynamic inline JS scripts that
+  we could safely transform, and Unsafe Dynamic is the number of
+  dynamic inline JS scripts that we could not safely transform. }
+\label{results}
+\end{table}

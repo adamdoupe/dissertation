@@ -1,0 +1,12 @@
+\begin{lstlisting}[language=aspx, caption=Example of a simple ASP.NET Web Form page., label=code:simple-aspx, float]
+<html>
+  <% Title = "Example";
+	 Username = Request.Params["name"]; %>
+  <head><tile><%= Title %></title></head>
+  <body>
+    <script>
+      var username = "<%= Username %>";
+    </script>
+  </body>
+</html>
+\end{lstlisting}

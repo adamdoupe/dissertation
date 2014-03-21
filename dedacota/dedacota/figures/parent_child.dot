@@ -1,0 +1,29 @@
+digraph G{
+
+ranksep=".4";
+
+default [label="default.aspx"];
+
+search [label="SearchOnSearch"];
+post [label="PostList"];
+calendar [label="PostCalendar"];
+info [label="InfoBox"];
+
+default -> search;
+default -> post;
+default -> calendar;
+default -> info;
+
+searchBox [label="SearchBox"];
+menu [label="menu"];
+postCalendar [label="PostCalendar"];
+pageList [label="PageList"];
+recentPosts [label="RecentPosts"];
+
+info -> searchBox;
+info -> menu;
+info -> postCalendar;
+info -> pageList;
+info -> recentPosts;
+
+}

@@ -1,0 +1,12 @@
+\begin{lstlisting}[language={[Sharp]C}, caption=The compiled \csh output of Listing~\ref{code:simple-aspx}., label=code:simple-compiled-cs, float]
+void Render(TextWriter w) {
+  w.Write("<html>\n  ");
+  this.Title = "Example";
+  this.Username = Request.Params["name"];
+  w.Write("\n  <head><tile>");
+  w.Write(this.Title);
+  w.Write("</title></head>\n  <body>\n    <script>\n      var username = \"");
+  w.Write(this.Username);
+  w.Write("\";\n    </script>\n  </body>\n</html>");
+}
+\end{lstlisting}

@@ -1,0 +1,74 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: 5 -> 6
+  \draw [->] (123.83bp,100.75bp) .. controls (125.26bp,98.608bp) and (126.75bp,96.374bp)  .. (133.96bp,85.561bp);
+  % Edge: 6 -> 7
+  \draw [->] (145bp,49.942bp) .. controls (145bp,48.669bp) and (145bp,47.367bp)  .. (145bp,36.003bp);
+  % Edge: 4 -> 5
+  \draw [->] (133.81bp,150.21bp) .. controls (132.52bp,148.28bp) and (131.18bp,146.28bp)  .. (124.02bp,135.54bp);
+  % Edge: 1 -> 3
+  \draw [->] (169.68bp,251.81bp) .. controls (175.76bp,248.07bp) and (182.37bp,244bp)  .. (197.41bp,234.75bp);
+  % Edge: 6 -> 4
+  \draw [->] (154.05bp,85.61bp) .. controls (156.09bp,90.146bp) and (157.96bp,95.151bp)  .. (159bp,100bp) .. controls (162.37bp,115.64bp) and (162.37bp,120.36bp)  .. (159bp,136bp) .. controls (158.68bp,137.48bp) and (158.29bp,138.97bp)  .. (154.2bp,150.07bp);
+  % Edge: 1 -> 2
+  \draw [->] (120.64bp,251.81bp) .. controls (114.64bp,248.07bp) and (108.11bp,244bp)  .. (93.266bp,234.75bp);
+  % Edge: 3 -> 4
+  \draw [->] (197.46bp,201.28bp) .. controls (191.61bp,197.68bp) and (185.3bp,193.8bp)  .. (170.33bp,184.59bp);
+  % Edge: 2 -> 4
+  \draw [->] (93.64bp,201.02bp) .. controls (99.152bp,197.58bp) and (105.06bp,193.9bp)  .. (119.73bp,184.75bp);
+  % Node: 1
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (145bp,268bp) ellipse (55bp and 18bp);
+  \draw (145bp,268bp) node {$\langle$\texttt{<script>}$,$ Line 20$\rangle$};
+\end{scope}
+  % Node: 3
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (223bp,218bp) ellipse (68bp and 18bp);
+  \draw (223bp,218bp) node {$\langle$\texttt{setupGuest();}$,$ Line 30$\rangle$};
+\end{scope}
+  % Node: 2
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (68bp,218bp) ellipse (68bp and 18bp);
+  \draw (68bp,218bp) node {$\langle$\texttt{setupAdmin();}$,$ Line 30$\rangle$};
+\end{scope}
+  % Node: 5
+\begin{scope}
+  \pgfsetdash{{\pgflinewidth}{2pt}}{0pt}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw [line width=3pt,dotted] (113bp,118bp) ellipse (37bp and 18bp);
+  \draw (113bp,118bp) node {$\langle$\texttt{*}$,$ Line 50$\rangle$};
+\end{scope}
+  % Node: 4
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw [line width=3pt] (145bp,168bp) ellipse (65bp and 18bp);
+  \draw (145bp,168bp) node {$\langle$\texttt{var test = \symbol{34}}$,$ Line 40$\rangle$};
+\end{scope}
+  % Node: 7
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (145bp,18bp) ellipse (58bp and 18bp);
+  \draw (145bp,18bp) node {$\langle$\texttt{</script>}$,$ Line 70$\rangle$};
+\end{scope}
+  % Node: 6
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw [line width=3pt] (145bp,68bp) ellipse (39bp and 18bp);
+  \draw (145bp,68bp) node {$\langle$\texttt{\symbol{34};}$,$ Line 60$\rangle$};
+\end{scope}
+%
+\end{tikzpicture}
+

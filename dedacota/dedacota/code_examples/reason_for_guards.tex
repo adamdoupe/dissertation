@@ -1,0 +1,13 @@
+\begin{lstlisting}[language={[Sharp]C}, caption={Example code where
+inline script and regular HTML can be output at the same \dotwrite.},
+label=code:reason-for-guards, float] 
+Render(TextWriter w)
+{
+ Out("<div>H</div>", w);
+ Out("<script>alert(\"W\");</script>", w);
+}
+Out(string str, TextWriter w)
+{ 
+ w.Write(str); 
+}
+\end{lstlisting}

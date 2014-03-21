@@ -32,8 +32,9 @@
 \usepackage{upquote}
 \usepackage{tikz}
 \usetikzlibrary{snakes,arrows,shapes}
+\usepackage{xspace}
 
-
+\usepackage{mdframed}
 
 
 % Cool stuff I took from here:
@@ -77,6 +78,13 @@
 \newcommand{\simplecms}{Simple CMS}
 \newcommand{\finalapp}{TODO FINAL}
 
+% commands of dedacota
+\newcommand{\dedacota}{{\sc deDacota}\xspace}
+\newcommand{\csh}{C\#\xspace}
+\newcommand{\opentag}{\texttt{<\%}\xspace}
+\newcommand{\closetag}{\texttt{\%>}\xspace}
+\newcommand{\opentageq}{\texttt{<\%=}\xspace}
+\newcommand{\dotwrite}{\texttt{TextWriter.Write}\xspace}
 
 
 
@@ -126,7 +134,8 @@
 \subincludefrom{black-box/}{black-box}
 
 \subincludefrom{ears/}{ears}
-%\include{Chapter2}
+
+\subincludefrom{dedacota/}{dedacota}
 
 %\include{Conclusions}
 

@@ -1,0 +1,5 @@
+\begin{lstlisting}[language={[Sharp]C}, caption={ASP.NET WebForm that generates the JavaScript function used in Listing~\ref{code:simple-compiled-rewritten-string}.}, label=code:get-string-one, float]
+function getString1() {
+  return UrlDecode("<%= UrlEncode(Session["String1"]) %>");
+}
+\end{lstlisting}
