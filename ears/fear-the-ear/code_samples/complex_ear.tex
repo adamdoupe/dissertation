@@ -1,0 +1,20 @@
+\begin{lstlisting}[language=Ruby, caption=Example of a complex
+  Execution After Redirect vulnerability in Ruby on Rails.,
+    label=\currentprefix:code:complex-ear, float,]
+class UsersController < ApplicationController
+  def ensure_admin
+    if not current_user.is_admin?
+      redirect_to("/")
+      return
+    end
+  end
+
+  def delete
+    ensure_admin()
+    @user = User.find(params[:id])
+    @user.delete()
+    flash[:notice] = "User Deleted"
+  end
+end 
+\end{lstlisting}
+

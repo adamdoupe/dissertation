@@ -1,0 +1,15 @@
+\begin{lstlisting}[language=Ruby, caption=Example of an 
+    Execution After Redirect vulnerability in Ruby on Rails.,
+    label=\currentprefix:code:simple-ear, float,]
+class TopicsController < ApplicationController 
+ def update 
+  @topic = Topic.find(params[:id])  
+  if not current_user.is_admin?  
+    redirect_to("/")
+  end  
+  @topic.update_attributes(params[:topic])  
+  flash[:notice] = "Topic updated!"  
+ end  
+end 
+\end{lstlisting}
+

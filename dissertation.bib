@@ -1,5 +1,5 @@
 @string{usenix-security = "Proceedings of the USENIX Security Symposium (USENIX)"}
-@string{acm-ccs         = "Proceedings of the ACM Conference on Computer and Communications Security (CCS)"}
+@string{ccs             = "Proceedings of the ACM Conference on Computer and Communications Security (CCS)"}
 @string{www             = "Proceedings of the International World Wide Web Conference (WWW)"}
 @string{dsn             = "Proceedings of the Conference on Dependable Systems and Networks (DSN)"}
 @string{raid-old        = "Proceedings of the Symposium on Recent Advances in Intrusion Detection (RAID)"}
@@ -13,6 +13,12 @@
 @string{fase            = "Proceedings of the International Conference on Fundamental Approaches to Software Engineering (FASE)"}
 @string{vldb            = "Proceedings of the International Conference on Very Large Data Bases (VLDB)"}
 @string{wcre            = "Proceedings of the Working Conference on Reverse Engineering (WCRE)"}
+@string{ndss            = "Proceedings of the Symposium on Network and Distributed System Security (NDSS)"}
+@string{asia-ccs        = "Proceedings of the ACM Symposium on Information, Computer and Communications Security (AsiaCCS)"}
+@string{dimva           = "Proceedings of the Conference on Detection of Intrusions and Malware, and Vulnerability Assessment (DIMVA)"}
+@string{dls             = "Proceedings of the ACM SIGPLAN Dynamic Languages Symposium (DLS)"}
+@string{ace             = "Proceedings of the IEEE/ACM Conference on Automated Software Engineering (ASE)"}
+@string{acm-plas        = "Proceedings of the ACM SIGPLAN Workshop on Programming Languages and Analysis for Security (PLAS)"}
 
 @inproceedings{small08:predator,
     author = {S. Small and J. Mason and F. Monrose and N. Provos and A. Stubblefield},
@@ -32,7 +38,7 @@
 @InProceedings{balzarotti07:mimosa,
   title={{Multi-module Vulnerability Analysis of Web-based Applications}},
   author={Balzarotti, D. and Cova, M. and Felmetsger, V. and Vigna, G.},
-  booktitle=acm-ccs,
+  booktitle=ccs,
   year={2007}
 }
 
@@ -191,8 +197,85 @@ year=2008,
   year={2008},
 }
 
+@InProceedings{ barth08:csrf,
+  author = {Adam Barth and Collin Jackson and John C. Mitchell},
+  title = {{Robust Defenses for Cross-Site Request Forgery}}, 
+  booktitle = ccs,
+  year = 2008  
+}
+
+@inproceedings{balduzzi11:hpp,
+  title={{Automated Discovery of Parameter Pollution Vulnerabilities in Web Applications}},
+  author={Balduzzi, M. and Gimenez, C. T. and Balzarotti, D. and Kirda, E.},
+  booktitle=ndss,
+  year={2011}
+}
+
+@InProceedings{balduzzi10:clickjacking,
+  author = 	 {M. Balduzzi and M. Egele and E. Kirda and D. Balzarotti and C. Kruegel},
+  title = 	 {{A Solution for the Automated Detection of Clickjacking Attacks}},
+  booktitle = asaiccs,
+  year =	 2010,
+  address =	 {Beijing, China},
+  month =	 {April}
+}
+
+@inproceedings{childers10:ictf,
+ author = {Childers, Nicholas and Boe, Bryce and Cavallaro, Lorenzo and Cavedon, Ludovico and Cova, Marco and Egele, Manuel and Vigna, Giovanni},
+ title = {Organizing Large Scale Hacking Competitions},
+ booktitle = dimva,
+ year = {2010},
+}
+
+@InPROCEEDINGS{furr09:ril,
+  TITLE = {{The Ruby Intermediate Language}},
+  AUTHOR = {Michael Furr and Jong-hoon (David) An and Jeffrey S. Foster and Michael Hicks},
+  BOOKTITLE = dls,
+  YEAR = 2009
+}
+
+@INPROCEEDINGS{jovanovic06:pixy-short,
+    author = {Nenad Jovanovic and Christopher Kruegel and Engin Kirda},
+    title = {{Pixy: A Static Analysis Tool for Detecting Web Application Vulnerabilities (Short Paper)}},
+    booktitle = ieee-oakland
+    year = {2006},
+}
+
+@inproceedings{jovanovic06:pixy-improved,
+ author = {Jovanovic, Nenad and Kruegel, Christopher and Kirda, Engin},
+ title = {{Precise Alias Analysis for Static Detection of Web Application Vulnerabilities}},
+ booktitle = acm-plas,
+ year = {2006},
+} 
 
 
+@inproceedings{livshits05:java-static,
+ author = {Livshits, V. Benjamin and Lam, Monica S.},
+ title = {{Finding Security Vulnerabilities in Java Applications with Static Analysis}},
+ booktitle = usenix-security,
+ year = {2005},
+} 
+
+@inproceedings {wang11:caas,
+	author = {Rui Wang and Shuo Chen and XiaoFeng Wang and Shaz Qadeer},
+	title = {{How to Shop for Free Online - Security Analysis of Cashier-as-a-Service Based Web Stores}},
+	booktitle = ieee-oakland,
+	year = {2011},
+}
+
+@inproceedings{an09:stror,
+    author = {Jong-hoon An and Avik Chaudhuri and Jeffrey Foster},
+    title = {{Static Typing for Ruby on Rails}},
+    booktitle = ace,
+    year = {2009},
+} 
+
+@inproceedings{chaudhuri10:ssarorwa,
+    author = {Avik Chaudhuri and Jeffrey Foster},
+    title = {{Symbolic Security Analysis of Ruby-on-Rails Web Applications}},
+    booktitle = ccs,
+    year = {2010},
+} 
 
 
 
@@ -212,6 +295,17 @@ year=2008,
   series={Wiley-Interscience Series on Discrete Mathematics and Optimization},
   year={1994}
 }
+
+@book{boehm81:see,
+ author = {Boehm, Barry W.},
+ title = {Software Engineering Economics},
+ year = {1981},
+ isbn = {0138221227},
+ edition = {1st},
+ publisher = {Prentice Hall PTR},
+ address = {Upper Saddle River, NJ, USA},
+} 
+
 
 
 
@@ -309,6 +403,13 @@ address = {Los Alamitos, CA, USA},
   note =	 {Volume XIV}
 }
 
+@TechReport{reenskaug79:mvc,
+  author = 	 {T. Reenskaug},
+  title = 	 {Models - views - controllers},
+  institution =  {Xerox Parc},
+  year = 	 1979}
+
+
 
 
 
@@ -327,6 +428,13 @@ address = {Los Alamitos, CA, USA},
   month = 	 {October},
   year = 	 2007}
 
+@Unpublished{klein04:http-response-splitting,
+  author = 	 {Amit Klein},
+  title = 	 {{``Divide and conquer'': HTTP Response Splitting, Web Cache Poisoning Attacks, and Related Topics.}},
+  note = 	 {\url{http://www.packetstormsecurity.org/papers/general/whitepaper/httpresponse.pdf}},
+  year = 	 2004}
+
+
 
 @Misc{suto10:webscanners,
     author = {Larry Suto},
@@ -343,17 +451,20 @@ address = {Los Alamitos, CA, USA},
   title = {{Common Vulnerabilities and Exposures}},
   howpublished = {\url{http://www.cve.mitre.org}}
 }
+
 @misc{datalossdb,
     author = {{Open Security Foundation}},
     title = {{OSF DataLossDB: Data Loss News, Statistics, and Research}},
     howpublished = "\url{http://datalossdb.org/}"
 }
+
 @Misc{pci,
   key = 	 {PCI},
   author = {{PCI Security Standards Council}},
   title = 	 {{PCI DDS Requirements and Security Assessment Procedures, v1.2}},
   month = 	 {October},
   year = 	 2008}
+
 @Misc{owasptopten,
   key = 	 {OWASP},
   author = {{Open Web Application Security Project (OWASP)}},
@@ -469,3 +580,125 @@ address = {Los Alamitos, CA, USA},
   howpublished={{SPI Dynamics Whitepaper}},
   year=2002
 }
+
+@Misc{gonzalez08:indictment,
+  title = 	 {{Indictment in U.S. v. Albert Gonzalez}},
+  howpublished = {\url{http://www.justice.gov/usao/ma/news/IDTheft/Gonzalez,\%20Albert\%20-\%20Indictment\%20080508.pdf}},
+  month = 	 {August},
+  year = 	 2008}
+
+@Misc{ortiz10:outcome,
+  author = 	 {Carmen Ortiz},
+  title = 	 {{Outcome of sentencing in U.S. v. Albert Gonzalez}},
+  howpublished = {\url{http://www.justice.gov/usao/ma/news/IDTheft/09-CR-10382/GONZALEZ\%20website\%20info\%205-11-10.pdf}},
+  month = 	 {March},
+  year = 	 2010}
+
+@Misc{carettoni09:hpp,
+  author = 	 {Carettoni, L. and Di Paola, S.},
+  title = 	 {{HTTP Parameter Pollution}},
+  howpublished = {OWASP AppSec Europe 2009},
+  month = 	 {May},
+  year = 	 2009}
+
+@Misc{hansen08:clickjacking,
+  author = 	 {R. Hansen},
+  title = 	 {Clickjacking},
+  howpublished = {\url{http://ha.ckers.org/blog/20080915/clickjacking/}},
+  month = 	 {September},
+  year = 	 2008}
+
+@Misc{fielding99:http11statuscode,
+  author = 	 {R. Fielding, J. Gettys, J. Mogul, H. Frystyk, L. Masinter, P. Leach, T. Berners-Lee},
+  title = 	 {{RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1 Status Code Definitions}},
+  howpublished = {\url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html}},
+  month = 	 {June},
+  year = 	 1999}
+
+@Misc{fielding99:http11location,
+  author = 	 {R. Fielding, J. Gettys, J. Mogul, H. Frystyk, L. Masinter, P. Leach, T. Berners-Lee},
+  title = 	 {{RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1 Header Field Definitions}},
+  howpublished = {\url{http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30}},
+  month = 	 {June},
+  year = 	 1999}
+
+@Misc{boe11:frameworks,
+  author = {Bryce Boe},
+  title = 	 {{Using StackOverflow's API to Find the Top Web Frameworks}},
+  howpublished = {\url{http://cs.ucsb.edu/~bboe/r/top-web-frameworks}},
+  month = 	 {February},
+  year = 	 2011}
+
+@Misc{boe11:earchallenge,
+  author = {Bryce Boe},
+  title = 	 {{UCSB's International Capture The Flag Competition 2010 Challenge 6: Fear The EAR}},
+  howpublished = {\url{http://cs.ucsb.edu/~bboe/r/ictf10}},
+  month = 	 {December},
+  year = 	 2010}
+
+
+@Misc{grails-redirects,
+  author = {{SpringSource}},
+  title = 	 {{Contollers - Redirects}},
+  howpublished = {\url{http://www.grails.org/Controllers+-+Redirects}},
+  year = 	 2010
+}
+
+@Misc{django-redirect,
+  author = {{Django Software Foundation}},
+  title = 	 {{Django shortcut functions}},
+  howpublished = {\url{http://docs.djangoproject.com/en/dev/topics/http/shortcuts/#django.shortcuts.redirect}},
+  year = 	 2011
+}
+
+@Misc{asp-net-mvc,
+  key = 	 {asp-net-mvc},
+  title = 	 {{ASP.NET MVC}},
+  howpublished = {\url{http://www.asp.net/mvc}}}
+
+@Misc{zend-redirector,
+  author = {{Zend Technologies Ltd.}},
+  title = 	 {{Zend Framework: Documentation: Action Helpers - Zend Framework Manual}},
+  howpublished = {\url{http://framework.zend.com/manual/en/zend.controller.actionhelpers.html#zend.controller.actionhelpers.redirector}},
+  year = 	 2011
+}
+
+@Misc{cake-redirect,
+  author = {{Cake Software Foundation, Inc.}},
+  title = 	 {{The CakePHP 1.3 Book}},
+  howpublished = {\url{http://book.cakephp.org/view/982/redirect}},
+  year = 	 2011
+}
+
+@Misc{codeigniter-url,
+  author = {{EllisLab, Inc.}},
+  title = 	 {{CodeIgniter User Guide Version 2.0.2}},
+  howpublished = {\url{http://codeigniter.com/user_guide/helpers/url_helper.html}},
+  year = 	 2011
+}
+
+@Misc{github,
+  key = 	 {github},
+  title = 	 {{GitHub}},
+  howpublished = {\url{http://github.com}}}
+
+@Misc{hofstetter06:redirect,
+  author = 	 {Daniel Hofstetter},
+  title = 	 {Don’t forget to exit after a redirect},
+  howpublished = {\url{http://cakebaker.wordpress.com/2006/08/28/dont-forget-to-exit-after-a-redirect/}},
+  month = 	 {August},
+  year = 	 2006}
+
+@Misc{cake-ear-bug:06,
+  key = 	 {cake-ear-ticket},
+  title = 	 {Include exit with a redirect call},
+  howpublished = {\url{http://replay.web.archive.org/20061011152124/https://trac.cakephp.org/ticket/1076}},
+  month = 	 {August},
+  year = 	 2006}
+
+@Misc{cake-doc-bug:06,
+  key = 	 {cake-php-ticket},
+  title = 	 {docs should mention redirect does not ``exit'' a script},
+  howpublished = {\url{http://replay.web.archive.org/20061011180440/https://trac.cakephp.org/ticket/1358}},
+  month = 	 {August},
+  year = 	 2006}

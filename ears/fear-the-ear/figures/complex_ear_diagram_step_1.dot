@@ -1,0 +1,42 @@
+digraph G {
+size="3,100";
+fontsize=20;
+ranksep=.3;
+compound=true;
+subgraph delete_graph
+{
+delete [label="delete_all"];
+ensure_logged_in_call [label="_tmp_ = ensure_logged_in()"];
+branch [label="_tmp_"];		      
+actually_delete_all [label="User.delete(:all)"];
+return_1 [label="return"];
+return_2 [label="return"];
+};
+
+subgraph ensure_loggedn_in
+{
+ensure_logged_in [label="ensure_logged_in"];
+is_current_user [label="current_user"];
+redirect_to [label="redirect_to(\"/\")"];
+return_false [label="return true"];
+increment [label="@logged_in_users += 1"];
+return_true [label="return false"];
+};
+
+delete -> ensure_logged_in_call;
+ensure_logged_in_call -> branch [weight=8, style=invis];
+branch -> return_1 [label=" false"];
+branch -> actually_delete_all [label=" true",weight=8];
+actually_delete_all -> return_2 [label=""];
+
+ensure_logged_in_call -> ensure_logged_in;
+ensure_logged_in -> is_current_user [weight=8];
+is_current_user -> redirect_to[label=" false", weight=8];
+redirect_to -> return_false [label=" true", weight=8];
+redirect_to -> increment [label=" false"]; 
+return_false -> branch;
+is_current_user -> increment [label=" true"];
+increment -> return_true [label=""];
+return_true -> branch [label=""];
+
+}

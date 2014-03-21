@@ -1,0 +1,26 @@
+digraph G {
+	size="2.2,5";
+	margin=0;
+	ranksep=.2;
+	
+	
+node [shape=box];
+
+start [style=invis,width=0,height=0,fixedsize=true,label=""];
+end [style=invis,width=0,height=0,fixedsize=true,label=""];
+
+step_1 [label="1) Build CFG"];
+step_2 [label="2) Find Redirection Methods"];
+step_3 [label="3) Prune Infeasible Paths"];
+step_4 [label="4) Detect EARs"];
+step_5 [label="5) Classify as Vulnerable"];
+
+
+
+start -> step_1 [label="  Rails Application"];
+step_1 -> step_2 [label="  CFG"];
+step_2 -> step_3 [label="  CFG, interesting methods"];
+step_3 -> step_4 [label="  CFG, interesting methods"];
+step_4 -> step_5 [label="  EARs"];
+step_5 -> end [label="  Benign EARs, Vulnerable EARs"];
+}

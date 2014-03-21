@@ -1,0 +1,19 @@
+\begin{lstlisting}[language=Ruby, caption=Example of potential false positive.,
+    label=\currentprefix:code:false-positive, float]
+class UsersController < ApplicationController
+  def ensure_logged_in
+    if not current_user
+      redirect_to("/") and return false
+    end
+    @logged_in_users += 1
+    return true
+  end
+
+  def delete_all
+   if not ensure_logged_in() 
+     return
+   User.delete(:all)
+  end
+end 
+\end{lstlisting}
+

@@ -1,0 +1,16 @@
+\begin{lstlisting}[language=Ruby, caption=True positive Execution
+  After Redirect vulnerability in Ruby on Rails.,
+    label=\currentprefix:code:interesting-ear, float]
+class BanksController < ApplicationController 
+  def redirect_to_login
+    redirect_to("/login") and return
+  end
+
+  def create
+    if not current_user.is_admin?  
+      redirect_to_login() and return
+    end  
+    @bank = Bank.create(params[:bank])
+  end  
+end 
+\end{lstlisting}

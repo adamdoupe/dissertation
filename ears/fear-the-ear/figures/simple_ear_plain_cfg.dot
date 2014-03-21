@@ -1,0 +1,19 @@
+digraph G {
+
+topic [label="@topic = Topic.find(params[:id])"];
+is_current_user [label="_tmp_ = current_user.is_admin?"];
+branch [label="_tmp_"];		      
+redirect_to [label="redirect_to(\"/\")"];
+update [label="@topic.update_attributes(params[:topic])"];
+flash [label="flash[:notice] = \"Topic updated!\""];
+
+topic -> is_current_user;
+is_current_user -> branch;
+
+branch -> redirect_to[label=" false"];
+branch -> update[label=" true", weight=8];
+
+redirect_to -> update;
+update -> flash;
+
+}
