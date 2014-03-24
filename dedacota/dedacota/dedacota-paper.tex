@@ -168,19 +168,19 @@ in the context of the web application, or launch browser exploits.
 There has been a significant amount of research effort on
 eliminating XSS vulnerabilities. The main line of research has
 focused on sanitizing untrusted
-input~\cite{yu10,hooimeijer11-bek,tripp09-taj,livshits05:java-static,weinberger11sanitization,xie06static,wassermann07sound,jovanovic06pixy,nguyen05hardening,samuel11templating,balzarotti08saner,saxena11scriptgard,livshits-popl13,google13autoescape}.
+input~\cite{yu:10,hooimeijer11:bek,tripp09:taj,livshits05:java-static,weinberger11:sanitization,xie06:static,wassermann07:sound,jovanovic06:pixy-improved,nguyen05:hardening,samuel11:templating,balzarotti08:saner,saxena11:scriptgard,livshits13:automatic-sanitizers,google13:autoescape}.
 %
 Sanitization attempts to identify and ``clean up'' untrusted inputs
 that might contain JavaScript code. Performing correct sanitization is challenging, for a
 number of reasons. One reason is that it is difficult to guarantee coverage
 for all possible paths through the
-application~\cite{balzarotti08saner,weinberger11sanitization}. As part
+application~\cite{balzarotti08:saner,weinberger11:sanitization}. As part
 of this problem, it is necessary to find all program locations
 (sources) where untrusted input can enter the application, and then
 verify, along all program paths, the correctness of all sanitization
 functions that are used before the input is sent to the client (sinks). Furthermore,
 it is not always clear how to properly sanitize data, because a single input
-might appear in different contexts in the output of the application~\cite{saxena11scriptgard}.
+might appear in different contexts in the output of the application~\cite{saxena11:scriptgard}.
 
 %However, we believe that the need for sanitization is a symptom of and
 %not the root cause of XSS vulnerabilities.
@@ -204,32 +204,32 @@ should have been designed from the start.  Once the code and data are separated,
 a web application can communicate this separation to the browser, and the
 browser can ensure no code is executed from the data channel.
 Such communication and enforcement is supported by the new W3C browser standard
-Content Security Policy (CSP)~\cite{stamm10csp}.
+Content Security Policy (CSP)~\cite{stamm10:csp}.
 
 While new web applications can be designed with code and data
 separated from the start, it has been a daunting task to achieve code
 and data separation for legacy applications. The key challenge is to
 identify code or data in the output of a web application. Previous
 solutions have relied on either developers' manual annotations or
-dynamic analysis. For example, BEEP~\cite{jim07beep} requires
+dynamic analysis. For example, BEEP~\cite{jim07:beep} requires
 developers to manually identify inline JavaScript code. {\sc
-  Blue\-print}~\cite{louw09blueprint} requires developers to manually
+  Blue\-print}~\cite{louw09:blueprint} requires developers to manually
 identify the data by specifying which application statements could
 output untrusted input. XSS-GUARD dynamically identifies
 application-intended JavaScript code in a web page by comparing it
-with a shadow web page generated at run time~\cite{bisht08xssguard}. The main problem
+with a shadow web page generated at run time~\cite{bisht08:xssguard}. The main problem
 preventing these solutions from being adopted is either the
 significant manual effort required from application developers or the
 significant runtime performance overhead. In fact, Weinberger et
-al.~\cite{weinberger11client} showed how difficult it is to manually
+al.~\cite{weinberger11:client} showed how difficult it is to manually
 separate the code and data of a web application.
 
 %There has been some research in this direction; research that attempts
 %to restrict the client-side code execution of the web
-%application to only known scripts. BEEP~\cite{jim07beep} enables the
+%application to only known scripts. BEEP~\cite{jim07:beep} enables the
 %developer to specify a \emph{manually} developed policy about which
 %scripts to execute, and then a modified browser will execute only
-%those policies. {\sc Blueprint}~\cite{louw09blueprint} will execute
+%those policies. {\sc Blueprint}~\cite{louw09:blueprint} will execute
 %only intended JavaScript code, without browser modification and
 %resistant to browser parsing quirks. However, a developer must
 %\emph{manually} identify statements in the server-side code that
@@ -241,7 +241,7 @@ separate the code and data of a web application.
 %manual effort required by the developer. BEEP requires the developer
 %to identify all inline scripts manually (with a hash) and {\sc
 %  Blueprint} requires the developer to find all statements that output
-%untrusted data. In fact, Weinberger et al.~\cite{weinberger11client}
+%untrusted data. In fact, Weinberger et al.~\cite{weinberger11:client}
 %showed how difficult it is to manually separate the code and data of a
 %web application.
 
@@ -297,7 +297,7 @@ subclass of these instances.
 
 %Now that the code and data of the web
 %application have been separated, we can leverage the new W3C browser
-%standard Content Security Policy (CSP)~\cite{stamm10csp} to enforce
+%standard Content Security Policy (CSP)~\cite{stamm10:csp} to enforce
 %this separation and ensure that no code is executed in the data
 %channel. 
 
@@ -325,16 +325,16 @@ subclass of these instances.
 %% and then end up in the output of the application. Performing correct
 %% sanitization is challenging, for a number of reasons. One is that it
 %% is difficult to guarantee coverage for all possible application
-%% paths~\cite{balzarotti08saner,weinberger11sanitization}. As part of
+%% paths~\cite{balzarotti08:saner,weinberger11:sanitization}. As part of
 %% this problem, it is necessary to find all program locations (sources)
 %% where untrusted inputs can enter the application, and one has to
 %% verify the correctness of all sanitization functions that are used.
 %% Another problem is that it is not always clear how to properly
 %% sanitize data, because it might appear in different contexts in the
-%% output of the application~\cite{saxena11scriptgard}. As a result,
+%% output of the application~\cite{saxena11:scriptgard}. As a result,
 %% automated sanitization approaches often focus on particular templating
 %% languages that make the analysis process
-%% feasible~\cite{samuel11templating,google13autoescape}.
+%% feasible~\cite{samuel11:templating,google13:autoescape}.
 
 %% Recent automatic XSS sanitization solutions are limited to either
 %% incomplete execution path coverage~\cite{} or applications written in
@@ -418,7 +418,7 @@ vulnerability is traditionally referred to as ``stored'' or
 and involuntarily reflected to the user (copied into the response) by
 the server, the vulnerability is called ``reflected XSS.'' Finally, if
 the bug is in the client-side code, the XSS vulnerability is referred
-to as ``DOM-based XSS''~\cite{dom-xss}. We call the first two types of
+to as ``DOM-based XSS''~\cite{klein05:dom-xss}. We call the first two types of
 vulnerabilities ``server-side XSS vulnerabilities'' and the latter
 ``client-side XSS vulnerabilities.'' 
 %% In the rest of this paper, we use
@@ -479,7 +479,7 @@ code.
 The separation of code and data can be traced back to the Harvard
 Architecture, which introduces separate storage and buses for code and
 data. Separating code and data is a basic security principle for
-avoiding code injection attacks~\cite{secure-code}. Historically,
+avoiding code injection attacks~\cite{howard03:secure-code}. Historically,
 whenever designs violate this principle, there exists a security hole.
 An example is the stack used in modern CPUs. The return addresses
 (code pointers) and function local variables (data) are co-located on
@@ -506,7 +506,7 @@ data in web pages created by web applications.
 
 \subsection{Content Security Policy}
 
-Content Security Policy (CSP)~\cite{stamm10csp} is a mechanism for
+Content Security Policy (CSP)~\cite{stamm10:csp} is a mechanism for
 mitigating a broad class of content injection vulnerabilities in web
 applications.  CSP is a declarative policy that allows a web
 application to inform the browser, via an HTTP header,
@@ -519,9 +519,9 @@ A newly developed web application can leverage CSP to avoid XSS by not
 using inline JavaScript and by specifying that only scripts from a set of
 trusted sites are allowed to execute on the client. Indeed, Google has
 required that all Chrome browser extensions implement
-CSP~\cite{akhawe12privilege}. However, manually applying CSP to a
+CSP~\cite{akhawe12:privilege}. However, manually applying CSP to a
 legacy web application typically requires a non-trivial amount of
-work~\cite{weinberger11client}. The reason is that the authors of the
+work~\cite{weinberger11:client}. The reason is that the authors of the
 web application have to modify the server-side code to clearly
 identify which resources (e.g., which JavaScript programs) are used by
 a web page. Moreover, these scripts have to be separated from the web
@@ -551,7 +551,7 @@ Our approach involves rewriting a web application. This web application is
 written by a benign developer---that is, the developer has not intentionally
 obfuscated the code as a malicious developer might. This assumption
 also means that the JavaScript and HTML are benign and not intentionally taking
-advantage of browser parsing quirks (as described in {\sc Blue\-print}~\cite{louw09blueprint}).
+advantage of browser parsing quirks (as described in {\sc Blue\-print}~\cite{louw09:blueprint}).
 
 %%  attackers input malformed
 %% HTML that some browsers, due to the leniency of their parsers, will interpret
@@ -726,7 +726,7 @@ order of the \dotwrite{} function invocations.
 
 We use a different static analysis technique to answer each of the two
 questions. To determine what is being written at a \dotwrite, we use the
-points-to analysis algorithm presented in~\cite{cui2012tracking} modified to work
+points-to analysis algorithm presented in~\cite{cui12:tracking} modified to work
 on .NET byte-code, instead of C. This points-to analysis algorithm is
 inclusion-based, demand-driven, context-sensitive, field-sensitive, and
 partially flow-sensitive. The points-to analysis algorithm computes the set of
@@ -1016,10 +1016,10 @@ Specifically, during static analysis we pass the dynamic inline JavaScript
 to a JavaScript parser. Then, we query the parser to determine the contexts in
 which the undetermined output (i.e., the \texttt{*} parts) is used. Here, for
 context we are referring specifically to the HTML parsing contexts described by
-Samuel et al.~\cite{samuel11templating}. Possible contexts are JavaScript
+Samuel et al.~\cite{samuel11:templating}. Possible contexts are JavaScript
 string, JavaScript numeric, JavaScript regular expression, JavaScript variable,
 etc.  If an undetermined output is in a string context, we sanitize
-them in a way similar to how {\sc Blueprint}~\cite{louw09blueprint} handles
+them in a way similar to how {\sc Blueprint}~\cite{louw09:blueprint} handles
 string literals in JavaScript.
 
 Like {\sc Blueprint}, on the server side we encode the string value and store
@@ -1190,7 +1190,7 @@ blocks and to transform the code into single static assignment (SSA)
 form. We also use CCI to rewrite the .NET binaries.
 
 For the static analysis engine, we leverage the points-to analysis
-engine of KOP (also known as MAS)~\cite{cui2012tracking}. KOP was
+engine of KOP (also known as MAS)~\cite{cui12:tracking}. KOP was
 originally written for the C programming language. Therefore, we wrote
 (using CCI) a frontend that processes .NET binaries and outputs the
 appropriate KOP points-to rules. Then, after parsing these rules, the
@@ -1587,13 +1587,13 @@ JavaScript in web applications. Of the four applications that have
 dynamic JavaScript, 12.2\% to 77.8\% of the total inline JavaScript in the
 application is dynamic. This is important, because one of
 BEEP's XSS prevention policies is a whitelist containing the
-SHA1 hash of allowed JavaScript~\cite{jim07beep}. Unfortunately, in the modern web JavaScript is
+SHA1 hash of allowed JavaScript~\cite{jim07:beep}. Unfortunately, in the modern web JavaScript is
 not static and frequently includes dynamic elements, necessitating new
 approaches that can handle dynamic JavaScript.
 
 The other security policy presented in BEEP is DOM sandboxing. This
 approach requires the developer to manually annotate the sinks so that
-they can be neutralized. {\sc Blueprint}~\cite{louw09blueprint} works
+they can be neutralized. {\sc Blueprint}~\cite{louw09:blueprint} works
 similarly, requiring the developer to annotate the outputs of
 untrusted data. Both approaches require the developer to manually
 annotate the sinks in the application in order to specify the trusted
@@ -1688,13 +1688,13 @@ dynamic language features, we leave a formal proof of this to future work.
 %that can be reduced to string concatenation. Also, we currently do not
 %support modeling complex string operation like regular expressions.
 %Using the automata-based string analysis engine from {\sc
-%  Strange}~\cite{yu10} could be used to address these shortcomings in
+%  Strange}~\cite{yu:10} could be used to address these shortcomings in
 %string analysis.
 
 \dedacota currently supports the analysis of string concatenations.  The support
 for more complex string operations such as regular expressions is left for
 future work.  A potential approach is to leverage an automata-based string
-analysis engine~\cite{yu10}.
+analysis engine~\cite{yu:10}.
 
 %\subsection{Rewriting Dynamic Inline JavaScript}
 %Note that it is possible that our safe rewriting does not preserve the
@@ -1739,68 +1739,13 @@ the JavaScript attribute affects. To do this, it would require
 generating a unique identifier for the HTML element associated with
 the JavaScript attribute.
 
-\section{Related Work}
-
-A broad variety of approaches have been proposed to address different types of XSS, though no standard taxonomy exists to classify these attacks and defenses. In general, XSS defenses employ schemes for input sanitization or restrictions on script generation and execution.  Differences among various techniques involve client- or server-side implementation and static or dynamic operation. We group and review XSS defenses in this context.
-
-\subsection{Server-Side Methods}
-
-While CSP itself is enforced by browsers~\cite{stamm10csp}, our
-approach for leveraging CSP is a static, server-side XSS defense.
-There has been much previous research in server-side XSS
-defenses~\cite{saxena11scriptgard,balzarotti08saner,samuel11templating,google13autoescape,bisht08xssguard,nguyen05hardening,pietraszek05context,su06sqlcheck,jovanovic06pixy,louw09blueprint,vangundy09noncespaces}.
-Server-based techniques aim for dynamically generated pages free of
-XSS vulnerabilities. This may involve validation or injection of
-appropriate sanitizers for user input, analysis of scripts to find XSS
-vulnerabilities, or automatic generation of XSS-free scripts.
-
-Server-side sanitizer defenses either check existing sanitization for correctness or generate input encodings automatically to match usage context. For example, Saner~\cite{balzarotti08saner} uses static analysis to track unsafe inputs from entry to usage, followed by dynamic analysis to test input cases for proper sanitization along these paths. {\sc ScriptGard}~\cite{saxena11scriptgard} is a complementary approach that assumes a set of \lq\lq{}correct\rq\rq{} sanitizers and inserts them to match the browser\rq{}s parsing context.  {\sc Bek}~\cite{hooimeijer11-bek} focuses on creating sanitization functions automatically analyzable for preciseness and correctness.  Sanitization remains the main industry-standard defense against XSS and related vulnerabilities.
-
-A number of server-side defenses restrict scripts included in
-server-generated pages. For example, XSS-GUARD~\cite{bisht08xssguard}
-determines valid scripts dynamically and disallows unexpected scripts.
-The authors report performance overheads of up to 46\%  because of the dynamic evaluation of HTML and JavaScript.
- Templating approaches~\cite{samuel11templating,google13autoescape,sec2009typing} generate correct-by-construction scripts that incorporate correct sanitization based on context. In addition, schemes based on code isolation~\cite{livshits07usingweb,athan09injection,akhawe12privilege} mitigate XSS by limiting DOM access for particular scripts, depending on their context.
-
-Certain XSS
-defenses~\cite{nguyen05hardening,pietraszek05context,xie06static,jovanovic06pixy,martin08autoxss,tripp09-taj,livshits05:java-static,johns07-smask,saxena10kudzu}
-use data-flow analysis or taint tracking to identify unsanitized user
-input included in a generated web page. These approaches typically rely on
-sanitization, encoding, and other means of separating unsafe inputs
-from the script  code. Some schemes prevent XSS bugs dynamically, while others focus on static detection and elimination.
-
-Other approaches~\cite{nadji08structure,vangundy09noncespaces,louw09blueprint} combine server-side processing with various client-side components, such as confinement of untrusted inputs and markup randomization. Such schemes may parse documents on the server and prevent any modifications of the resulting parse trees on the client. In addition, randomization of XHTML tags can render foreign script code meaningless, defeating many code-injection attacks. 
-
-\subsection{Client-Side Methods}
-
-Client-side XSS defenses~\cite{kirda06noxes,vogt07crosssite,jim07beep,livshits10conscript,stamm10csp,weinberger11client} mitigate XSS while receiving or rendering untrusted web content. Some of these schemes rely on browser modifications or plug-ins, often reducing their practical applicability. Others use custom JavaScript libraries or additional client-side monitoring software. CSP itself~\cite{stamm10csp} is a browser-based approach, but its incorporation into WWW standards should facilitate wide acceptance and support by all popular browsers.
-
-Some client-side XSS defenses focus on detecting and preventing leakage of sensitive data. For example, Noxes~\cite{kirda06noxes} operates as a personal-firewall plug-in that extracts all static links from incoming web pages, prompting the user about disclosure of information via dynamically generated links. Vogt et al.~\cite{vogt07crosssite} also aim to address this problem, but use taint-tracking analysis within a browser to check for sensitive data released via XSS attacks. In contrast, \dedacota simply prevents any XSS exploits that could enable such leakage.
-
-Client-side HTML security policies mitigate XSS via content
-restrictions, such as disallowing unsafe features or executing only
-\lq\lq{}known good\rq\rq{} scripts. Using a browser\rq{}s HTML parser,
-BEEP~\cite{jim07beep} constructs whitelists of scripts, much like
-XSS-GUARD\rq{}s server-side approach~\cite{bisht08xssguard}. BEEP
-assumes no dynamic scripts whose hashes cannot be pre-computed,
-limiting its practicality with modern web applications; moreover, it
-has been shown that even
-whitelisted scripts may be vulnerable to
-attacks~\cite{athan09injection}. Another custom content security
-policy is {\sc Blueprint}\rq{}s page descriptions, which are
-interpreted and rendered safely by a custom JavaScript
-library~\cite{louw09blueprint}. Script policies enforced at
-runtime~\cite{hallaraker05detecting,livshits10conscript} are also
-useful for mitigating XSS exploits.
-
-In general, standardized HTML security policies~\cite{stamm10csp,weinberger11client} offer promise as a means of escaping the recent proliferation of complex, often ad hoc XSS defenses. CSP simplifies the problem by enforcing fairly strong restrictions, such as disabling \texttt{eval()} and other dangerous APIs, prohibiting inline JavaScript, and allowing only local script resources to be loaded. While new web applications can be designed with CSP in mind, legacy code may require significant rewriting. \dedacota works on both old and new applications, facilitating adoption of CSP by developers, primarily by automating the separation process.
 
 %\subsection{Related Areas}
 %
 %SQL injection (SQLI) is similar to XSS in that both embed malicious
 %code from unsafe inputs into executable scripts or queries.
 %Consequently, methods used against XSS generally also apply against
-%SQLI~\cite{martin08autoxss,su06sqlcheck,wassermann07sound,xie06static}.
+%SQLI~\cite{martin08:autoxss,su06:sqlcheck,wassermann07:sound,xie06:static}.
 %Cross-channel scripting (XCS)~\cite{bojinov09xcs} is an XSS variant in
 %which malicious scripts are injected via non-web channels (e.g.,
 %communications via other Internet protocols). Along with XSS,

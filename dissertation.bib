@@ -19,6 +19,16 @@
 @string{dls             = "Proceedings of the ACM SIGPLAN Dynamic Languages Symposium (DLS)"}
 @string{ace             = "Proceedings of the IEEE/ACM Conference on Automated Software Engineering (ASE)"}
 @string{acm-plas        = "Proceedings of the ACM SIGPLAN Workshop on Programming Languages and Analysis for Security (PLAS)"}
+@string{tacas           = "Proceedings of the International Conference on Tools and Algorithms for the Construction and Analysis of Systems (TACAS)"}
+@string{pldi            = "Proceedings of the ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI)"}
+@string{esorics         = "Proceedings of the European Symposium on Research in Computer Security (ESORICS)"}
+@string{ifip-sec        = "Proceedings of the IFIP International Information Security Conference"}
+@string{popl            = "Proceedings of the Symposium on Principles of Programming Languages (POPL)"}
+@string{usenix-hot-topics = "Proceedings of the USENIX Workshop on Hot Topics in Security (HotSec)"}
+@string{w2sp            = "Proceedings of the Workshop on Web 2.0 Security and Privacy (W2SP)"}
+@string{sac             = "Proceedings of the ACM Symposium on Applied Computing (SAC)"}
+@string{iceccs          = "Proceedings of the IEEE International Conference on Engineering of Complex Computer Systems (ICECCS)"}
+
 
 @inproceedings{small08:predator,
     author = {S. Small and J. Mason and F. Monrose and N. Provos and A. Stubblefield},
@@ -214,10 +224,8 @@ year=2008,
 @InProceedings{balduzzi10:clickjacking,
   author = 	 {M. Balduzzi and M. Egele and E. Kirda and D. Balzarotti and C. Kruegel},
   title = 	 {{A Solution for the Automated Detection of Clickjacking Attacks}},
-  booktitle = asaiccs,
+  booktitle = asia-ccs,
   year =	 2010,
-  address =	 {Beijing, China},
-  month =	 {April}
 }
 
 @inproceedings{childers10:ictf,
@@ -275,18 +283,231 @@ year=2008,
     title = {{Symbolic Security Analysis of Ruby-on-Rails Web Applications}},
     booktitle = ccs,
     year = {2010},
+}
+
+@InProceedings{yu:10,
+  author = 		 {Fang Yu and Muath Alkhalaf and Tevfik Bultan},
+  title = 		 {{{\sc Stranger}: An Automata-based String Analysis Tool for PHP}},
+  booktitle = tacas,
+  year = 	 2010}
+
+@inproceedings{hooimeijer11:bek,
+ author = {Pieter Hooimeijer and Benjamin Livshits and David Molnar and Prateek Saxena and Margus Veanes},
+ title = {{Fast and Precise Sanitizer Analysis with {\sc Bek}}},
+ booktitle = usenix-security,
+ year = 2011,
 } 
 
+@inproceedings{tripp09:taj,
+ author = {Omer Tripp and Marco Pistoia and Stephen J. Fink and Manu Sridharan and Omri Weisman},
+ title = {{TAJ: Effective Taint Analysis of Web Applications}},
+ booktitle = pldi, 
+ year = {2009},
+} 
 
-
-
-
-@inproceedings{grossman04,
-    author = {J. Grossman},
-    title = {{Challenges of Automated Web Application Scanning}},
-    booktitle = {BlackHat Windows Security Conference},
-    year = 2004
+@inproceedings{weinberger11:sanitization,
+  author    = {Joel Weinberger and Prateek Saxena and Devdatta Akhawe and Matthew Finifter and Richard Shin and Dawn Song},
+  title     = {{A Systematic Analysis of {XSS} Sanitization in Web Application Frameworks}},
+  booktitle = esorics,
+  year      = 2011
 }
+
+@inproceedings{xie06:static,
+  author    = {Yichen Xie and Alex Aiken},
+  title     = {{Static Detection of Security Vulnerabilities in Scripting Languages}},
+  booktitle = usenix-security,
+  year      = {2006},
+}
+
+@inproceedings{wassermann07:sound,
+  author    = {Wassermann, Gary and Su, Zhendong},
+  title     = {{Sound and Precise Analysis of Web Applications for Injection Vulnerabilities}},
+  booktitle = pldi,
+  year      = 2007,
+}
+
+@inproceedings{nguyen05:hardening,
+  author    = {Anh Nguyen-tuong and Salvatore Guarnieri and Doug Greene and David Evans},
+  title     = {{Automatically Hardening Web Applications Using Precise Tainting}},
+  booktitle = ifip-sec,
+  year      = {2005},
+}
+
+@inproceedings{samuel11:templating,
+  author    = {Mike Samuel and Prateek Saxena and Dawn Song},
+  title     = {{Context-Sensitive Auto-Sanitization in Web Templating Languages Using Type Qualifiers}},
+  booktitle = ccs,
+  year      = {2011},
+}
+
+@inproceedings{saxena11:scriptgard,
+  title     = {{{\sc ScriptGard}: Automatic Context-Sensitive Sanitization for Large-Scale Legacy Web Applications}},
+  author    = {Prateek Saxena and David Molnar and Benjamin Livshits},
+  year      = 2011,
+  booktitle = ccs,
+}
+
+@inproceedings{livshits13:automatic-sanitizers,
+  author       = {Benjamin Livshits and Stephen Chong},
+  title        = {{Towards Fully Automatic Placement of Security Sanitizers and Declassifiers}},
+  year         = 2013,
+  booktitle    = popl,
+}
+
+@inproceedings{stamm10:csp,
+  author    = {Sid Stamm and Brandon Sterne and Gervase Markham},
+  title     = {{Reining in the Web with Content Security Policy}},
+  booktitle = www,
+  year      = {2010},
+}
+
+@inproceedings{jim07:beep,
+  author    = {Trevor Jim and Nikhil Swamy and Michael Hicks},
+  title     = {{Defeating Script Injection Attacks with Browser-Enforced Embedded Policies}},
+  booktitle = www,
+  year      = {2007},
+} 
+
+@inproceedings{louw09:blueprint,
+  author    = {Mike Ter Louw and V.N. Venkatakrishnan},
+  title     = {{{\sc Blueprint}: Robust Prevention of Cross-site Scripting Attacks for Existing Browsers}},
+  booktitle = ieee-oakland,
+  year      = {2009},
+}
+
+@inproceedings{bisht08:xssguard,
+author        = {Prithvi Bisht and V.N. Venkatakrishnan},
+title         = {{XSS-GUARD: Precise Dynamic Prevention of Cross-Site Scripting Attacks}},
+booktitle = dimva,
+year          = 2008,
+} 
+
+@inproceedings{weinberger11:client,
+  author    = {Joel Weinberger and Adam Barth and Dawn Song},
+  title     = {{Towards Client-side {HTML} Security Policies}},
+  booktitle = usenix-hot-topics,
+  year      = {2011},
+}
+
+@inproceedings{akhawe12:privilege,
+  author    = {Devdatta Akhawe and Prateek Saxena and Dawn Song},
+  title     = {{Privilege Separation in {HTML5} Applications}},
+  booktitle = usenix-security,
+  year = {2012},
+}
+
+@inproceedings{heiderich12,
+ author = {Mario Heiderich and Marcus Niemietz and Felix Schuster and Thorsten Holz and J\"{o}rg Schwenk},
+ title = {{Scriptless Attacks: Stealing the Pie Without Touching the Sill}},
+ booktitle = ccs,
+ year = {2012},
+}
+
+@inproceedings{cui12:tracking,
+  title={{Tracking Rootkit Footprints with a Practical Memory Analysis System}},
+  author={Weidong Cui and Marcus Peinado and Zhilei Xu and Ellick Chan},
+  booktitle=usenix-security,
+  year={2012},
+}
+
+@inproceedings{pietraszek05,
+  author    = {Tadeusz Pietraszek and Chris Vanden Berghe},
+  title     = {{Defending against Injection Attacks through Context-Sensitive String Evaluations}},
+  booktitle = raid-old,
+  year      = {2005}
+}
+
+@inproceedings{su06:sqlcheck,
+  author    = {Zhendong Su and Gary Wassermann},
+  title     = {{The Essence of Command Injection Attacks in Web Applications}},
+  booktitle = popl,
+  year      = {2006},
+}
+
+@inproceedings{vangundy09:noncespaces,
+  author    = {Matthew Van Gundy and Hao Chen},
+  title     = {{Noncespaces: Using Randomization to Enforce Information Flow Tracking and Thwart Cross-Site Scripting Attacks}},
+  booktitle = ndss,
+  year      = {2009},
+}
+
+@inproceedings{livshits07,
+  author    = {Benjamin Livshits and Ulfar Erlingsson},
+  title     = {{Using Web Application Construction Frameworks to Protect Against Code Injection Attacks}},
+  booktitle = acm-plas,
+  year      = {2007},
+}
+
+@inproceedings{athanasopoulos09,
+  author    = {Elias Athanasopoulos and Vasilis Pappas and Evangelos P. Markatos},
+  title     = {{Code-Injection Attacks in Browsers Supporting Policies}},
+  booktitle = w2sp, 
+  year      = 2009,
+}
+
+@inproceedings{martin08:autoxss,
+  author    = {Michael Martin and Monica S. Lam},
+  title     = {{Automatic Generation of {XSS} and {SQL} Injection Attacks with Goal-Directed Model Checking}},
+  booktitle = usenix-security,
+  year      = {2008},
+}
+
+@INPROCEEDINGS{johns07:smask,
+    author = {Martin Johns and Christian Beyerlein},
+    title = {{SMask: Preventing Injection Attacks in Web Applications by Approximating Automatic Data/Code Separation}},
+    booktitle = sac,
+    year = {2007}
+}
+
+@inproceedings{saxena10:kudzu,
+  author    = {Prateek Saxena and Devdatta Akhawe and Steve Hanna and Feng Mao and Stephen McCamant and Dawn Song},
+  title     = {{A Symbolic Execution Framework for JavaScript}},
+  booktitle = ieee-oakland,
+  year      = {2010},
+}
+
+@inproceedings{nadji08:structure-integrity,
+  author    = {Yacin Nadji and Prateek Saxena and Dawn Song},
+  title     = {{Document Structure Integrity: A Robust Basis for Cross-Site Scripting Defense}},
+  booktitle = ndss,
+  year      = {2008}
+}
+
+@inproceedings{kirda06:noxes,
+  author    = {Engin Kirda and Christopher Kruegel and Giovanni Vigna and Nenad Jovanovic},
+  title     = {{Noxes: A Client-Side Solution for Mitigating Cross-Site Scripting Attacks}},
+  booktitle = sac,
+  year      = 2006,
+}
+
+@inproceedings{vogt07,
+  author    = {Philipp Vogt and Florian Nentwich and Nenad Jovanovic and Engin Kirda and Christopher Kruegel and Giovanni Vigna},
+  title = 	 {{Cross-Site Scripting Prevention with Dynamic Data Tainting and Static Analysis}},
+  booktitle = ndss,
+  year      = {2007}
+}
+
+@inproceedings{meyerovich10:conscript,
+  author    = {Leo Meyerovich and Benjamin Livshits},
+  title     = {{{ConScript}: Specifying and Enforcing Fine-Grained Security Policies for {J}avaScript in the Browser}},
+  year      = 2010,
+  booktitle = ieee-oakland,
+}
+
+@inproceedings{hallaraker05,
+  author    = {Oystein Hallaraker and Giovanni Vigna},
+  title     = {{Detecting Malicious {J}ava{S}cript Code in {M}ozilla}},
+  booktitle = iceccs,
+  year      = 2005,
+}
+
+
+
+
+
+
+
+ 
 
 @book{jensen94:graph,
   author={Jensen, Tommy R. and Toft, Bjarne},
@@ -304,7 +525,15 @@ year=2008,
  edition = {1st},
  publisher = {Prentice Hall PTR},
  address = {Upper Saddle River, NJ, USA},
-} 
+}
+
+@Book{howard03:secure-code,
+  author = 	 {Michael Howard and David LeBlanc},
+  title = 		 {Writing Secure Code},
+  publisher = 	 {Microsoft Press},
+  year = 		 2003,
+  edition = 	 {Second}}
+ 
 
 
 
@@ -443,7 +672,12 @@ address = {Los Alamitos, CA, USA},
     year = 2010
 }
 
-
+@misc{grossman04,
+    author = {J. Grossman},
+    title = {{Challenges of Automated Web Application Scanning}},
+    booktitle = {BlackHat Windows Security Conference},
+    year = 2004
+}
 
 
 @misc{cve,
@@ -651,6 +885,13 @@ address = {Los Alamitos, CA, USA},
   year = 	 2011
 }
 
+@misc{asp-dot-net,
+  author={{Microsoft}},
+  Title={{ASP.NET}},
+  howpublished={\url{http://www.asp.net/}},
+}
+
+
 @Misc{asp-net-mvc,
   key = 	 {asp-net-mvc},
   title = 	 {{ASP.NET MVC}},
@@ -702,3 +943,83 @@ address = {Los Alamitos, CA, USA},
   howpublished = {\url{http://replay.web.archive.org/20061011180440/https://trac.cakephp.org/ticket/1358}},
   month = 	 {August},
   year = 	 2006}
+
+@Misc{cve13:overview,
+  author = 	 {{CVE Details}},
+  title = 	 {{Vulnerabilities by Type}},
+  howpublished = {\url{http://www.cvedetails.com/vulnerabilities-by-types.php}},
+  year = 	 2013
+}
+
+@misc{google13:autoescape,
+  author    = {Google},
+  title     = {{Google {A}uto{E}scape for {CT}emplate}},
+  howpublished = {\url{http://code.google.com/p/ctemplate/}}
+}
+
+@Misc{klein05:dom-xss,
+  author = 		 {Amit Klein},
+  title = 		 {{DOM Based Cross Site Scripting or XSS of the Third Kind}},
+  year = 		 {2005},
+  howpublished = {\url{http://www.webappsec.org/projects/articles/071105.shtml}},
+
+}
+
+@Misc{ror,
+  key = 		 {ror},
+  title = 	 {{Ruby on Rails}},
+  howpublished = {\url{http://rubyonrails.org/}},
+  year = 	 2013}
+
+@Misc{django,
+  key = 		 {django},
+  title = 	 {Django},
+  howpublished = {\url{http://djangoproject.com}},
+  year = 	 2013}
+
+@Misc{builtwith,
+  title = 	 {{Top in Frameworks - Week beginning Jun 24th 2013}},
+  howpublished = {\url{http://trends.builtwith.com/framework}},
+  year = 	 2013}
+
+@Misc{msr:cci,
+  author = 	 {{Microsoft Research}},
+  title = 	 {{Common Compiler Infrastructure}},
+  howpublished = {\url{http://research.microsoft.com/en-us/projects/cci/}},
+  year = 	 2013
+}
+
+@Misc{bugtracker,
+  title = 	 {{BugTracker.NET - Free Bug Tracking}},
+  howpublished = {\url{http://ifdefined.com/bugtrackernet.html}},
+  year = 	 {2013}
+}
+
+@Misc{blogengine,
+  title = 	 {{blogengine.net - an innovative open source blogging platform}},
+  howpublished = {\url{http://www.dotnetblogengine.net}},
+  year = 	 2013
+}
+
+@Misc{blogsa,
+  title = 	 {{BlogSA.NET}},
+  howpublished = {\url{http://www.blogsa.net/}},
+  year = 	 2013}
+
+@Misc{screwturn,
+  title = 	 {{ScrewTurn Wiki}},
+  howpublished = {\url{http://www.screwturn.eu/}},
+  year = 	 2013}
+
+@Misc{webgoat,
+  author = 	 {Jerry Hoff},
+  title = 	 {{WebGoat.NET}},
+  howpublished = {\url{https://github.com/jerryhoff/WebGoat.NET}},
+  year = 	 2013}
+
+@Misc{chronozoom,
+  key = 	 {chronozoom},
+  title = 	 {{Chronozoom - A Brief History of the World}},
+  howpublished = {\url{http://chronozoom.cloudapp.net/firstgeneration.aspx}},
+  year = 	 {2013}
+}

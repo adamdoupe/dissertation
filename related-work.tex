@@ -274,3 +274,59 @@ vulnerabilities, but rather for unexpected execution that a developer
 did not intend. We also performed our analysis on a large corpus of
 real-world applications, and found a correspondingly large number of true
 vulnerable EARs.
+
+\section{\dedacota{} Related Work}
+
+A broad variety of approaches have been proposed to address different types of XSS, though no standard taxonomy exists to classify these attacks and defenses. In general, XSS defenses employ schemes for input sanitization or restrictions on script generation and execution.  Differences among various techniques involve client- or server-side implementation and static or dynamic operation. We group and review XSS defenses in this context.
+
+\subsection{Server-Side Methods}
+
+While CSP itself is enforced by browsers~\cite{stamm10:csp}, our
+approach for leveraging CSP is a static, server-side XSS defense.
+There has been much previous research in server-side XSS
+defenses~\cite{saxena11:scriptgard,balzarotti08:saner,samuel11:templating,google13:autoescape,bisht08:xssguard,nguyen05:hardening,pietraszek05,su06:sqlcheck,jovanovic06:pixy-improved,louw09:blueprint,vangundy09:noncespaces}.
+Server-based techniques aim for dynamically generated pages free of
+XSS vulnerabilities. This may involve validation or injection of
+appropriate sanitizers for user input, analysis of scripts to find XSS
+vulnerabilities, or automatic generation of XSS-free scripts.
+
+Server-side sanitizer defenses either check existing sanitization for correctness or generate input encodings automatically to match usage context. For example, Saner~\cite{balzarotti08:saner} uses static analysis to track unsafe inputs from entry to usage, followed by dynamic analysis to test input cases for proper sanitization along these paths. {\sc ScriptGard}~\cite{saxena11:scriptgard} is a complementary approach that assumes a set of \lq\lq{}correct\rq\rq{} sanitizers and inserts them to match the browser\rq{}s parsing context.  {\sc Bek}~\cite{hooimeijer11:bek} focuses on creating sanitization functions automatically analyzable for preciseness and correctness.  Sanitization remains the main industry-standard defense against XSS and related vulnerabilities.
+
+A number of server-side defenses restrict scripts included in
+server-generated pages. For example, XSS-GUARD~\cite{bisht08:xssguard}
+determines valid scripts dynamically and disallows unexpected scripts.
+The authors report performance overheads of up to 46\%  because of the dynamic evaluation of HTML and JavaScript.
+ Templating approaches~\cite{samuel11:templating,google13:autoescape,robertson09} generate correct-by-construction scripts that incorporate correct sanitization based on context. In addition, schemes based on code isolation~\cite{livshits07,athanasopoulos09,akhawe12:privilege} mitigate XSS by limiting DOM access for particular scripts, depending on their context.
+
+Certain XSS
+defenses~\cite{nguyen05:hardening,pietraszek05,xie06:static,jovanovic06:pixy-improved,martin08:autoxss,tripp09:taj,livshits05:java-static,johns07:smask,saxena10:kudzu}
+use data-flow analysis or taint tracking to identify unsanitized user
+input included in a generated web page. These approaches typically rely on
+sanitization, encoding, and other means of separating unsafe inputs
+from the script  code. Some schemes prevent XSS bugs dynamically, while others focus on static detection and elimination.
+
+Other approaches~\cite{nadji08:structure-integrity,vangundy09:noncespaces,louw09:blueprint} combine server-side processing with various client-side components, such as confinement of untrusted inputs and markup randomization. Such schemes may parse documents on the server and prevent any modifications of the resulting parse trees on the client. In addition, randomization of XHTML tags can render foreign script code meaningless, defeating many code-injection attacks. 
+
+\subsection{Client-Side Methods}
+
+Client-side XSS defenses~\cite{kirda06:noxes,vogt07,jim07:beep,meyerovich10:conscript,stamm10:csp,weinberger11:client} mitigate XSS while receiving or rendering untrusted web content. Some of these schemes rely on browser modifications or plug-ins, often reducing their practical applicability. Others use custom JavaScript libraries or additional client-side monitoring software. CSP itself~\cite{stamm10:csp} is a browser-based approach, but its incorporation into WWW standards should facilitate wide acceptance and support by all popular browsers.
+
+Some client-side XSS defenses focus on detecting and preventing leakage of sensitive data. For example, Noxes~\cite{kirda06:noxes} operates as a personal-firewall plug-in that extracts all static links from incoming web pages, prompting the user about disclosure of information via dynamically generated links. Vogt et al.~\cite{vogt07} also aim to address this problem, but use taint-tracking analysis within a browser to check for sensitive data released via XSS attacks. In contrast, \dedacota simply prevents any XSS exploits that could enable such leakage.
+
+Client-side HTML security policies mitigate XSS via content
+restrictions, such as disallowing unsafe features or executing only
+\lq\lq{}known good\rq\rq{} scripts. Using a browser\rq{}s HTML parser,
+BEEP~\cite{jim07:beep} constructs whitelists of scripts, much like
+XSS-GUARD\rq{}s server-side approach~\cite{bisht08:xssguard}. BEEP
+assumes no dynamic scripts whose hashes cannot be pre-computed,
+limiting its practicality with modern web applications; moreover, it
+has been shown that even
+whitelisted scripts may be vulnerable to
+attacks~\cite{athanasopoulos09}. Another custom content security
+policy is {\sc Blueprint}\rq{}s page descriptions, which are
+interpreted and rendered safely by a custom JavaScript
+library~\cite{louw09:blueprint}. Script policies enforced at
+runtime~\cite{hallaraker05,meyerovich10:conscript} are also
+useful for mitigating XSS exploits.
+
+In general, standardized HTML security policies~\cite{stamm10:csp,weinberger11:client} offer promise as a means of escaping the recent proliferation of complex, often ad hoc XSS defenses. CSP simplifies the problem by enforcing fairly strong restrictions, such as disabling \texttt{eval()} and other dangerous APIs, prohibiting inline JavaScript, and allowing only local script resources to be loaded. While new web applications can be designed with CSP in mind, legacy code may require significant rewriting. \dedacota works on both old and new applications, facilitating adoption of CSP by developers, primarily by automating the separation process.
