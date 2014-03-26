@@ -1,0 +1,15 @@
+* History of Web Applications
+* Web Application Vulnerabilities
+** Why are Web Applications Vulnerable?
+** Injection Vulnerabilities
+*** SQL Injection
+*** Cross-Site Scripting
+** Logic Flaws
+* Securing Web Applications
+** Anomoly Detection
+** Secure Construction
+* Vulnerability Analysis
+** White-Box
+** Black-Box
+** Grey-Box
+
