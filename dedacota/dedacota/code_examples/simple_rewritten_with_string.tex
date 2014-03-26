@@ -1,3 +1,4 @@
+{\ssp
 \begin{lstlisting}[language={[Sharp]C}, caption={The result of rewriting Listing~\ref{code:simple-compiled-cs} with preserving the JavaScript context of the dynamic content.}, label=code:simple-compiled-rewritten-string, float=*]
 w.Write("</title></head>\n  <body>\n    ");
 Session["7"] = "\n      var username = ");
@@ -17,3 +18,4 @@ WriteToFile(hashName, Session["7"]);
 w.Write("<script src=\"" + hashName + "\"></script>");
 w.Write("\n  </body>\n</html>");
 \end{lstlisting}
+}

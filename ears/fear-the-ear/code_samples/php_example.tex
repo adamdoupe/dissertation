@@ -1,3 +1,4 @@
+{\ssp
 \begin{lstlisting}[language=PHP, caption={Example of  an
   information leakage Execution After Redirect vulnerability in PHP.
   If the \texttt{current\_user} is not an administrator, the PHP
@@ -12,5 +13,5 @@ if (!$current_user->is_admin())
    header("Location: /");
 }
 echo "Sensitive Information";
-
 \end{lstlisting}
+}

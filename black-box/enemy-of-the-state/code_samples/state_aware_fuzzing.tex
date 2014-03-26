@@ -1,4 +1,5 @@
-\begin{lstlisting}[language=Python, caption=Psuedocode for fuzzing state-changing request., label=\currentprefix:code:state-aware-fuzzing, float]
+{\ssp
+\begin{lstlisting}[language=Python, caption=Psuedocode for fuzzing state-changing request., label=\currentprefix:code:state-aware-fuzzing, float] 
 def fuzz_state_changing( fuzz_request ):
   make_request( fuzz_request )
   if state_has_changed():
@@ -9,3 +10,4 @@ def fuzz_state_changing( fuzz_request ):
     else:
       reset_and_put_in_previous_state()
 \end{lstlisting}
+}

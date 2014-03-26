@@ -27,7 +27,7 @@
                       % bibliography. Necessary when going from tex -> dvi
                       % -> postscript -> pdf
 \usepackage{multirow}
-\usepackage{listings}
+\usepackage[final]{listings}
 \usepackage{textcomp}
 \usepackage{upquote}
 \usepackage{tikz}
@@ -35,6 +35,32 @@
 \usepackage{xspace}
 
 \usepackage{mdframed}
+
+% Making the listings look consistent
+%% listing settings
+\lstset{ %
+upquote=true                    % make quotes in code straight not curved.
+basicstyle=\footnotesize\ttfamily,       % the size of the fonts that are used for the code
+keywordstyle=\color{black}\bfseries, %The style to use for keywords
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                % will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=tb,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+morekeywords={*,...},           % if you want to add more keywords to
+}
 
 
 % Cool stuff I took from here:
@@ -100,17 +126,17 @@
 \begin{document}
 
 %% Front Matter:
-\input{title}          % First Page
+\include{title}          % First Page
 \maketitle             % Make Title Page
 
 \begin{frontmatter}
 \approvalpage
 \copyrightpage
 %\input{dedicate}
-\input{acknowledgements}
-\input{vitae}
+\include{acknowledgements}
+\include{vitae}
 %\input{Preface}
-\input{abstract}
+\include{abstract}
 \tableofcontents
 \listoffigures
 \listoftables
