@@ -36,6 +36,7 @@ clean:
         $(DOC:.tex=.lof) \
         $(DOC:.tex=.lot) \
         $(DOC:.tex=.loc) \
+        $(DOC:.tex=.lol) \
 	$(DOC:.tex=-src.tar.gz)
 
 veryclean: clean
