@@ -126,14 +126,14 @@ Because a black-box web vulnerability scanner will never detect a vulnerability
 on a page that it does not see, scanners that ignore a web application's state
 will only explore and test a (likely small) fraction of the web application.
 
-In this paper, we propose to improve the effectiveness of black-box web vulnerability scanners by
+In this chapter, we propose to improve the effectiveness of black-box web vulnerability scanners by
 increasing their capability to understand the web application's internal state.
 Our tool constructs a partial model of the web application's state machine in a
 fully-automated fashion. It then uses this model to fuzz the application in a
 state-aware manner, traversing more of the web application and thus discovering
 more vulnerabilities.
 
-\noindent{}The main contributions of this paper are the following:
+\noindent{}The main contributions of this chapter are the following:
 \begin{itemize}
  \item A black-box technique to automatically learn a model of a web
    application's state. 
@@ -233,7 +233,7 @@ details of our technique.
 
 In this section, we describe our state-aware crawling approach. In
 Section~\localref{webapps}, we describe web applications and define terms that we
-will use in the rest of the paper. Then, in Section~\localref{inferring}, we
+will use in the rest of the chapter. Then, in Section~\localref{inferring}, we
 describe the various facets of the state-aware crawling algorithm at a high
 level.
 %% - Start with model of web applications.
@@ -261,7 +261,7 @@ encapsulates some content, typically HTML. The HTML content contains links and
 forms which describe how to make further requests. 
 
 Now that we have described a web application at a high level, we need to define
-specific terms related to web applications that we use in the rest of this paper.
+specific terms related to web applications that we use in the rest of this chapter.
 
 \begin{itemize}
 

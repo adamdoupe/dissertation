@@ -35,7 +35,7 @@ morekeywords={*,...},           % if you want to add more keywords to
 %%   validation flaws, such as cross site scripting and SQL injection, while
 %%   logic flaws have received comparably less attention.
 
-%%   In this paper, we present a comprehensive study of a relatively unknown
+%%   In this chapter, we present a comprehensive study of a relatively unknown
 %%   logic flaw in web applications, which we call Execution After Redirect,
 %%   or EAR. A web application developer can introduce an EAR by calling a
 %%   redirect method under the assumption that execution will halt. A
@@ -83,7 +83,7 @@ splitting~\cite{klein04:http-response-splitting}, and
 clickjacking~\cite{hansen08:clickjacking,balduzzi10:clickjacking}. 
 \\
 
-\noindent{}In this paper, we present an in-depth study of a little-known
+\noindent{}In this chapter, we present an in-depth study of a little-known
 real-world web application logic flaw; one we are calling Execution
 After Redirect (EAR). An EAR occurs because of a developer's
 misunderstanding of how the web application framework operates. In the
@@ -98,7 +98,7 @@ header~\cite{fielding99:http11statuscode}. These response codes instruct
 the browser to look for the resource originally requested at a new URL
 specified by the web application in the HTTP \texttt{Location}
 header~\cite{fielding99:http11location}. This process is known as
-redirection\footnote{In this paper, we consider only HTTP server-side
+redirection\footnote{In this chapter, we consider only HTTP server-side
   redirection. Other forms of redirection, executed on the client, exist
   such as JavaScript redirect or HTML meta refresh.}; the web application
 redirects the user to another resource.
@@ -125,7 +125,7 @@ web frameworks differ in supporting halt-on-redirect behavior. This
 difference in redirect method semantics can increase the developer's
 confusion when developing applications in different frameworks.
 
-In this paper, we present a comprehensive study of Execution After Redirect
+In this chapter, we present a comprehensive study of Execution After Redirect
 vulnerabilities: we provide an overview of EARs and classify EARs into
 different types. We also analyze nine web application frameworks'
 susceptibility to EARs, specifying their redirect semantics, as well as
@@ -135,7 +135,7 @@ open-source tool to analyze Ruby on Rails web applications. Finally, we
 discovered hundreds of vulnerabilities in open-source Ruby on Rails web
 applications, with a very low false positive rate.
 
-In summary, this paper provides the following contributions:
+In summary, this chapter provides the following contributions:
 
 \begin{itemize}
 
