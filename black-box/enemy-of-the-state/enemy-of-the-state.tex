@@ -159,7 +159,7 @@ simply derived from crawling the web application, from the web application's
 internal state machine. To illustrate this important difference, we will use a small
 example.
 
-Consider a simple web application that has only three pages,
+Consider a simple web application with three pages,
 \texttt{index.php}, \texttt{login.php}, and \texttt{view.php}. The
 \texttt{view.php} page is only accessible after the \texttt{login.php} page is
 accessed. There is no logout functionality. A client accessing this web
@@ -311,7 +311,7 @@ For instance, in the initial state \texttt{S\_0}, there is only one request that
 will change the state of the application, namely \texttt{POST~/login.php}. This
 change logs the user into the web application. From the state
 \texttt{no\_items}, there are two requests that can change the state,
-\texttt{GET~/logout.php} to return the user to state \texttt{S\_0} and
+\texttt{GET~/logout.php} which returns the user to the initial state \texttt{S\_0} and
 \texttt{POST~/add\_item.php} to add an item to the user's shopping cart.
 
 Note that the graph shown in Figure~\localref{complicated-state-machine} is not a
@@ -458,7 +458,7 @@ where:
 \end{itemize}
 
 \noindent{}For instance, an anchor tag with the \texttt{href} attribute of
-\texttt{/user/profile.php?id=0\&page} might have the following link vector:%
+\path{/user/profile.php?id=0&page} might have the following link vector:%
 \[\langle{}\text{/html/body/div/span/a},\ \text{/user},\ \text{profile.php},\ \text{(id,
   page)},\ \text{(0)}\rangle{}\] 
 
@@ -813,7 +813,7 @@ parameters in a URL, whereas all other applications pass parameters using the
 query part of the URL. For instance, a specific user's profile is \texttt{GET
   /profile/scanner1}, while a discussion thread is located at \texttt{GET
   /discussion/1/how-to-scan}. \vanillaforums{} also makes extensive use of
-AJAX, and does not gracefully degrade without JavaScript. For instance, with
+AJAX, and it does not gracefully degrade. For instance, with
 JavaScript disabled, posting a comment returns a JSON object that contains the
 success or failure of the comment posting, instead of an HTML response. We
 modified \vanillaforums{} by setting an XSRF token that it used to a constant
@@ -855,7 +855,7 @@ more of the application than \wget{}.
 ignore robots.txt. 
 
 \noindent \textbf{\waf{}} is an open-source black-box web vulnerability
-scanner which has numerous fuzzing modules. We enabled the blindSqli, eval,
+scanner which has many fuzzing modules. We enabled the blindSqli, eval,
 localFileInclude, osCommanding, remoteFileInclude, sqli, and xss fuzzing plugins.
 
 \noindent \textbf{\skipfish{}} is an open-source black-box web vulnerability
@@ -953,7 +953,8 @@ component of \waf{}, the only difference is in our state-aware crawling. The
 results show that this gives \crawler{} an increase in code coverage from as
 little as half a percent to 140.71 percent.
 
-Our crawler discovered three unique vulnerabilities, one each in \phpbbtwo{},
+Our crawler discovered three unique vulnerabilities (vulnerabilities that no
+other scanner found), one each in \phpbbtwo{},
 \scarf{}, and \wackopicko{}. The \scarf{} vulnerability is simply a XSS injection
 on the comment form. \waf{} logged itself out before fuzzing the comment page.
 \skipfish{} filed the vulnerable page under ``Response varies

@@ -413,7 +413,7 @@ explain, we will say that to ``render'' means to output a view, and to
 in Section~\localref{ror}, in Rails, only one render or one redirect may be
 called in a controller; a \texttt{DoubleRenderError} is thrown in the case
 of multiple calls. In Grails, however, the only redirect exception,
-\texttt{CannotRedirectException}, occurs when a redirect is called
+\texttt{Cannot\-Redirect\-Exception}, occurs when a redirect is called
 following another redirect. In cases where multiple calls to render are
 made, the final render is the only one that is sent to the browser. More
 importantly, in cases where both redirect and render are called, regardless
@@ -464,7 +464,7 @@ While the default behavior is not vulnerable to EARs, the Zend Framework
 supports disabling halt-on-redirect for both methods. The \texttt{\_redirect}
 method will not halt when the keyword argument \texttt{exit=False} is provided
 as part of the call. Disabling halt-on-redirect when using the
-\texttt{Redirector} helper requires calling \texttt{SetExit(False)} on the
+\texttt{Redirector} helper object requires calling the method \texttt{SetExit(False)} on the
 \texttt{Redirector} helper object prior to making the redirect call. The latter
 method is particularly interesting because any code executed
 during the request has the ability to modify the behavior of redirects called
@@ -506,7 +506,7 @@ provided redirect function and instead introduce EARs by neglecting to call
 Java 2 Platform, Enterprise Edition (J2EE) defines a serv\-let paradigm for
 the development of web applications and web application frameworks in Java.
 Thus, to perform a redirect in J2EE, or a J2EE-based framework, the
-developer calls \texttt{HttpServletResponse.sendRedirect}. This redirect
+developer calls \texttt{Http\-Servlet\-Response.sendRedirect}. This redirect
 function will clear out everything previously in the output buffer, set the
 \texttt{Location} header to the redirect location, set the response code to
 302, and finally flushes the output buffer to the browser. However,
@@ -519,8 +519,8 @@ based on J2EE servlets.
 Apache Struts is an MVC framework that is built on top of the servlet model
 provided by J2EE. Thus, Struts inherits all the potential vulnerabilities
 of the J2EE framework, specifically that silent EARs are possible but
-information leakage EARs are not possible. This is because to perform a
-redirect, the \texttt{HttpServletResponse.sendRedirect} method of J2EE must
+information leakage EARs are not possible. This inheritance is possible because to perform a
+redirect, the \texttt{Http\-Servlet\-Response.send\-Redirect} method of J2EE must
 be called.
 
 \subsection{EAR Security Challenge}
@@ -528,7 +528,7 @@ be called.
 Each year since 2003, we have organized and hosted a security competition
 called the International Capture the Flag (iCTF). The competition pits
 dozens of teams from various universities across the world against each
-other in a test of their security prowess. While each iCTF has a primary
+other in a test of their security skills and knowledge. While each iCTF has a primary
 objective, the competitions typically involve secondary security challenges
 tangential to the primary
 objective~\cite{childers10:ictf}.
@@ -846,7 +846,7 @@ a \texttt{return} with no arguments returns \texttt{false}\footnote{Technically
   \texttt{nil}, but \texttt{nil} and \texttt{false} are equivalent for
   Boolean comparisons.}, 
 thus, \texttt{redirect\_to\_login} will always return \texttt{false} (because of
-the ``no argument'' \texttt{return} call on Line~3). The result is that the
+the \texttt{return} call with no arguments on Line~3). The result is that the
 \texttt{return} on Line~8 will never be executed, because
 \texttt{redirect\_to\_login} will always return \texttt{false}, and
 the short-circuit logic of \texttt{and} will cause Line~10 to be
@@ -956,7 +956,7 @@ execution. PHP frameworks can use the \texttt{exit} function to implement
 halt-on-redirect behavior, because each request spawns a new PHP process.
 
 Our proposed solution is to throw a new type of exception,
-\texttt{RedirectOccuredException}, at the end of the
+\texttt{Redirect\-Occured\-Exception}, at the end of the
 \texttt{redirect\_to} body. In the Ruby on Rails framework core, where
 the controller is called, there is a catch block for this exception.
 While this will prevent almost all EARs, there is a possibility for
