@@ -1,9 +1,11 @@
 digraph G {
 	rankdir=LR;
 	size="3,100";
+	ranksep=".4";
+	
 
-	"S_0" -> "S_0" [label="index.php"];
-	"S_0" -> "S_1" [label="login.php"];
-	"S_1" -> "S_1" [label="index.php"];
-	"S_1":e -> "S_1":e [label="view.php"];
+	"S\_0" -> "S\_0" [label="index.php"];
+	"S\_0" -> "S\_1" [label="login.php"];
+	"S\_1" -> "S\_1" [label="index.php"];
+	"S\_1":e -> "S\_1":e [label="view.php"];
 }

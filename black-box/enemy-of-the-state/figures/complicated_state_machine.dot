@@ -3,16 +3,16 @@ digraph G {
 	size="6,100";
 
 
-	"S_0" -> no_items [label="POST /login.php"];
-	no_items -> "S_0" [label="GET /logout.php"];
+	"S\_0" -> "no\_items" [label="POST /login.php"];
+	"no\_items" -> "S\_0" [label="GET /logout.php"];
 
-	no_items -> item_in_cart [label="POST /add_item.php"];
-	item_in_cart -> no_items [label="GET /delete_item.php"];
+	"no\_items" -> "item\_in\_cart" [label="POST /add\_item.php"];
+	"item\_in\_cart" -> "no\_items" [label="GET /delete\_item.php"];
 
-	item_in_cart -> "S_1" [label="GET /logout.php"];
-	"S_1" -> item_in_cart [label="POST /login.php"];
+	"item\_in\_cart" -> "S\_1" [label="GET /logout.php"];
+	"S\_1" -> "item\_in\_cart" [label="POST /login.php"];
 
-	item_in_cart -> purchased_item [label="POST /purchase.php"];
-	purchased_item -> "S_2" [label="GET /logout.php"];
-	"S_2" -> purchased_item [label="POST /login.php"];
+	"item\_in\_cart" -> "purchased\_item" [label="POST /purchase.php"];
+	"purchased\_item" -> "S\_2" [label="GET /logout.php"];
+	"S\_2" -> "purchased\_item" [label="POST /login.php"];
 }

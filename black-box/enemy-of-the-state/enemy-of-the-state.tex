@@ -144,8 +144,8 @@ more vulnerabilities.
 \end{itemize}
 
 \section{Motivation}
-\input{figures/simple_nav_graph}
-\input{figures/simple_state_graph}
+\input{figures/simple_nav_graph_wrapper}
+\input{figures/simple_state_graph_wrapper}
 
 Crawling modern web applications means dealing with the web application's
 changing state. Previous work in detecting workflow
@@ -289,7 +289,7 @@ specific terms related to web applications that we use in the rest of this chapt
 \subsubsection{Web Application Model}
 \locallabel{webappmodel}
 
-\input{figures/complicated_state_machine}
+\input{figures/complicated_state_machine_wrapper}
 
 We use a \emph{symbolic Mealy machine}~\cite{berg08} to model the web
 application as a black-box. A Mealy machine is an automaton where the input to
@@ -428,8 +428,8 @@ scanning of the website by grouping the ``infinite'' areas together and detect
 when the state has changed by comparing page responses in an efficient manner.
 
 \subsubsection{Page Model}\locallabel{par:pagemodel}
-\input{figures/page_prefix_tree}
-\input{figures/abstract_page_tree}
+\input{figures/page_prefix_tree_wrapper}
+\input{figures/abstract_page_tree_wrapper}
 
 The output of a web application is usually an HTML document (it can actually be
 any arbitrary content, but we only consider HTML content and HTTP redirects).
@@ -985,7 +985,7 @@ state machine. The state machine our scanner inferred captures this complex
 series of state changes. The inferred \wackopicko{} state machine is presented
 in Figure~\localref{wackopicko-state-graph}.
 
-\input{figures/wackopicko.stategraph}
+\input{figures/wackopicko_stategraph_wrapper}
 
 \section{Limitations}
 

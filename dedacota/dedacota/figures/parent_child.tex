@@ -1,96 +1,25 @@
 
 \begin{tikzpicture}[>=latex,line join=bevel,]
-  \pgfsetlinewidth{1bp}
 %%
-\pgfsetcolor{black}
-  % Edge: info -> postCalendar
-  \draw [->] (315bp,64.785bp) .. controls (315bp,59.09bp) and (315bp,52.605bp)  .. (315bp,36.194bp);
-  % Edge: info -> recentPosts
-  \draw [->] (339.19bp,73.24bp) .. controls (368.01bp,62.808bp) and (416.49bp,45.252bp)  .. (460.09bp,29.467bp);
-  % Edge: default -> search
-  \draw [->] (157.72bp,135bp) .. controls (136.96bp,125.53bp) and (107.7bp,112.17bp)  .. (75.046bp,97.26bp);
-  % Edge: default -> info
-  \draw [->] (209.57bp,134.7bp) .. controls (230.81bp,124.49bp) and (261.11bp,109.92bp)  .. (292.98bp,94.591bp);
-  % Edge: default -> post
-  \draw [->] (172.67bp,130.78bp) .. controls (167.91bp,123.96bp) and (162.27bp,115.89bp)  .. (151.14bp,99.951bp);
-  % Edge: info -> pageList
-  \draw [->] (333.44bp,68.946bp) .. controls (346.01bp,60.052bp) and (362.85bp,48.128bp)  .. (385.28bp,32.254bp);
-  % Edge: info -> menu
-  \draw [->] (297.18bp,68.946bp) .. controls (284.88bp,59.933bp) and (268.32bp,47.808bp)  .. (246.5bp,31.821bp);
-  % Edge: info -> searchBox
-  \draw [->] (292.63bp,71.601bp) .. controls (287.53bp,69.339bp) and (282.11bp,67.02bp)  .. (277bp,65bp) .. controls (240.27bp,50.477bp) and (230.04bp,49.708bp)  .. (193bp,36bp) .. controls (190.63bp,35.122bp) and (188.19bp,34.203bp)  .. (176.31bp,29.613bp);
-  % Edge: default -> calendar
-  \draw [->] (195.33bp,130.78bp) .. controls (200.02bp,124.07bp) and (205.55bp,116.14bp)  .. (216.55bp,100.39bp);
-  % Node: info
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (315bp,83bp) ellipse (28bp and 18bp);
-  \draw (315bp,83bp) node {InfoBox};
-\end{scope}
-  % Node: search
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (46bp,83bp) ellipse (46bp and 18bp);
-  \draw (46bp,83bp) node {SearchOnSearch};
-\end{scope}
-  % Node: default
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (184bp,148bp) ellipse (37bp and 18bp);
-  \draw (184bp,148bp) node {default.aspx};
-\end{scope}
-  % Node: menu
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (229bp,18bp) ellipse (27bp and 18bp);
-  \draw (229bp,18bp) node {menu};
-\end{scope}
-  % Node: recentPosts
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (489bp,18bp) ellipse (37bp and 18bp);
-  \draw (489bp,18bp) node {RecentPosts};
-\end{scope}
-  % Node: pageList
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (404bp,18bp) ellipse (30bp and 18bp);
-  \draw (404bp,18bp) node {PageList};
-\end{scope}
-  % Node: postCalendar
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (315bp,18bp) ellipse (40bp and 18bp);
-  \draw (315bp,18bp) node {PostCalendar};
-\end{scope}
-  % Node: post
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (140bp,83bp) ellipse (29bp and 18bp);
-  \draw (140bp,83bp) node {PostList};
-\end{scope}
-  % Node: calendar
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (228bp,83bp) ellipse (40bp and 18bp);
-  \draw (228bp,83bp) node {PostCalendar};
-\end{scope}
-  % Node: searchBox
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (150bp,18bp) ellipse (34bp and 18bp);
-  \draw (150bp,18bp) node {SearchBox};
-\end{scope}
+\node (info) at (345bp,61bp) [draw,ellipse] {InfoBox};
+  \node (search) at (54bp,61bp) [draw,ellipse] {SearchOnSearch};
+  \node (default) at (204bp,111bp) [draw,ellipse] {default.aspx};
+  \node (menu) at (259bp,11bp) [draw,ellipse] {menu};
+  \node (recentPosts) at (533bp,11bp) [draw,ellipse] {RecentPosts};
+  \node (pageList) at (441bp,11bp) [draw,ellipse] {PageList};
+  \node (postCalendar) at (345bp,11bp) [draw,ellipse] {PostCalendar};
+  \node (post) at (157bp,61bp) [draw,ellipse] {PostList};
+  \node (calendar) at (252bp,61bp) [draw,ellipse] {PostCalendar};
+  \node (searchBox) at (182bp,11bp) [draw,ellipse] {SearchBox};
+  \draw [->] (info) ..controls (345bp,45.3bp) and (345bp,38.202bp)  .. (postCalendar);
+  \draw [->] (info) ..controls (399.03bp,46.205bp) and (459.15bp,30.856bp)  .. (recentPosts);
+  \draw [->] (default) ..controls (154.48bp,94.153bp) and (116.22bp,81.909bp)  .. (search);
+  \draw [->] (default) ..controls (252.33bp,93.546bp) and (290.24bp,80.641bp)  .. (info);
+  \draw [->] (default) ..controls (188.19bp,93.849bp) and (179.77bp,85.255bp)  .. (post);
+  \draw [->] (info) ..controls (375.18bp,44.909bp) and (397.72bp,33.641bp)  .. (pageList);
+  \draw [->] (info) ..controls (316.58bp,44.135bp) and (294.57bp,31.855bp)  .. (menu);
+  \draw [->] (info) ..controls (296.91bp,45.84bp) and (248.09bp,31.461bp)  .. (searchBox);
+  \draw [->] (default) ..controls (219.99bp,94.01bp) and (228.32bp,85.683bp)  .. (calendar);
 %
 \end{tikzpicture}
 

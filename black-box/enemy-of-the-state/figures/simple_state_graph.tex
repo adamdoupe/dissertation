@@ -1,6 +1,18 @@
-\begin{figure}[tb]
-  \centering
-  \includegraphics{figures/simple_state_graph.ps}
-  \caption{State machine of a simple web application.}
-  \locallabel{simple-state-graph}
-\end{figure}
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+%%
+\node (S-_0) at (27.5bp,10.5bp) [draw,ellipse] {S\_0};
+  \node (S-_1) at (141.5bp,10.5bp) [draw,ellipse] {S\_1};
+  \draw [->] (S-_0) ..controls (61.199bp,10.5bp) and (93.88bp,10.5bp)  .. (S-_1);
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (84.5bp,21bp) node {login.php};
+  \draw [->] (S-_0) ..controls (14.375bp,27.375bp) and (17bp,37.5bp)  .. (27.5bp,37.5bp) .. controls (34.062bp,37.5bp) and (37.549bp,33.545bp)  .. (S-_0);
+  \draw (27.5bp,48bp) node {index.php};
+  \draw [->] (S-_1) ..controls (128.38bp,27.375bp) and (131bp,37.5bp)  .. (141.5bp,37.5bp) .. controls (148.06bp,37.5bp) and (151.55bp,33.545bp)  .. (S-_1);
+  \draw (141.5bp,48bp) node {index.php};
+  \draw [->] (S-_1.east) ..controls (165.83bp,19.5bp) and (184.5bp,19.5bp)  .. (184.5bp,10.5bp) .. controls (184.5bp,3.8203bp) and (174.22bp,2.0982bp)  .. (S-_1.east);
+  \draw (210.5bp,10.5bp) node {view.php};
+%
+\end{tikzpicture}
+

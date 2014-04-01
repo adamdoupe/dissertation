@@ -1,6 +1,8 @@
 digraph G{
 	rankdir=TB;
 	ranksep=".2";
+	nodesep="1";
+	
 		
 	1 [label="$\langle$\texttt{<script>}$,$ Line 20$\rangle$"];
 	2 [label="$\langle$\texttt{setupAdmin();}$,$ Line 30$\rangle$"];

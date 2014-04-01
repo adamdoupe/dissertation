@@ -1,0 +1,21 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+%%
+\node (68) at (15bp,250bp) [draw,ellipse] {68};
+  \node (146) at (15bp,170bp) [draw,ellipse] {146};
+  \node (293) at (15bp,10bp) [draw,ellipse] {293};
+  \node (0) at (15bp,330bp) [draw,ellipse] {0};
+  \node (226) at (15bp,90bp) [draw,ellipse] {226};
+  \draw [->] (146) ..controls (15bp,148.35bp) and (15bp,126.32bp)  .. (226);
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (89.5bp,130bp) node {POST /wp-comments-post.php};
+  \draw [->] (226) ..controls (15bp,68.354bp) and (15bp,46.317bp)  .. (293);
+  \draw (89.5bp,50bp) node {POST /wp-comments-post.php};
+  \draw [->] (0) ..controls (15bp,308.35bp) and (15bp,286.32bp)  .. (68);
+  \draw (89.5bp,290bp) node {POST /wp-comments-post.php};
+  \draw [->] (68) ..controls (15bp,228.35bp) and (15bp,206.32bp)  .. (146);
+  \draw (89.5bp,210bp) node {POST /wp-comments-post.php};
+%
+\end{tikzpicture}
+

@@ -1,6 +1,21 @@
-\begin{figure}[tb]
-  \centering
-  \includegraphics{figures/simple_nav_graph.ps}
-  \caption{Navigation graph of a simple web application.}
-  \locallabel{simple-nav-graph}
-\end{figure}
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+%%
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (0bp,0bp) -- (0bp,61bp) -- (174bp,61bp) -- (174bp,0bp) -- cycle;
+\end{scope}
+  \node (index) at (139bp,10bp) [draw,ellipse] {index.php};
+  \node (login) at (34bp,10bp) [draw,ellipse] {login.php};
+  \node (view) at (139bp,50bp) [draw,ellipse] {view.php};
+  \draw [->] (index) ..controls (98.315bp,16.8bp) and (84.39bp,16.941bp)  .. (login);
+  \draw [->] (view) ..controls (113.62bp,36.131bp) and (111.25bp,31.205bp)  .. (index);
+  \draw [->] (login) ..controls (73.167bp,3.2414bp) and (87.055bp,3.0553bp)  .. (index);
+  \draw [->] (index) ..controls (164.47bp,23.988bp) and (166.76bp,28.914bp)  .. (view);
+%
+\end{tikzpicture}
+

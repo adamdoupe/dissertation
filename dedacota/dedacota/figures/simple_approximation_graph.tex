@@ -1,61 +1,17 @@
 
 \begin{tikzpicture}[>=latex,line join=bevel,]
-  \pgfsetlinewidth{1bp}
 %%
-\pgfsetcolor{black}
-  % Edge: 5 -> 6
-  \draw [->] (149bp,53.973bp) .. controls (149bp,51.574bp) and (149bp,49.059bp)  .. (149bp,36.243bp);
-  % Edge: 1 -> 2
-  \draw [->] (149bp,269.97bp) .. controls (149bp,267.57bp) and (149bp,265.06bp)  .. (149bp,252.24bp);
-  % Edge: 4 -> 5
-  \draw [->] (149bp,107.97bp) .. controls (149bp,105.57bp) and (149bp,103.06bp)  .. (149bp,90.243bp);
-  % Edge: 2 -> 3
-  \draw [->] (149bp,215.97bp) .. controls (149bp,213.57bp) and (149bp,211.06bp)  .. (149bp,198.24bp);
-  % Edge: 3 -> 4
-  \draw [->] (149bp,161.97bp) .. controls (149bp,159.57bp) and (149bp,157.06bp)  .. (149bp,144.24bp);
-  % Node: 1
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (149bp,288bp) ellipse (47bp and 18bp);
-  \draw (149bp,288bp) node {$\langle$\texttt{<html>}$,$ Line 2$\rangle$};
-\end{scope}
-  % Node: 3
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (149bp,180bp) ellipse (50bp and 18bp);
-  \draw (149bp,180bp) node {$\langle$\texttt{Example}$,$ Line 6$\rangle$};
-\end{scope}
-  % Node: 2
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (149bp,234bp) ellipse (63bp and 18bp);
-  \draw (149bp,234bp) node {$\langle$\texttt{<head><tile>}$,$ Line 5$\rangle$};
-\end{scope}
-  % Node: 5
-\begin{scope}
-  \pgfsetdash{{\pgflinewidth}{2pt}}{0pt}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw [dotted] (149bp,72bp) ellipse (34bp and 18bp);
-  \draw (149bp,72bp) node {$\langle$\texttt{*}$,$ Line 8$\rangle$};
-\end{scope}
-  % Node: 4
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (149bp,126bp) ellipse (149bp and 18bp);
-  \draw (149bp,126bp) node {$\langle$\texttt{</title></head><body><script>var username = \symbol{34}}$,$ Line 7$\rangle$};
-\end{scope}
-  % Node: 6
-\begin{scope}
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (149bp,18bp) ellipse (97bp and 18bp);
-  \draw (149bp,18bp) node {$\langle$\texttt{\symbol{34};</script></body></html>}$,$ Line 9$\rangle$};
-\end{scope}
+\node (1) at (200bp,222bp) [draw,ellipse] {$\langle$\texttt{<html>}$,$ Line 2$\rangle$};
+  \node (3) at (200bp,138bp) [draw,ellipse] {$\langle$\texttt{Example}$,$ Line 6$\rangle$};
+  \node (2) at (200bp,180bp) [draw,ellipse] {$\langle$\texttt{<head><tile>}$,$ Line 5$\rangle$};
+  \node (5) at (200bp,54bp) [draw,ellipse,dotted] {$\langle$\texttt{*}$,$ Line 8$\rangle$};
+  \node (4) at (200bp,96bp) [draw,ellipse] {$\langle$\texttt{</title></head><body><script>var username = \symbol{34}}$,$ Line 7$\rangle$};
+  \node (6) at (200bp,12bp) [draw,ellipse] {$\langle$\texttt{\symbol{34};</script></body></html>}$,$ Line 9$\rangle$};
+  \draw [->] (5) ..controls (200bp,39.345bp) and (200bp,36.857bp)  .. (6);
+  \draw [->] (1) ..controls (200bp,207.34bp) and (200bp,204.86bp)  .. (2);
+  \draw [->] (4) ..controls (200bp,81.345bp) and (200bp,78.857bp)  .. (5);
+  \draw [->] (2) ..controls (200bp,165.34bp) and (200bp,162.86bp)  .. (3);
+  \draw [->] (3) ..controls (200bp,123.34bp) and (200bp,120.86bp)  .. (4);
 %
 \end{tikzpicture}
 

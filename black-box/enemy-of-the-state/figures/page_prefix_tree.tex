@@ -1,8 +1,35 @@
-\begin{figure}[tb]
-  \centering
-  \includegraphics{figures/page_prefix_tree.ps}
-  \caption{Representation of a page's link vectors stored in
-    a prefix tree. There are five links present on this tree, as
-    evidenced by the number of leaf nodes.}
-  \locallabel{page-prefix-tree}
-\end{figure}
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+%%
+\node (11) at (149bp,250bp) [draw,ellipse] {/html/body/div/span/a};
+  \node (51) at (14bp,12bp) [draw,ellipse] {(0)};
+  \node (12) at (319bp,250bp) [draw,ellipse] {/html/body/div/form};
+  \node (21) at (149bp,190bp) [draw,ellipse] {/user};
+  \node (22) at (319bp,190bp) [draw,ellipse] {/post};
+  \node (55) at (319bp,12bp) [draw,ellipse] {(5)};
+  \node (32) at (319bp,131bp) [draw,ellipse] {edit.php};
+  \node (31) at (149bp,131bp) [draw,ellipse] {profile.php};
+  \node (42) at (178bp,72bp) [draw,ellipse] {(all, sorted)};
+  \node (43) at (319bp,72bp) [draw,ellipse] {(text, email, id)};
+  \node (53) at (122bp,12bp) [draw,ellipse] {(5)};
+  \node (41) at (73bp,72bp) [draw,ellipse] {(id, page)};
+  \node (54) at (184bp,12bp) [draw,ellipse] {(NULL)};
+  \node (52) at (68bp,12bp) [draw,ellipse] {(0, 1)};
+  \node (Page) at (234bp,309bp) [draw,ellipse] {Page};
+  \draw [->] (41) ..controls (53.165bp,51.501bp) and (40.2bp,38.756bp)  .. (51);
+  \draw [->] (32) ..controls (319bp,112.78bp) and (319bp,103.19bp)  .. (43);
+  \draw [->] (22) ..controls (319bp,170.44bp) and (319bp,160.72bp)  .. (32);
+  \draw [->] (21) ..controls (149bp,170.44bp) and (149bp,160.72bp)  .. (31);
+  \draw [->] (43) ..controls (319bp,52.596bp) and (319bp,42.968bp)  .. (55);
+  \draw [->] (31) ..controls (157.86bp,112.59bp) and (163.2bp,102.09bp)  .. (42);
+  \draw [->] (Page) ..controls (209.63bp,291.66bp) and (189.45bp,278.12bp)  .. (11);
+  \draw [->] (31) ..controls (125.18bp,112.13bp) and (108.37bp,99.527bp)  .. (41);
+  \draw [->] (11) ..controls (149bp,230.6bp) and (149bp,220.97bp)  .. (21);
+  \draw [->] (12) ..controls (319bp,230.6bp) and (319bp,220.97bp)  .. (22);
+  \draw [->] (Page) ..controls (258.37bp,291.66bp) and (278.55bp,278.12bp)  .. (12);
+  \draw [->] (41) ..controls (89.167bp,51.863bp) and (99.367bp,39.79bp)  .. (53);
+  \draw [->] (42) ..controls (179.9bp,52.596bp) and (180.9bp,42.968bp)  .. (54);
+  \draw [->] (41) ..controls (71.413bp,52.596bp) and (70.583bp,42.968bp)  .. (52);
+%
+\end{tikzpicture}
+

@@ -1,6 +1,32 @@
-\begin{figure*}[tb]
-  \centering
-  \includegraphics{figures/complicated_state_machine.ps}
-  \caption{The state machine of a simple e-commerce application.}
-  \locallabel{complicated-state-machine}
-\end{figure*}
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+%%
+\node (no-_items) at (188bp,80.095bp) [draw,ellipse] {no\_items};
+  \node (S-_0) at (15bp,80.095bp) [draw,ellipse] {S\_0};
+  \node (S-_1) at (644bp,103.1bp) [draw,ellipse] {S\_1};
+  \node (purchased-_item) at (644bp,34.095bp) [draw,ellipse] {purchased\_item};
+  \node (S-_2) at (837bp,34.095bp) [draw,ellipse] {S\_2};
+  \node (item-_in-_cart) at (408bp,80.095bp) [draw,ellipse] {item\_in\_cart};
+  \draw [->] (item-_in-_cart) ..controls (431.76bp,62.673bp) and (450.02bp,50.64bp)  .. (468bp,45.095bp) .. controls (505.3bp,33.593bp) and (549.15bp,30.854bp)  .. (purchased-_item);
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (521bp,56.595bp) node {POST /purchase.php};
+  \draw [->] (item-_in-_cart) ..controls (436.59bp,94.224bp) and (452.81bp,101.12bp)  .. (468bp,104.1bp) .. controls (521.04bp,114.47bp) and (584.87bp,109.94bp)  .. (S-_1);
+  \draw (521bp,121.6bp) node {GET /logout.php};
+  \draw [->] (S-_1) ..controls (618.26bp,90.942bp) and (595.16bp,80.949bp)  .. (574bp,77.095bp) .. controls (534.07bp,69.821bp) and (487.8bp,71.517bp)  .. (item-_in-_cart);
+  \draw (521bp,88.595bp) node {POST /login.php};
+  \draw [->] (purchased-_item) ..controls (727.05bp,35.385bp) and (767.84bp,35.66bp)  .. (804bp,35.095bp) .. controls (806.58bp,35.055bp) and (809.27bp,34.996bp)  .. (S-_2);
+  \draw (759bp,47.595bp) node {GET /logout.php};
+  \draw [->] (item-_in-_cart) ..controls (380.47bp,65.228bp) and (363.77bp,57.416bp)  .. (348bp,54.095bp) .. controls (300.16bp,44.022bp) and (285.44bp,42.288bp)  .. (238bp,54.095bp) .. controls (228.22bp,56.529bp) and (218.25bp,61.316bp)  .. (no-_items);
+  \draw (293bp,65.595bp) node {GET /delete\_item.php};
+  \draw [->] (S-_2) ..controls (823.12bp,19.776bp) and (813.98bp,11.64bp)  .. (804bp,8.0952bp) .. controls (766.31bp,-5.288bp) and (753.35bp,0.92697bp)  .. (714bp,8.0952bp) .. controls (700.62bp,10.533bp) and (686.46bp,15.426bp)  .. (purchased-_item);
+  \draw (759bp,19.595bp) node {POST /login.php};
+  \draw [->] (S-_0) ..controls (35.61bp,80.816bp) and (42.109bp,81.003bp)  .. (48bp,81.095bp) .. controls (87.995bp,81.72bp) and (98.002bp,81.503bp)  .. (138bp,81.095bp) .. controls (140.7bp,81.068bp) and (143.48bp,81.032bp)  .. (no-_items);
+  \draw (93bp,93.595bp) node {POST /login.php};
+  \draw [->] (no-_items) ..controls (225.68bp,80.932bp) and (232.04bp,81.034bp)  .. (238bp,81.095bp) .. controls (286.89bp,81.594bp) and (299.11bp,81.509bp)  .. (348bp,81.095bp) .. controls (350.69bp,81.072bp) and (353.45bp,81.044bp)  .. (item-_in-_cart);
+  \draw (293bp,93.595bp) node {POST /add\_item.php};
+  \draw [->] (no-_items) ..controls (165.28bp,65.252bp) and (151.46bp,57.444bp)  .. (138bp,54.095bp) .. controls (99.184bp,44.435bp) and (85.695bp,40.712bp)  .. (48bp,54.095bp) .. controls (41.604bp,56.366bp) and (35.557bp,60.521bp)  .. (S-_0);
+  \draw (93bp,65.595bp) node {GET /logout.php};
+%
+\end{tikzpicture}
+

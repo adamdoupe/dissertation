@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>dot2tex - A Graphviz to LaTeX converter</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5951 2009-05-18 18:03:10Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left{
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: left }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="dot2tex-a-graphviz-to-latex-converter">
+<h1 class="title">dot2tex - A Graphviz to LaTeX converter</h1>
+
+<p>A tool for converting graphs generated by <a class="reference external" href="http://www.graphviz.org/">Graphviz</a> to formats suitable for use with LaTeX.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Author:</th><td class="field-body">Kjell Magne Fauske</td>
+</tr>
+<tr class="field"><th class="field-name">Version:</th><td class="field-body">2.8.7</td>
+</tr>
+<tr class="field"><th class="field-name">Licence:</th><td class="field-body"><a class="reference external" href="http://www.opensource.org/licenses/mit-license.php">MIT</a></td>
+</tr>
+</tbody>
+</table>
+<p>The purpose of dot2tex is to give graphs a more LaTeX look and feel. This is accomplished by:</p>
+<ul class="simple">
+<li>Typesetting labels with LaTeX, allowing mathematical notation.</li>
+<li>Using native <a class="reference external" href="http://tug.org/PSTricks/main.cgi/">PSTricks</a> and <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/pgf.html">PGF/TikZ</a> commands for drawing arrows, edges
+and nodes.</li>
+<li>Using output specific styles to customize the output.</li>
+</ul>
+<div class="section" id="dependencies">
+<h2>Dependencies</h2>
+<p>The following software and modules are required to run dot2tex:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.python.org">Python</a> 2.4+</li>
+<li><a class="reference external" href="http://pyparsing.wikispaces.com/">pyparsing</a>. Version 1.4.8 or later is recommended.</li>
+<li><a class="reference external" href="http://www.graphviz.org/">Graphviz</a>. A recent version is required.</li>
+<li><a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/preview.html">preview</a>. A LaTeX package for extracting parts of a document. A free-standing part of the <a class="reference external" href="http://www.gnu.org/software/auctex/preview-latex.html">preview-latex</a>/<a class="reference external" href="http://www.gnu.org/software/auctex/">AUCTeX</a> bundle.</li>
+<li><a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/pgf.html">PGF/TikZ</a> version 2.0 or later.</li>
+</ul>
+<p>Users have reported problems using dot2tex with old versions of pyparsing and Graphviz.</p>
+<p>A natural companion to dot2tex is <a class="reference internal" href="#the-dot2texi-latex-package">the dot2texi LaTeX package</a> for embedding graphs directly in your LaTeX source code.</p>
+<p>Dot2tex was developed and tested using <a class="reference external" href="http://www.python.org">Python</a> 2.4 and 2.5. However, dot2tex will probably run fine using Python 2.3.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<div class="section" id="from-source">
+<h3>From source</h3>
+<p>Download a zip or a tarball from the <a class="reference external" href="http://www.fauskes.net/code/dot2tex/download/">download</a> page. It is also available on <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/dot2tex.html">CTAN</a>. Unpack the file to a directory and run <tt class="docutils literal">python</tt> on the <tt class="docutils literal">setup.py</tt> file:</p>
+<pre class="literal-block">
+$ python setup.py install
+</pre>
+<p>This will create a dot2tex module in your Python module directory and a wrapper script in your <tt class="docutils literal">SCRIPTS</tt> directory. Note that a few warnings will be displayed. You can safely ignore them. The warnings are shown because there is some extra information in the <tt class="docutils literal">setup.py</tt> file that distutils does not understand.</p>
+</div>
+<div class="section" id="using-easy-install">
+<h3>Using easy_install</h3>
+<p>The easiest way to install dot2tex is to use <a class="reference external" href="http://peak.telecommunity.com/DevCenter/EasyInstall">easy_install</a>:</p>
+<pre class="literal-block">
+$ easy_install dot2tex
+</pre>
+<p>The command will locate dot2tex and download it automatically. Note that documentation and examples are not installed by default. <a class="reference external" href="http://peak.telecommunity.com/DevCenter/EasyInstall">Easy_install</a> will also create a wrapper script or EXE file for you and install dependencies if necessary.</p>
+</div>
+<div class="section" id="binary-packages">
+<h3>Binary packages</h3>
+<p>Binary packages are available for <a class="reference external" href="http://packages.qa.debian.org/d/dot2tex.html">Debian</a> and <a class="reference external" href="http://download.opensuse.org/repositories/home:/jimfunk/">OpenSUSE</a>.</p>
+</div>
+<div class="section" id="development-version">
+<h3>Development version</h3>
+<p>The development version of <tt class="docutils literal">dot2tex</tt> is  available from a <a class="reference external" href="http://code.google.com/p/dot2tex/source">Subversion repository</a> hosted at Google code. To get the code you can use the following command:</p>
+<pre class="literal-block">
+svn checkout http://dot2tex.googlecode.com/svn/trunk/ dot2tex
+</pre>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>Syntax:</p>
+<pre class="literal-block">
+dot2tex [options] [inputfile]
+</pre>
+<p>Input data is read from standard input if no input file is specified. Output is written to standard output unless a destination file is set with the <tt class="docutils literal"><span class="pre">-o</span></tt> option.</p>
+<p>Dot2tex can also be loaded as a module for use in other Python program. See the <a class="reference internal" href="#using-dot2tex-as-a-module">Using dot2tex as a module</a> section for more details.</p>
+<p>Dot2tex relies on the <a class="reference external" href="http://www.graphviz.org/doc/info/output.html#d:xdot">xdot format</a> generated by Graphviz. Dot2tex will automatically run <tt class="docutils literal">dot</tt> on the input data if it is in the plain dot format. If you want to use other layout tools like <tt class="docutils literal">neato</tt> and <tt class="docutils literal">circo</tt>, use the <tt class="docutils literal"><span class="pre">--prog</span></tt> option.</p>
+<p>A few examples on how to invoke dot2tex:</p>
+<p>Read a file from standard input and write the result to the file <tt class="docutils literal">test.tex</tt>:</p>
+<pre class="literal-block">
+$ dot -Txdot test.dot | dot2tex &gt; test.tex
+$ neato -Txdot -Gstart=rand test.dot | dot2tex &gt; test.tex
+</pre>
+<p>Load <tt class="docutils literal">test.dot</tt>, convert it to xdot format and output the resulting graph using the <tt class="docutils literal">tikz</tt> output format to <tt class="docutils literal">testpgf.tex</tt>:</p>
+<pre class="literal-block">
+$ dot2tex -ftikz test.dot &gt; testtikz.tex
+</pre>
+<p>The same as above, but use neato for graph layout:</p>
+<pre class="literal-block">
+$ dot2tex --prog=neato -ftikz test.dot &gt; testtikz.tex
+</pre>
+<div class="admonition-invoking-dot2tex admonition">
+<p class="first admonition-title">Invoking dot2tex</p>
+<p class="last">Windows users you have to type <tt class="docutils literal">python dot2tex</tt> to invoke the program.
+If you find this annoying, try the <a class="reference external" href="http://effbot.org/zone/exemaker.htm">ExeMaker</a> tool from <a class="reference external" href="http://effbot.org">effbot.org</a>, or better, use <a class="reference external" href="http://peak.telecommunity.com/DevCenter/EasyInstall">easy_install</a> to install dot2tex.</p>
+</div>
+<div class="section" id="options">
+<h3>Options</h3>
+<p>The following options are available:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></td>
+<td>Display help message.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-f <var>fmt</var></span>, <span class="option">--format <var>fmt</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td><p class="first">Set output format. The following values of <cite>fmt</cite> are supported:</p>
+<dl class="last docutils">
+<dt><tt class="docutils literal">pgf</tt></dt>
+<dd>PGF/TikZ. Default.</dd>
+<dt><tt class="docutils literal">pstricks</tt> or <tt class="docutils literal">pst</tt></dt>
+<dd>Use PSTricks.</dd>
+<dt><tt class="docutils literal">tikz</tt></dt>
+<dd>TikZ format.</dd>
+</dl>
+</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-t <var>mode</var></span>, <span class="option">--texmode <var>mode</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td><p class="first">Text mode. Specify how text is converted.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">verbatim</tt></dt>
+<dd>Text is displayed with all special TeX chars escaped (default).</dd>
+<dt><tt class="docutils literal">math</tt></dt>
+<dd>Output all text in math mode $$.</dd>
+<dt><tt class="docutils literal">raw</tt></dt>
+<dd>Output text without any processing.</dd>
+</dl>
+<p class="last">Note that you can locally override the text mode by assigning a special <tt class="docutils literal">texlbl</tt> attribute to a graph element, or by using the <tt class="docutils literal">texmode</tt> attribute.</p>
+</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-s</span>, <span class="option">--straightedges</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Draw edges using straight lines. Graphviz uses bezier curves to draw straight edges. Use this option to force the use of line to operations instead of curves. Does not work in <tt class="docutils literal">duplicate</tt> mode.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-o <var>filename</var></span>, <span class="option">--output <var>filename</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Write output to file.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-d</span>, <span class="option">--duplicate</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Duplicate the xdot output. Uses the drawing information embedded in the xdot output to draw nodes and edges.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--template <var>filename</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Use template from file. See the <a class="reference internal" href="#templates">templates</a> section for more details.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-V</span>, <span class="option">--version</span></kbd></td>
+<td>Print version information and exit.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-w</span>, <span class="option">--switchdraworder</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Switch drawing order of nodes and edges. By default edges are drawn before nodes.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-c</span>, <span class="option">--crop</span></kbd></td>
+<td>Use <tt class="docutils literal">preview.sty</tt> to crop the graph. Currently only implemented for the <tt class="docutils literal">pgf</tt> and <tt class="docutils literal">tikz</tt> output format.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--figonly</span></kbd></td>
+<td>Output the graph without a document preamble. Useful if the graph is to be included in a master document.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--codeonly</span></kbd></td>
+<td>Output only the drawing commands, without wrapping it in a <tt class="docutils literal">tikzpicture</tt> or <tt class="docutils literal">pspicture</tt> environment. Useful when used with the dot2texi package.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--preproc</span></kbd></td>
+<td>Preprocess the graph through LaTeX using the <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/preview.html">preview</a> package. Will generate a new dot file where the height and widths of nodes and edge labels are set based on the results from <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/preview.html">preview</a>.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--autosize</span></kbd></td>
+<td><p class="first">Preprocess the graph and run Graphviz on the output. Equivalent to:</p>
+<pre class="last literal-block">
+$ dot2tex --preproc ex1.dot | dot2tex
+</pre>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--prog <var>program</var></span></kbd></td>
+<td><p class="first">Set graph layout program to use when the input is in plain dot format. Allowed values:</p>
+<ul class="last simple">
+<li><tt class="docutils literal">dot</tt> (default)</li>
+<li><tt class="docutils literal">neato</tt></li>
+<li><tt class="docutils literal">circo</tt></li>
+<li><tt class="docutils literal">fdp</tt></li>
+<li><tt class="docutils literal">twopi</tt></li>
+</ul>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--usepdflatex</span></kbd></td>
+<td>Use pdflatex instead of latex for preprocessing the graph.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--nominsize</span></kbd></td>
+<td>Ignore minimum node sizes during preprocessing.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--valignmode <var>mode</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td><p class="first">Vertical alignment of node labels, where <tt class="docutils literal">mode</tt> can have the values:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">center</tt></dt>
+<dd>Labels are placed in the middle of the node (default).</dd>
+<dt><tt class="docutils literal">dot</tt></dt>
+<dd>Use the coordinate given by the xdot output from Graphviz.</dd>
+</dl>
+<p class="last">(<tt class="docutils literal">pgf</tt> and <tt class="docutils literal">pstricks</tt> only)</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--alignstr</span></kbd></td>
+<td><p class="first">Used to pass a default alignment string to the PSTricks <tt class="docutils literal">\rput</tt> command:</p>
+<pre class="literal-block">
+\rput[alignstr] ...
+</pre>
+<p class="last">Only works for the PSTricks format. PGF/TikZ users can instead pass an <tt class="docutils literal"><span class="pre">anchor=...</span></tt> style using the <tt class="docutils literal">graphstyle</tt> option.</p>
+</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--tikzedgelabels</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Bypass Graphviz' edge label placement and use PGF/TikZ instead (<tt class="docutils literal">tikz</tt> and <tt class="docutils literal">pgf</tt> formats only).</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--styleonly</span></kbd></td>
+<td>Use TikZ only styles when drawing nodes. No <tt class="docutils literal">draw</tt> or <tt class="docutils literal">shape</tt> option is added (<tt class="docutils literal">tikz</tt> format only).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--nodeoptions <var>tikzoptions</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Wrap node code in a <tt class="docutils literal">scope</tt> environment with <tt class="docutils literal">tikzoptions</tt> as parameter (<tt class="docutils literal">tikz</tt> format only).</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--edgeoptions <var>tikzoptions</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Wrap edge code in a <tt class="docutils literal">scope</tt> environment with <tt class="docutils literal">tikzoptions</tt> as parameter (<tt class="docutils literal">tikz</tt> format only).</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--debug</span></kbd></td>
+<td>Write detailed debug information to the file dot2tex.log in the current directory.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--pgf118</span></kbd></td>
+<td>Generate code compatible with PGF 1.18 and earlier.</td></tr>
+</tbody>
+</table>
+<p>The following options are used by the output <a class="reference internal" href="#templates">templates</a>.</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-e <var>encoding</var></span>, <span class="option">--encoding <var>encoding</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td><p class="first">Set text encoding. Supported encodings are:</p>
+<ul class="last simple">
+<li><tt class="docutils literal">utf8</tt></li>
+<li><tt class="docutils literal">latin1</tt></li>
+</ul>
+</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--docpreamble <var>TeXcode</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Insert TeX code in the document preamble.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--figpreamble <var>TeXcode</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Insert TeX code in the figure preamble.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--figpostamble <var>TeXcode</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Insert TeX code in the figure postamble.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--graphstyle <var>style</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Sets the <tt class="docutils literal">&lt;&lt;graphstyle&gt;&gt;</tt> tag.</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--margin <var>margin</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Set margin around the graph when using <tt class="docutils literal">preview.sty</tt>. <tt class="docutils literal">margin</tt> must be a valid TeX unit. By default <tt class="docutils literal">margin</tt> is set to <tt class="docutils literal">0pt</tt>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="output-formats">
+<h2>Output formats</h2>
+<p>The output format is specified with the <tt class="docutils literal"><span class="pre">-f</span> fmt</tt> or  <tt class="docutils literal"><span class="pre">--format</span> fmt</tt> command line option.</p>
+<div class="section" id="pgf">
+<h3>PGF</h3>
+<p>This is the default output format. Generates code for the <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/pgf.html">Portable Graphics Format</a> (PGF) package . Mixes both PGF and TikZ commands.</p>
+</div>
+<div class="section" id="id2">
+<h3>PSTricks</h3>
+<p>Generates code for the <a class="reference external" href="http://tug.org/PSTricks/main.cgi/">PSTricks</a> package.</p>
+</div>
+<div class="section" id="tikz">
+<h3>TikZ</h3>
+<p>The <tt class="docutils literal">tikz</tt> output format also uses the PGF and TikZ package. However, it relies on TikZ node and edge mechanisms to draw nodes and edges, instead of using the drawing information provided by Graphviz. This allows much tighter integration with TikZ and in some cases prettier results.</p>
+<p>Advantages of the <tt class="docutils literal">tikz</tt> format:</p>
+<ul class="simple">
+<li>The generated code is very compact and clean.</li>
+<li>Easy to modify the output.</li>
+<li>Labels will fit inside nodes without preprocessing.</li>
+<li>Full access to the power of PGF and TikZ.</li>
+</ul>
+<p>You can find more details in the section: <a class="reference internal" href="#use-the-tikz-output-format-for-maximum-flexibility">Use the tikz output format for maximum flexibility</a>.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal">tikz</tt> output format requires detailed knowledge of the PGF and TikZ package. Some of Graphviz' features will not work with this output format.</p>
+</div>
+</div>
+</div>
+<div class="section" id="labels">
+<h2>Labels</h2>
+<p>The main purpose of dot2tex is to allow text and labels to be typeset by LaTeX. Labels are  treated differently according to the current TeX mode:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">verbatim</tt></dt>
+<dd>Text is displayed with all special TeX chars escaped (default).</dd>
+<dt><tt class="docutils literal">math</tt></dt>
+<dd>Output all text in math mode $$.</dd>
+<dt><tt class="docutils literal">raw</tt></dt>
+<dd>Output text without any processing.</dd>
+</dl>
+<p>The TeX mode can be set on the command line using the <tt class="docutils literal"><span class="pre">-t</span></tt> option. It can also be set locally in a graph by using the special <tt class="docutils literal">texmode</tt> attribute.</p>
+<p>You can also use the special <tt class="docutils literal">texlbl</tt> attribute on a graph element, which is interpreted as <tt class="docutils literal">raw</tt> TeX string. If a <tt class="docutils literal">texlbl</tt> attribute is found, it will be used regardless of the current TeX mode. It also has precedence over the <tt class="docutils literal">label</tt> attribute.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal">\</tt> character needs to be escaped with <tt class="docutils literal">\\</tt> if used in the <tt class="docutils literal">label</tt> attribute.</p>
+</div>
+<p>Note that only position and alignment information is converted. Any font information is lost. This may result in some odd behavior. Some tweaking may be necessary to get it right.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you use <tt class="docutils literal">texlbl</tt> for edges, you have to provide a dummy <tt class="docutils literal">label</tt> attribute. Otherwise Graphviz will not generate the necessary code for placing edge labels.</p>
+</div>
+<div class="section" id="label-examples">
+<h3>Label examples</h3>
+<p>Consider the following graph:</p>
+<div class="highlight"><pre>digraph G {
+    a_1-&gt; a_2 -&gt; a_3 -&gt; a_1;
+}
+</pre></div>
+<p>Converting the graph using:</p>
+<pre class="literal-block">
+$ dot2tex -tmath ex1.dot &gt; ex1.tex
+</pre>
+<p>gives the result shown in the left hand side of the figure below. The default rendering is shown to the right. Using the <tt class="docutils literal">raw</tt> mode will result in a compilation error because of the underscore character.</p>
+<div class="figure">
+<img alt="Difference between math and verbatim mode" src="img/ex1comb.png" />
+</div>
+<p>Example of using <tt class="docutils literal">texlbl</tt>:</p>
+<div class="highlight"><pre>digraph G {
+    a_1 [texlbl=&quot;$\frac{\gamma}{x^2}$&quot;];
+    a_1-&gt; a_2 -&gt; a_3 -&gt; a_1;
+}
+</pre></div>
+<div class="figure">
+<img alt="Using the special texlbl attribute" src="img/ex2.png" />
+</div>
+<p>Example of using the <tt class="docutils literal">texmode</tt> attribute:</p>
+<div class="highlight"><pre>digraph G {
+    a_1 [texlbl=&quot;$\frac{\gamma}{2x^2+y^3}$&quot;];
+    a_1 -&gt; a_2 -&gt; a_3 -&gt; a_1
+    node [texmode=&quot;math&quot;];
+    a_1 -&gt; b_1 -&gt; b_2 -&gt; a_3;
+    b_1 [label=&quot;\\frac{\\gamma}{x^2}&quot;];
+    node [texmode=&quot;verbatim&quot;]
+    b_4 [label=&quot;\\beta&quot;]
+    a_3 -&gt; b_4 -&gt; a_1;
+}
+</pre></div>
+<div class="figure">
+<img alt="Using the special texmode attribute" src="img/texmode.png" />
+</div>
+<p>The above example shows two important things:</p>
+<ul class="simple">
+<li>The backslash <tt class="docutils literal">\</tt> character needs to be written as <tt class="docutils literal">\\</tt> in the <tt class="docutils literal">label</tt> attribute.</li>
+<li>Using LaTeX markup in the <tt class="docutils literal">label</tt> attribute gives oversized nodes. A workaround  is to use the <tt class="docutils literal">texlbl</tt> attribute, and manually pad the <tt class="docutils literal">label</tt> attribute to an appropriate length. A much better solution is to use the <tt class="docutils literal"><span class="pre">--preproc</span></tt> option.</li>
+</ul>
+<p>Preprocessing the above graph with:</p>
+<pre class="literal-block">
+$ dot2tex --preproc ex4.dot | dot2tex &gt; ex4.tex
+</pre>
+<p>gives correctly sized nodes:</p>
+<div class="figure">
+<img alt="Preprocessing the graph to get correct node sizes." src="img/texmodeb.png" />
+</div>
+<p>Read more about preprocessing in the <a class="reference internal" href="#preprocessing-graphs">Preprocessing graphs</a> section.</p>
+</div>
+<div class="section" id="vertical-label-alignment">
+<h3>Vertical label alignment</h3>
+<p>Dot2tex relies on the xdot format for drawing nodes and placing node labels. The fonts that Graphviz and LaTeX use are different, so using the label coordinates from Graphviz does not always give good results. Dot2tex's default behavior is to place node labels in the middle of the node. However, you can change this behavior by setting the <tt class="docutils literal">valignmode</tt> option to <tt class="docutils literal">dot</tt>. Labels will then be placed using the coordinates supplied by Graphviz.</p>
+<p>Here is an example graph where it is necessary to use the <tt class="docutils literal">valignmode</tt> option:</p>
+<div class="highlight"><pre>digraph G {
+    node0 [label=&quot;{left|right}&quot;, shape=record];
+    node1 [shape=rectangle, label=&quot;node 1&quot;];
+    node0 -&gt; node1;
+    rankdir=LR;
+}
+</pre></div>
+<p>For record nodes dot2tex has to use Graphviz coordinates. This is shown in the following figure rendered with:</p>
+<pre class="literal-block">
+$ dot2tex valign.dot
+</pre>
+<div class="figure">
+<img alt="Vertical alignment for record shapes" src="img/valignmode0.png" />
+</div>
+<p>To get the same vertical alignment for both nodes, you can use:</p>
+<pre class="literal-block">
+$ dot2tex --valignmode=dot valign.dot
+</pre>
+<div class="figure">
+<img alt="Vertical alignment with --valignmode=dot" src="img/valignmode1.png" />
+</div>
+<p>Now the labels are aligned, but the labels are still placed too low. The reason for this is that both PSTricks and PGF by default centers text vertically on the current coordinate. The alignment point should in this case be set to the baseline. For PGF/TikZ you can use the <tt class="docutils literal"><span class="pre">--graphstyle</span></tt> option like this:</p>
+<pre class="literal-block">
+$ dot2tex --valignmode=dot --graphstyle=&quot;anchor=base&quot; valign.dot
+</pre>
+<p>PSTricks users have to use the <tt class="docutils literal"><span class="pre">--alingstr</span></tt> option:</p>
+<pre class="literal-block">
+$ dot2tex --valignmode=dot --alignstr=B valign.dot
+</pre>
+<div class="figure">
+<img alt="blabla" src="img/valignmode2.png" />
+</div>
+<p>The result is better, but to get even better alignment you have to change the node font size. Graphviz' default font size is 14pt, which is larger than the typical 10pt or 11pt used in LaTeX documents. By changing the node font size to 10pt we can trick Graphviz to give us a better alignment:</p>
+<div class="highlight"><pre>digraph G {
+    node [fontsize=10];
+    node0 [label=&quot;{left|right}&quot;, shape=record];
+    node1 [shape=rectangle, label=&quot;node 1&quot;];
+    node0 -&gt; node1;
+    rankdir=LR;
+}
+</pre></div>
+<div class="figure">
+<img alt="blabla" src="img/valignmode3.png" />
+</div>
+</div>
+</div>
+<div class="section" id="preprocessing-graphs">
+<h2>Preprocessing graphs</h2>
+<p>A problem with using LaTeX for typesetting node and edge labels, is that Graphviz does not know the sizes of the resulting labels. To circumvent this problem, you can use the <tt class="docutils literal"><span class="pre">--preproc</span></tt> or <tt class="docutils literal"><span class="pre">--autosize</span></tt> option. The following will then happen:</p>
+<ol class="arabic simple">
+<li>Node and edge labels are extracted and the corresponding LaTeX markup is saved to a temporary file.</li>
+<li>The file is typeset with LaTeX and information about sizes is extracted using the <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/preview.html">preview</a> package.</li>
+<li>A new dot file is created where node and edge label sizes are set using the dot language's <tt class="docutils literal">width</tt> and <tt class="docutils literal">height</tt> attributes.</li>
+<li>The generated graph can now be processed using Graphviz and dot2tex. Label sizes will now correspond with the output from LaTeX.</li>
+</ol>
+<p>Widths and heights of nodes are handled the in same way as Graphviz does it. The <tt class="docutils literal">width</tt> and <tt class="docutils literal">height</tt> attributes set the minimum size of the node. If label size + margins is larger that the minimum size, the node size will grow accordingly. Default values are width=0.75in and height=0.5in.</p>
+<p>Node margins are set using the <a class="reference external" href="http://graphviz.org/doc/info/attrs.html#d:margin">margin</a> attribute. This also works for edge labels. <tt class="docutils literal"><span class="pre">margin==value</span></tt> sets both the horizontal and vertical margin to <tt class="docutils literal">value</tt>, <tt class="docutils literal"><span class="pre">margin==&quot;hvalue,vvalue&quot;</span></tt> sets the horizontal and vertical margins respectively.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">All sizes are given in inches.</p>
+</div>
+<p>If you do not want a minimum node size, you can use the '--nominsize' option. Dot2tex will then use size of label + margins as node size.</p>
+<p>Nodes with <tt class="docutils literal">fixedsize=True</tt> attributes are not processed.</p>
+<p>Limitations:</p>
+<ul class="simple">
+<li>Does not work for HTML-labels</li>
+<li>Does not work for record-based nodes</li>
+</ul>
+<div class="section" id="examples">
+<h3>Examples</h3>
+<p>Consider the following graph:</p>
+<div class="highlight"><pre>digraph G {
+    node [shape=circle];
+    a_1 [texlbl=&quot;$x^2+\frac{\sin y}{y^2+\cos \beta}+\gamma_3$&quot;];
+    a_1 -&gt; a_2 [label=&quot; &quot;, texlbl=&quot;$x_1+x_3^2+z+c+v~~$&quot;];
+    a_2 -&gt; a_1;
+}
+</pre></div>
+<p>Rendered with:</p>
+<pre class="literal-block">
+$ dot2tex -tmath example.dot &gt; example.tex
+</pre>
+<p>the graph will look like this:</p>
+<div class="figure">
+<img alt="Graph with oversized edge and node labels" src="img/preproc1a.png" />
+</div>
+<p>You could improve the result by adding a longer <tt class="docutils literal">label</tt> attribute or setting a fixed width. A better solution is to preprocess the graph like this:</p>
+<pre class="literal-block">
+$ dot2tex -tmath --preproc example.dot &gt; exampletmp.dot
+$ dot2tex exampletmp.dot &gt; example.tex
+</pre>
+<p>You can also chain the commands:</p>
+<pre class="literal-block">
+$ dot2tex -tmath --preproc example.dot | dot2tex &gt; example.tex
+</pre>
+<p>A shorter alternative is:</p>
+<pre class="literal-block">
+$ dot2tex -tmath --autosize example.dot &gt; example.tex
+</pre>
+<p>The resulting graph now has correctly sized nodes and edge labels:</p>
+<div class="figure">
+<img alt="Graph with preprocessed labels" src="img/preproc1b.png" />
+</div>
+<p>Modifying node sizes using the <tt class="docutils literal">widht/height</tt> and <tt class="docutils literal">margin</tt> attributes can be a bit counterintuitive. A few examples will hopefully make it clearer:</p>
+<div class="highlight"><pre>digraph G {
+    node [shape=rectangle];
+    a_1 [margin=&quot;0&quot;];
+    a_2 [margin=&quot;0.7,0.4&quot;];
+    a_3 [width=&quot;2&quot;,height=&quot;1&quot;];
+    a_1-&gt; a_2 -&gt; a_3 -&gt; a_1;
+}
+</pre></div>
+<p>Processing the graph with:</p>
+<pre class="literal-block">
+$ dot2tex -tmath --preproc example.dot | dot2tex &gt; example.tex
+</pre>
+<p>gives</p>
+<div class="figure">
+<img alt="Graph with preprocessed labels" src="img/nodewidth1.png" />
+</div>
+<p>Setting the margin of <tt class="docutils literal">a_1</tt> to 0 has no effect because of the minimum node width. Processing the graph with:</p>
+<pre class="literal-block">
+$ dot2tex -tmath --preproc --nominsize example.dot | dot2tex &gt; example.tex
+</pre>
+<p>gives a different graph, where only label widths and margins affect the node sizes:</p>
+<div class="figure">
+<img alt="Graph with preprocessed labels" src="img/nodewidth2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="customizing-the-output">
+<h2>Customizing the output</h2>
+<p>Dot2tex offers a few ways of modifying the generated output.</p>
+<div class="section" id="using-styles">
+<h3>Using styles</h3>
+<p>The dot language defines the <tt class="docutils literal">style</tt> attribute that can be used to modify the appearance of graphs, nodes, and edges. The <tt class="docutils literal">style</tt> attribute is passed to the rendering backend, and is a powerful and flexible way of customizing the look and feel of your graphs. Using styles requires detailed knowledge of the output format.</p>
+<p>The following example shows how interesting visual results can be achieved with the PGF/TikZ output format. The styles are PGF/TikZ specific. See the user guide for details:</p>
+<div class="highlight"><pre>graph G {
+    node [shape=circle, fixedsize=True, width=&quot;0.2&quot;,
+          style=&quot;ball color =green&quot;, label=&quot;&quot;];
+    edge [style=&quot;snake=zigzag, green&quot;];
+    a_1 -- c -- a_2;
+    c [style=&quot;ball color=black&quot;];
+    edge [style=&quot;snake=snake, blue&quot;];
+    node [style=&quot;ball color = red&quot;, label=&quot;&quot;];
+    a_3 -- c -- a_4 --a_3;
+}
+</pre></div>
+<p>The <tt class="docutils literal">snake</tt> styles only work on straight lines. We therefore have to use the <tt class="docutils literal"><span class="pre">-s</span></tt> option. <tt class="docutils literal">fdp</tt> is used to lay out the graph:</p>
+<pre class="literal-block">
+$ fdp -TXdot ball.dot | dot2tex -fpgf -s &gt; balls.tex
+</pre>
+<p>The resulting graph is shown below.</p>
+<div class="figure">
+<img alt="Using styles to style the PGF/TikZ output." src="img/balls.png" />
+</div>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use the straight edge option <tt class="docutils literal"><span class="pre">-s</span></tt> to force the use of straight lines. Otherwise curves will be used to draw even straight lines.</p>
+</div>
+<div class="section" id="changing-arrow-types">
+<h4>Changing arrow types</h4>
+<p>The style attribute can be used to change arrow types. A PGF/TikZ example:</p>
+<div class="highlight"><pre>digraph G {
+    graph [mindist=0.5];
+    node [fixedsize=true, shape=circle, width=0.4, style=&quot;fill=green!20&quot;];
+    c -&gt; n_1 [style=&quot;-stealth&quot;];
+    c -&gt; n_2 [style=&quot;-to&quot;];
+    c -&gt; n_3 [style=&quot;-latex&quot;];
+    c -&gt; n_4 [style=&quot;-diamond&quot;];
+    c -&gt; n_5 [style=&quot;-o&quot;];
+    c -&gt; n_6 [style=&quot;{-]}&quot;];
+    c -&gt; n_7 [style=&quot;-triangle 90&quot;];
+    c -&gt; n_8 [style=&quot;-hooks&quot;];
+    c -&gt; n_9 [style=&quot;-&gt;&gt;&quot;];
+    c [style=&quot;fill=red!80&quot;];
+}
+</pre></div>
+<p>Rendered with:</p>
+<pre class="literal-block">
+$ circo -Txdot pgfarrows.dot | dot2tex -tmath &gt; pgfarrows.tex
+</pre>
+<div class="figure">
+<img alt="PGF/TikZ style arrows." src="img/pgfarrows.png" />
+</div>
+<p>You can also set the default arrow style by using the <tt class="docutils literal"><span class="pre">--graphstyle</span></tt> option or <tt class="docutils literal">d2tgraphstyle</tt> attribute:</p>
+<pre class="literal-block">
+$ dot2tex -tmath --graphstyle=&quot;&gt;=diamond&quot; ex1.dot &gt; ex1gstyle.tex
+</pre>
+<div class="figure">
+<img alt="Setting default PGF/TikZ arrows." src="img/ex1gstyle.png" />
+</div>
+<p>A PSTricks example:</p>
+<div class="highlight"><pre>digraph G {
+    d2tdocpreamble=&quot;\usepackage{pstricks-add}&quot;;
+    graph [mindist=0.5];
+    node [texmode=&quot;math&quot;, fixedsize=true, shape=circle, width=0.4];
+    c -&gt; n_1 [style=&quot;arrows=-&gt;&quot;];
+    c -&gt; n_2 [style=&quot;arrows=-&gt;&gt;&quot;];
+    c -&gt; n_3 [style=&quot;arrows=-&lt;&quot;];
+    c -&gt; n_4 [style=&quot;arrows=-*&quot;];
+    c -&gt; n_5 [style=&quot;arrows=-{]}&quot;];
+    c -&gt; n_6 [style=&quot;arrows=-o&quot;];
+    c -&gt; n_7 [style=&quot;arrows=-H&quot;];
+}
+</pre></div>
+<p>Rendered with:</p>
+<pre class="literal-block">
+$ circo -Txdot pstarrows.dot | dot2tex -fpst &gt; pstarrows.tex
+</pre>
+<div class="figure">
+<img alt="PSTricks style arrows" src="img/pstarrows.png" />
+</div>
+<p>The above example shows how the <tt class="docutils literal">d2tdocpreamble</tt> attribute can be used to load additional LaTeX packages. You could also use the <tt class="docutils literal"><span class="pre">`--docpreamble</span></tt> option:</p>
+<pre class="literal-block">
+$ ... | dot2tex -fpst --docpreamble=&quot;\usepackage{pstricks-add}&quot; ...
+</pre>
+</div>
+<div class="section" id="label-styles">
+<h4>Label styles</h4>
+<p>Node, edge and graph labels can be styled using the special <tt class="docutils literal">lblstyle</tt> attribute. However, this only works for the <tt class="docutils literal">pgf</tt> and <tt class="docutils literal">tikz</tt> output formats.</p>
+<p>Labels are drawn using code like:</p>
+<div class="highlight"><pre><span class="k">\draw</span> (157bp,52bp) node <span class="nb">{</span>label<span class="nb">}</span>;
+</pre></div>
+<p>When you specify a <tt class="docutils literal">lblstyle</tt> attribute, the style will be given as a parameter to the node like this:</p>
+<div class="highlight"><pre><span class="k">\draw</span> (157bp,52bp) node[lblstyle] <span class="nb">{</span>label<span class="nb">}</span>;
+</pre></div>
+<p>Example:</p>
+<div class="highlight"><pre>digraph G {
+    node [shape=circle];
+    a -&gt; b [label=&quot;label&quot;,lblstyle=&quot;draw=red,cross out&quot;];
+    b -&gt; c [label=&quot;test&quot;,lblstyle=&quot;below=0.5cm,rotate=20,fill=blue!20&quot;];
+    a [label=&quot;aa&quot;,lblstyle=&quot;blue&quot;];
+    b [lblstyle=&quot;font=\Huge&quot;];
+    c [label=&quot;ccc&quot;, lblstyle=&quot;red,rotate=90&quot;];
+    label=&quot;Graph label&quot;;
+    lblstyle=&quot;draw,fill=red!20&quot;;
+    rankdir=LR;
+}
+</pre></div>
+<div class="figure">
+<img alt="Label styles" src="img/lblstyle.png" />
+</div>
+<p>See the PGF and TikZ documentation for more information about styles.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can use the <tt class="docutils literal">exstyle</tt> attribute in addition to <tt class="docutils literal">lblstyle</tt>. The difference is that <tt class="docutils literal">exstyle</tt> is ignored in preprocessing mode. Useful when using TikZ' <tt class="docutils literal">pin</tt> and <tt class="docutils literal">label</tt> options and you do not want them to influence the graph layout.</p>
+</div>
+</div>
+<div class="section" id="node-and-edge-options">
+<h4>Node and edge options</h4>
+<p>The <tt class="docutils literal">tikz</tt> output format offers an additional way of customizing the output by using the <tt class="docutils literal"><span class="pre">--nodeoptions</span></tt> and <tt class="docutils literal"><span class="pre">--edgeoptions</span></tt> options, or the <tt class="docutils literal">d2tnodeoptions</tt> and <tt class="docutils literal">d2tedgeoptions</tt> graph attributes. The code for generating nodes and edges will then be wrapped in a <tt class="docutils literal">scope</tt> environment like this:</p>
+<div class="highlight"><pre>...
+<span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>[nodeoptions]
+<span class="c">% code for drawing nodes</span>
+<span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>[edgeoptions]
+<span class="c">% code for drawing edges</span>
+<span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="customizing-edges">
+<h2>Customizing edges</h2>
+<p>The <tt class="docutils literal">tikz</tt> and <tt class="docutils literal">pgf</tt> output formats offers a few additional ways of customizing how edges are drawn and how edge edge labels are placed. These features are tightly integrated with TikZ and detailed knowledge of the output format is therefore necessary.</p>
+<div class="section" id="tikz-edge-labels">
+<h3>TikZ edge labels</h3>
+<p>With the <tt class="docutils literal"><span class="pre">--tikzedgelabel</span></tt> option you can bypass the XDOT edge label placement and let PGF and TikZ do the job instead. This can be useful in some cases. However, this only works properly for straight edges and <tt class="docutils literal">to</tt> paths.</p>
+<p>Example:</p>
+<div class="highlight"><pre>graph G {
+    mindist = 0.5;
+    node [shape=&quot;circle&quot;];
+    edge [lblstyle=&quot;mystyle&quot;];
+    a -- b [label=&quot;ab&quot;];
+    b -- c [label=&quot;bc&quot;];
+    c -- a [label=&quot;ca&quot;];
+}
+</pre></div>
+<p>Without the <tt class="docutils literal"><span class="pre">--tikzedgelabel</span></tt> option the code for placing edges will look something like this:</p>
+<div class="highlight"><pre><span class="c">% Edge: a -- b</span>
+<span class="k">\draw</span> [] (28bp,55bp) -- (28bp,75bp);
+<span class="k">\draw</span> (40bp,65bp) node[mystyle] <span class="nb">{</span>ab<span class="nb">}</span>;
+<span class="c">% Edge: b -- c</span>
+<span class="k">\draw</span> [] (51bp,88bp) -- (68bp,78bp);
+<span class="k">\draw</span> (66bp,96bp) node[mystyle] <span class="nb">{</span>bc<span class="nb">}</span>;
+<span class="c">% Edge: c -- a</span>
+<span class="k">\draw</span> [] (69bp,51bp) -- (52bp,41bp);
+<span class="k">\draw</span> (53bp,57bp) node[mystyle] <span class="nb">{</span>ca<span class="nb">}</span>;
+</pre></div>
+<p>With the <tt class="docutils literal">tikzedgelabels</tt> option the output is simply:</p>
+<div class="highlight"><pre><span class="k">\draw</span> [] (a) -- node[mystyle] <span class="nb">{</span>ab<span class="nb">}</span> (b);
+<span class="k">\draw</span> [] (b) -- node[mystyle] <span class="nb">{</span>bc<span class="nb">}</span> (c);
+<span class="k">\draw</span> [] (c) -- node[mystyle] <span class="nb">{</span>ca<span class="nb">}</span> (a);
+</pre></div>
+<p>The placement of the edge labels depends on the options passed to the edge label node (in this case <tt class="docutils literal">mystyle</tt>), and the curve used to connect the nodes. Some examples of <tt class="docutils literal">mystyle</tt> values are shown in the figure below. The leftmost graph is rendered without the <tt class="docutils literal">tikzedgelabels</tt> option.</p>
+<div class="figure">
+<img alt="blabla" src="img/tikzedgelabels.png" />
+</div>
+<p>Limitations:</p>
+<ul class="simple">
+<li>Works best with straight edges and <tt class="docutils literal">to</tt> paths</li>
+<li>The <tt class="docutils literal">headlabel</tt> and <tt class="docutils literal">taillabel</tt> attributes are currently not affected by the <tt class="docutils literal">tikzedgelabels</tt> option.</li>
+</ul>
+</div>
+<div class="section" id="to-paths">
+<h3>To paths</h3>
+<p>The <tt class="docutils literal">topath</tt> edge attribute offers a way to override the edges drawn by Graphviz. When a <tt class="docutils literal">topath</tt> attribute is encountered, dot2tex inserts a so called <tt class="docutils literal">to</tt> path operation to connect the nodes. A number of predefined to paths are defined by TikZ, and you can create your own.</p>
+<p>Example:</p>
+<div class="highlight"><pre>digraph G {
+    mindist = 0.5;
+    node [shape=&quot;circle&quot;];
+    a -&gt; b [topath=&quot;bend right&quot;];
+    c -&gt; b [topath=&quot;bend left&quot;];
+    c -&gt; a [topath=&quot;out=10,in=-90&quot;];
+    b -&gt; b [topath=&quot;loop above&quot;];
+}
+</pre></div>
+<p>Generating the graph with:</p>
+<pre class="literal-block">
+$ circo -Txdot topaths1.dot | dot2tex -ftikz &gt; topaths1.tex
+</pre>
+<p>yields:</p>
+<div class="figure">
+<img alt="img/topaths1.png" src="img/topaths1.png" />
+</div>
+<p>The generated edge drawing code is:</p>
+<div class="highlight"><pre><span class="k">\draw</span> [-&gt;] (a) to[bend right] (b);
+<span class="k">\draw</span> [-&gt;] (c) to[bend left] (b);
+<span class="k">\draw</span> [-&gt;] (c) to[out=10,in=-90] (a);
+<span class="k">\draw</span> [-&gt;] (b) to[loop above] (b);
+</pre></div>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">To paths works best with layout tools that generate straight edges (neato, fdp, circo, twopi). The <tt class="docutils literal">topath</tt> attribute overrides the edge routing done by Graphviz. You may therefore end up with overlapping edges.</p>
+</div>
+<p>Here is a larger example that uses the <tt class="docutils literal">automata</tt> library:</p>
+<div class="highlight"><pre>digraph G {
+    d2tdocpreamble = &quot;\usetikzlibrary{automata}&quot;;
+    d2tfigpreamble = &quot;\tikzstyle{every state}= \
+    [draw=blue!50,very thick,fill=blue!20]&quot;;
+    node [style=&quot;state&quot;];
+    edge [lblstyle=&quot;auto&quot;,topath=&quot;bend left&quot;];
+    A [style=&quot;state, initial&quot;];
+    A -&gt; B [label=2];
+    A -&gt; D [label=7];
+    B -&gt; A [label=1];
+    B -&gt; B [label=3,topath=&quot;loop above&quot;];
+    B -&gt; C [label=4];
+    C -&gt; F [label=5];
+    F -&gt; B [label=8];
+    F -&gt; D [label=7];
+    D -&gt; E [label=2];
+    E -&gt; A [label=&quot;1,6&quot;];
+    F [style=&quot;state,accepting&quot;];
+}
+</pre></div>
+<p>Generated with:</p>
+<pre class="literal-block">
+neato -Txdot fsm1.dot | dot2tex -ftikz --tikzedgelabels --styleonly
+</pre>
+<div class="figure">
+<img alt="blabla" src="img/fsm1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="color-support">
+<h2>Color support</h2>
+<p>All Graphviz <a class="reference external" href="http://www.graphviz.org/doc/info/attrs.html#k:color">color formats</a> are supported, including the RGBA format. Transparency will however only work when using the PGF/TikZ output format.</p>
+<p>Named colors are supported, but you have to ensure that the colors are defined in the resulting LaTeX file. The default PSTricks and PGF/TikZ templates load the <tt class="docutils literal">X11names</tt> color scheme defined in the <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/xcolor.html">xcolor</a> package. Note that color names in the <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/xcolor.html">xcolor</a> package are case sensitive. This is not the case with Graphviz's <a class="reference external" href="http://www.graphviz.org/doc/info/colors.html">color names</a>. Use <a class="reference external" href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a>  names in your graphs to ensure compatibility with <a class="reference external" href="http://www.ctan.org/tex-archive/help/Catalogue/entries/xcolor.html">xcolor</a>.</p>
+<p>For convenience, a color definition file <tt class="docutils literal">gcols.tex</tt> is distributed with dot2tex. You can find it in the <tt class="docutils literal">examples</tt> directory. This file defines most of Graphviz's named colors as lower case. Include this file in the preamble if you need it.</p>
+</div>
+<div class="section" id="templates">
+<h2>Templates</h2>
+<p>The output from dot2tex is a list of drawing commands. To render the graphics with LaTeX there's a need for some boiling plate code. This code can be customized using simple templates. If no template is specified with the <tt class="docutils literal"><span class="pre">--template</span></tt> option, a default template will be used.</p>
+<p>The following template tags are available:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">&lt;&lt;drawcommands&gt;&gt;</tt></dt>
+<dd>The actual list of drawing commands.</dd>
+<dt><tt class="docutils literal">&lt;&lt;figcode&gt;&gt;</tt></dt>
+<dd>Drawing commands wrapped in a figure environment. Note that several important style options are set in the figure environment.</dd>
+<dt><tt class="docutils literal">&lt;&lt;bbox&gt;&gt;</tt></dt>
+<dd><p class="first">Bounding box. Example: <tt class="docutils literal"><span class="pre">(0bp,0bp)(100bp,100bp)</span></tt>
+The individual parts of the bounding box are available with the tags:</p>
+<ul class="simple">
+<li><tt class="docutils literal">&lt;&lt;bbox.x0&gt;&gt;</tt></li>
+<li><tt class="docutils literal">&lt;&lt;bbox.y0&gt;&gt;</tt></li>
+<li><tt class="docutils literal">&lt;&lt;bbox.x1&gt;&gt;</tt></li>
+<li><tt class="docutils literal">&lt;&lt;bbox.y1&gt;&gt;</tt></li>
+</ul>
+<p class="last">Note that the bounding box parts are given without any units.</p>
+</dd>
+<dt><tt class="docutils literal">&lt;&lt;textencoding&gt;&gt;</tt></dt>
+<dd>The text encoding used for the output file. Current values are:
+- <tt class="docutils literal">utf8</tt>
+- <tt class="docutils literal">latin1</tt></dd>
+<dt><tt class="docutils literal">&lt;&lt;docpreamble&gt;&gt;</tt></dt>
+<dd>Document preamble. The content of this tag is set by the <tt class="docutils literal"><span class="pre">--docpreamble</span></tt> option or <tt class="docutils literal">d2tdocpreamble</tt> graph attribute. Useful for including packages and such.</dd>
+<dt><tt class="docutils literal">&lt;&lt;figpreamble&gt;&gt;</tt></dt>
+<dd>Figure preamble. The content of this tag is set by the <tt class="docutils literal"><span class="pre">--figpreamble</span></tt> option or <tt class="docutils literal">d2tfigpreamble</tt> graph attribute. Useful for setting font sizes and such.</dd>
+<dt><tt class="docutils literal">&lt;&lt;preproccode&gt;&gt;</tt></dt>
+<dd>Code generated for preprocessing labels.</dd>
+</dl>
+<p>Three different templates are used by dot2tex for the preprocessing mode, output mode and figure only mode respectively. The following template tags make it possible to use the same template file for all modes.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">&lt;&lt;startoutputsection&gt;&gt;</tt> and <tt class="docutils literal">&lt;&lt;endoutputsection&gt;&gt;</tt></dt>
+<dd>Code between these tags is ignored in preprocessing mode.</dd>
+<dt><tt class="docutils literal">&lt;&lt;startpreprocsection&gt;&gt;</tt> and <tt class="docutils literal">&lt;&lt;endpreprocsection&gt;&gt;</tt></dt>
+<dd>Code between these tags is ignored in output mode.</dd>
+<dt><tt class="docutils literal">&lt;&lt;startfigonlysection&gt;&gt;</tt> and <tt class="docutils literal">&lt;&lt;endfigonlysection&gt;&gt;</tt></dt>
+<dd>Code between these tags is used as a template when using the <tt class="docutils literal"><span class="pre">--figonly</span></tt> option. Ignored in preprocessing and output mode.</dd>
+</dl>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tags that have no value are replaced with an empty string. Insert a <tt class="docutils literal">%</tt> character after a template tag to avoid unwanted line breaks.</p>
+</div>
+<div class="section" id="default-pgf-tikz-template">
+<h3>Default PGF/TikZ template</h3>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[x11names, rgb]</span><span class="nb">{</span>xcolor<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[&lt;&lt;textencoding&gt;&gt;]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>snakes,arrows,shapes<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+&lt;&lt;startpreprocsection&gt;&gt;<span class="c">%</span>
+<span class="k">\usepackage</span><span class="na">[active,auctex]</span><span class="nb">{</span>preview<span class="nb">}</span>
+&lt;&lt;endpreprocsection&gt;&gt;<span class="c">%</span>
+&lt;&lt;gvcols&gt;&gt;<span class="c">%</span>
+&lt;&lt;cropcode&gt;&gt;<span class="c">%</span>
+&lt;&lt;docpreamble&gt;&gt;<span class="c">%</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\pagestyle</span><span class="nb">{</span>empty<span class="nb">}</span>
+<span class="c">%</span>
+&lt;&lt;startpreprocsection&gt;&gt;<span class="c">%</span>
+&lt;&lt;preproccode&gt;&gt;
+&lt;&lt;endpreprocsection&gt;&gt;<span class="c">%</span>
+<span class="c">%</span>
+&lt;&lt;startoutputsection&gt;&gt;
+<span class="k">\enlargethispage</span><span class="nb">{</span>100cm<span class="nb">}</span>
+<span class="c">% Start of code</span>
+<span class="c">% \begin{tikzpicture}[anchor=mid,&gt;=latex&#39;,join=bevel,&lt;&lt;graphstyle&gt;&gt;]</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=latex&#39;,join=bevel,&lt;&lt;graphstyle&gt;&gt;]
+<span class="k">\pgfsetlinewidth</span><span class="nb">{</span>1bp<span class="nb">}</span>
+&lt;&lt;figpreamble&gt;&gt;<span class="c">%</span>
+&lt;&lt;drawcommands&gt;&gt;
+&lt;&lt;figpostamble&gt;&gt;<span class="c">%</span>
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="c">% End of code</span>
+&lt;&lt;endoutputsection&gt;&gt;
+<span class="c">%</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="c">%</span>
+&lt;&lt;startfigonlysection&gt;&gt;
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=latex,join=bevel,&lt;&lt;graphstyle&gt;&gt;]
+<span class="k">\pgfsetlinewidth</span><span class="nb">{</span>1bp<span class="nb">}</span>
+&lt;&lt;figpreamble&gt;&gt;<span class="c">%</span>
+&lt;&lt;drawcommands&gt;&gt;
+&lt;&lt;figpostamble&gt;&gt;<span class="c">%</span>
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+&lt;&lt;endfigonlysection&gt;&gt;
+</pre></div>
+<p>The <tt class="docutils literal">&lt;&lt;cropcode&gt;&gt;</tt> template tag is available when the <tt class="docutils literal"><span class="pre">--preview</span></tt> option is used. The contents will then be:</p>
+<div class="highlight"><pre><span class="k">\usepackage</span><span class="na">[active,tightpage]</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\PreviewEnvironment</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\setlength\PreviewBorder</span><span class="nb">{</span>&lt;&lt;margin&gt;&gt;<span class="nb">}</span>
+</pre></div>
+</div>
+<div class="section" id="default-pstricks-template">
+<h3>Default pstricks template</h3>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="c">% &lt;&lt;bbox&gt;&gt;</span>
+<span class="k">\usepackage</span><span class="na">[x11names]</span><span class="nb">{</span>xcolor<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[&lt;&lt;textencoding&gt;&gt;]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>pstricks<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+&lt;&lt;startpreprocsection&gt;&gt;<span class="c">%</span>
+<span class="k">\usepackage</span><span class="na">[active,auctex]</span><span class="nb">{</span>preview<span class="nb">}</span>
+&lt;&lt;endpreprocsection&gt;&gt;<span class="c">%</span>
+&lt;&lt;gvcols&gt;&gt;<span class="c">%</span>
+&lt;&lt;docpreamble&gt;&gt;<span class="c">%</span>
+
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\pagestyle</span><span class="nb">{</span>empty<span class="nb">}</span>
+&lt;&lt;startpreprocsection&gt;&gt;<span class="c">%</span>
+&lt;&lt;preproccode&gt;&gt;<span class="c">%</span>
+&lt;&lt;endpreprocsection&gt;&gt;<span class="c">%</span>
+&lt;&lt;startoutputsection&gt;&gt;<span class="c">%</span>
+<span class="k">\enlargethispage</span><span class="nb">{</span>100cm<span class="nb">}</span>
+
+<span class="c">% Start of code</span>
+<span class="k">\begin</span><span class="nb">{</span>pspicture<span class="nb">}</span>[linewidth=1bp&lt;&lt;graphstyle&gt;&gt;]&lt;&lt;bbox&gt;&gt;
+<span class="k">\pstVerb</span><span class="nb">{</span>2 setlinejoin<span class="nb">}</span> <span class="c">% set line join style to &#39;mitre&#39;</span>
+&lt;&lt;figpreamble&gt;&gt;<span class="c">%</span>
+&lt;&lt;drawcommands&gt;&gt;
+&lt;&lt;figpostamble&gt;&gt;<span class="c">%</span>
+<span class="k">\end</span><span class="nb">{</span>pspicture<span class="nb">}</span>
+<span class="c">% End of code</span>
+&lt;&lt;endoutputsection&gt;&gt;<span class="c">%</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="c">%</span>
+&lt;&lt;startfigonlysection&gt;&gt;
+<span class="k">\begin</span><span class="nb">{</span>pspicture<span class="nb">}</span>[linewidth=1bp&lt;&lt;graphstyle&gt;&gt;]&lt;&lt;bbox&gt;&gt;
+<span class="k">\pstVerb</span><span class="nb">{</span>2 setlinejoin<span class="nb">}</span> <span class="c">% set line join style to &#39;mitre&#39;</span>
+&lt;&lt;figpreamble&gt;&gt;<span class="c">%</span>
+&lt;&lt;drawcommands&gt;&gt;
+&lt;&lt;figpostamble&gt;&gt;<span class="c">%</span>
+<span class="k">\end</span><span class="nb">{</span>pspicture<span class="nb">}</span>
+&lt;&lt;endfigonlysection&gt;&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="special-attributes">
+<h2>Special attributes</h2>
+<p>Dot2tex defines several special graph, node and edge attributes. Most of them are not part of the DOT language.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">texmode</tt></dt>
+<dd>Changes locally how <a class="reference internal" href="#labels">labels</a> are interpreted.</dd>
+<dt><tt class="docutils literal">texlbl</tt></dt>
+<dd>Overrides the current node or edge label.</dd>
+<dt><tt class="docutils literal">d2tdocpreamble</tt></dt>
+<dd>Sets the <tt class="docutils literal">&lt;&lt;docpreamble&gt;&gt;</tt> tag.</dd>
+<dt><tt class="docutils literal">d2tfigpreamble</tt></dt>
+<dd>Sets the <tt class="docutils literal">&lt;&lt;figpreamble&gt;&gt;</tt> tag.</dd>
+<dt><tt class="docutils literal">d2tfigpostamble</tt></dt>
+<dd>Sets the <tt class="docutils literal">&lt;&lt;figpostable&gt;&gt;</tt> tag.</dd>
+<dt><tt class="docutils literal">d2tgraphstyle</tt></dt>
+<dd>Sets the <tt class="docutils literal">&lt;&lt;graphstyle&gt;&gt;</tt> tag.</dd>
+<dt><tt class="docutils literal">d2ttikzedgelabels</tt></dt>
+<dd>Sets the <tt class="docutils literal"><span class="pre">--tikzedgelabels</span></tt> option.</dd>
+<dt><tt class="docutils literal">d2tnodeoptions</tt></dt>
+<dd>Sets the <tt class="docutils literal"><span class="pre">--nodeoptions</span></tt> option.</dd>
+<dt><tt class="docutils literal">d2tedgeoptions</tt></dt>
+<dd>Sets the <tt class="docutils literal"><span class="pre">--edgeoptions</span></tt> option.</dd>
+<dt><tt class="docutils literal">style</tt></dt>
+<dd>Used to pass styles to the backend. Styles are output format specific, with the exception of the styles defined by the DOT language.</dd>
+<dt><tt class="docutils literal">lblstyle</tt></dt>
+<dd>Used to set styles for drawing graph, node and edge labels. Only works for the <tt class="docutils literal">pgf</tt> and <tt class="docutils literal">tikz</tt> output formats.</dd>
+<dt><tt class="docutils literal">exstyle</tt></dt>
+<dd>The same as <tt class="docutils literal">lblstyle</tt>, except that <tt class="docutils literal">exstyle</tt> is ignored in preprocessing mode.</dd>
+<dt><tt class="docutils literal">topath</tt></dt>
+<dd>Used to set a <tt class="docutils literal">to</tt> path operation for connecting nodes. Only works for the <tt class="docutils literal">tikz</tt> output format.</dd>
+<dt><tt class="docutils literal">d2talignstr</tt></dt>
+<dd><p class="first">Used to pass a default alignment string to the PSTricks <tt class="docutils literal">\rput</tt> command:</p>
+<pre class="last literal-block">
+\rput[d2talignstr] ...
+</pre>
+</dd>
+<dt><tt class="docutils literal">d2toptions</tt></dt>
+<dd>Allows you to pass options to dot2tex in the same format as from the command line. The <tt class="docutils literal">d2toptions</tt> value is parsed in the same way as ordinary command line options.</dd>
+</dl>
+</div>
+<div class="section" id="including-external-dot-files">
+<h2>Including external dot files</h2>
+<p>If your input file contains the single line</p>
+<div class="highlight"><pre><span class="k">\input</span><span class="nb">{</span>filename.dot<span class="nb">}</span>
+</pre></div>
+<p>dot2tex will load the <tt class="docutils literal">filename.dot</tt> file and convert it. This feature is useful when you want to use <a class="reference internal" href="#the-dot2texi-latex-package">the dot2texi LaTeX package</a>, but don't want to include your dot code directly in your document.</p>
+</div>
+<div class="section" id="using-dot2tex-as-a-module">
+<h2>Using dot2tex as a module</h2>
+<p>It is possible to load dot2tex as a module for use in other Python programs. Here is a basic example:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">dot2tex</span>
+<span class="n">testgraph</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">digraph G {</span>
+<span class="s">    a -&gt; b -&gt; c -&gt; a;</span>
+<span class="s">}</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">texcode</span> <span class="o">=</span> <span class="n">dot2tex</span><span class="o">.</span><span class="n">dot2tex</span><span class="p">(</span><span class="n">testgraph</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;tikz&#39;</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+<p>The <tt class="docutils literal">dot2tex</tt> function is the main interface:</p>
+<div class="highlight"><pre><span class="n">dot2tex</span><span class="p">(</span><span class="n">dotsource</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+<p>It takes the following input arguments:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Argument</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">dotsource</tt></td>
+<td>A string containing a DOT or XDOT graph.</td>
+</tr>
+<tr><td><tt class="docutils literal">**kwargs</tt></td>
+<td>An arbitrary number of conversion options passed as
+keyword arguments</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The function returns the resulting LaTeX code as a string.</p>
+<p>The supported options are the same as the command line <a class="reference internal" href="#options">options</a> (long version). Here are a few examples:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">dot2tex</span> <span class="kn">as</span> <span class="nn">d2t</span>
+<span class="n">texcode</span> <span class="o">=</span> <span class="n">d2t</span><span class="o">.</span><span class="n">dot2tex</span><span class="p">(</span><span class="n">testgraph</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;tikz&#39;</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">texcode</span> <span class="o">=</span> <span class="n">d2t</span><span class="o">.</span><span class="n">dot2tex</span><span class="p">(</span><span class="n">testgraph</span><span class="p">,</span> <span class="n">preproc</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">figonly</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">texcode</span> <span class="o">=</span> <span class="n">d2t</span><span class="o">.</span><span class="n">dot2tex</span><span class="p">(</span><span class="n">testgraph</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+<p>Option values are either strings or booleans. Note that some of the command line options are not relevant when using dot2tex as a module.</p>
+<p>To specify a template you can use the <tt class="docutils literal">template</tt> option like this:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">dot2tex</span>
+<span class="n">mytemplate</span> <span class="o">=</span> <span class="s">&quot;&lt;&lt;drawcommands&gt;&gt;&quot;</span>
+<span class="n">texcode</span> <span class="o">=</span> <span class="n">dot2tex</span><span class="o">.</span><span class="n">dot2tex</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">template</span> <span class="o">=</span> <span class="n">mytemplate</span><span class="p">)</span>
+</pre></div>
+<div class="section" id="debugging">
+<h3>Debugging</h3>
+<p>You can set <tt class="docutils literal">debug=True</tt> to create a detailed log useful for debugging. To retrieve the content of the log you can use the <tt class="docutils literal">get_logstream</tt> function. It will return a <tt class="docutils literal">StringIO</tt> instance. You can then use the <tt class="docutils literal">getvalue()</tt> class method to get the actual text. Example:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">dot2tex</span>
+<span class="n">texcode</span> <span class="o">=</span> <span class="n">dot2tex</span><span class="o">.</span><span class="n">dot2tex</span><span class="p">(</span><span class="n">testgraph</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">logstream</span> <span class="o">=</span> <span class="n">dot2tex</span><span class="o">.</span><span class="n">get_logstream</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">logstream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="issues-and-limitations">
+<h2>Issues and limitations</h2>
+<p>The purpose of dot2tex is to give graphs a more LaTeX friendly look, not to create exact duplicates. However, the program does a descent duplication job when it comes to drawing nodes and edges, but it does not try to duplicate label and annotation formatting.</p>
+<p>A list of known limitations:</p>
+<ul>
+<li><p class="first">Parallel edges are only supported in the <tt class="docutils literal">duplicate</tt> mode.</p>
+</li>
+<li><p class="first">Concentrated edges are not render properly when using the tikz output format.</p>
+</li>
+<li><p class="first">Pyparsing sometimes choke on valid dot files. If this happen you could try to feed xdot data directly to dot2tex like this:</p>
+<pre class="literal-block">
+$ dot -Txdot example.dot | dot2tex -o example.tex
+</pre>
+</li>
+<li><p class="first">Graphviz sometimes complain about nodes being too small to fit the content. This typically happens after the graph has been preprocessed with the preview package. You can usually ignore this warning. However, if edges are routed poorly, it may help increasing the size of the nodes.</p>
+</li>
+<li><p class="first">If a dot file contains more than one graph, only the first graph will be converted.</p>
+</li>
+<li><p class="first">Background color of page is currently not set.</p>
+</li>
+<li><p class="first">The <tt class="docutils literal">fontcolor</tt> attribute is not supported yet.</p>
+</li>
+<li><p class="first">The <tt class="docutils literal"><span class="pre">setlinewidth(.)</span></tt> attribute is not supported yet.</p>
+</li>
+</ul>
+<div class="section" id="text-encoding">
+<h3>Text encoding</h3>
+<p>Graphviz's default text encoding is <tt class="docutils literal">utf8</tt>. The <tt class="docutils literal">latin1</tt> encoding can also be used. Utf8 is an unicode encoding and can in theory handle any international characters. However, LaTeX's unicode support is somewhat limited.</p>
+</div>
+</div>
+<div class="section" id="tips-and-tricks">
+<h2>Tips and tricks</h2>
+<div class="section" id="fonts">
+<h3>Fonts</h3>
+<p>No font information in the DOT file is preserved by dot2tex. However, there are several ways of  modifying the generated LaTeX code to achieve some control of fonts and font sizes.</p>
+<ul class="simple">
+<li>Modifying the templates.</li>
+<li>Using the <tt class="docutils literal">d2tdocpreamble</tt> and <tt class="docutils literal">d2tfigpreamble</tt> attributes or command line options.</li>
+<li>Using the <tt class="docutils literal">lblstyle</tt> attribute.</li>
+</ul>
+<p>To increase the font size you can for instance insert a <tt class="docutils literal">\Huge</tt> command in the figure preamble:</p>
+<pre class="literal-block">
+$ dot2tex -tmath --figpreamble=&quot;\Huge&quot; ex1.dot &gt; ex1huge.tex
+</pre>
+<div class="figure">
+<img alt="Setting label font size to \Huge" src="img/ex1huge.png" />
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Debugging</h3>
+<p>When making your own templates it is easy to make mistakes, and LaTeX markup in graphs may fail to compile. To make it easier to find errors, invoke dot2tex with the <tt class="docutils literal"><span class="pre">--debug</span></tt> option:</p>
+<pre class="literal-block">
+$ dot2tex --preproc --debug test.dot
+</pre>
+<p>A dot2tex.log file will then be generated with detailed information. In the log file you will find the generated LaTeX code, as well as well as the compilation log.</p>
+</div>
+<div class="section" id="be-consistent">
+<h3>Be consistent</h3>
+<p>Be aware of differences between the template you use for preprocessing and code used to generate final output. This is especially important if you use the <tt class="docutils literal"><span class="pre">--figonly</span></tt> option and include the code in a master document. If a 10pt font is used during preprocessing, the result may not be optimal if a 12pt font is used in the final output.</p>
+<p>Example. A graph is generated with:</p>
+<pre class="literal-block">
+$ dot2tex --preproc -tmath --nominsize ex1.dot &gt; ex1tmp.dot
+</pre>
+<p>Running through dot2tex again with:</p>
+<pre class="literal-block">
+$ dot2tex --figpreamble=&quot;\Huge&quot; ex1tmp.dot &gt; ex1huge.tex
+</pre>
+<p>gives labels that do not fit properly inside the nodes.</p>
+<div class="figure">
+<img alt="Inconsistence between preproc mode and output mode" src="img/consistent.png" />
+</div>
+</div>
+<div class="section" id="postprocessing">
+<h3>Postprocessing</h3>
+<p>The output from Graphviz and dot2tex is not perfect. Manual adjustments are sometimes necessary to get the right results for use in a publication. For final and cosmetic adjustments, it is often easier to edit the generated code than to hack the dot source. This is especially true when using the <tt class="docutils literal">tikz</tt> output format.</p>
+</div>
+<div class="section" id="use-the-special-graph-attributes">
+<h3>Use the special graph attributes</h3>
+<p>Dot2tex has many options for customizing the output. Sometimes is is impractical or boring to type the various options at the command line each time you want to create the graph. To avoid this, you can use the special graph attributes. The <tt class="docutils literal">d2toptions</tt> attribute is handy because it is interpreted as command line options.</p>
+<p>So instead of typing:</p>
+<pre class="literal-block">
+$ dot2tex -tikz -tmath --tikzedgelabels ex1.dot
+</pre>
+<p>each time, use <tt class="docutils literal">d2toptions</tt> like this:</p>
+<div class="highlight"><pre>digraph G {
+    d2toptions =&quot;-tikz -tmath --tikzedgelabels&quot;;
+    ...
+}
+</pre></div>
+</div>
+<div class="section" id="use-the-tikz-output-format-for-maximum-flexibility">
+<h3>Use the tikz output format for maximum flexibility</h3>
+<p>The difference between the <tt class="docutils literal">pgf</tt> and <tt class="docutils literal">tikz</tt> output formats is best shown with an example. Consider the following graph:</p>
+<div class="highlight"><pre>graph G {
+    mindist = 0.5;
+    node [shape=circle];
+    a -- b -- c -- a;
+}
+</pre></div>
+<p>Rendering the graph using <tt class="docutils literal">circo</tt> and the <tt class="docutils literal">pgf</tt> and <tt class="docutils literal">tikz</tt> output formats:</p>
+<pre class="literal-block">
+$ circo -Txdot simple.dot | dot2tex -tmath -fpgf -s
+$ circo -Txdot simple.dot | dot2tex -tmath -ftikz -s
+</pre>
+<p>gives visually different graphs:</p>
+<div class="figure">
+<img alt="Difference between pgf and tikz output format" src="img/pgftikzsimple.png" />
+</div>
+<p>However, the main difference is in the generated code. Here is the <tt class="docutils literal">pgf</tt> output:</p>
+<div class="highlight"><pre><span class="c">% Edge: a -- b</span>
+<span class="k">\draw</span> [] (19bp,38bp) -- (19bp,60bp);
+<span class="c">% Edge: b -- c</span>
+<span class="k">\draw</span> [] (35bp,70bp) -- (55bp,58bp);
+<span class="c">% Edge: c -- a</span>
+<span class="k">\draw</span> [] (55bp,40bp) -- (35bp,28bp);
+<span class="c">% Node: a</span>
+<span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>
+<span class="k">\pgfsetstrokecolor</span><span class="nb">{</span>black<span class="nb">}</span>
+<span class="k">\draw</span> (19bp,19bp) ellipse (18bp and 19bp);
+<span class="k">\draw</span> (19bp,19bp) node <span class="nb">{</span><span class="s">$</span><span class="nb">a</span><span class="s">$</span><span class="nb">}</span>;
+<span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+<span class="c">% Node: b</span>
+<span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>
+<span class="k">\pgfsetstrokecolor</span><span class="nb">{</span>black<span class="nb">}</span>
+<span class="k">\draw</span> (19bp,79bp) ellipse (18bp and 19bp);
+<span class="k">\draw</span> (19bp,79bp) node <span class="nb">{</span><span class="s">$</span><span class="nb">b</span><span class="s">$</span><span class="nb">}</span>;
+<span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+<span class="c">% Node: c</span>
+<span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>
+<span class="k">\pgfsetstrokecolor</span><span class="nb">{</span>black<span class="nb">}</span>
+<span class="k">\draw</span> (71bp,49bp) ellipse (18bp and 19bp);
+<span class="k">\draw</span> (71bp,49bp) node <span class="nb">{</span><span class="s">$</span><span class="nb">c</span><span class="s">$</span><span class="nb">}</span>;
+<span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+</pre></div>
+<p>Compare the above code with the <tt class="docutils literal">tikz</tt> output:</p>
+<div class="highlight"><pre><span class="k">\node</span> (a) at (19bp,19bp) [draw,circle,] <span class="nb">{</span><span class="s">$</span><span class="nb">a</span><span class="s">$</span><span class="nb">}</span>;
+<span class="k">\node</span> (b) at (19bp,79bp) [draw,circle,] <span class="nb">{</span><span class="s">$</span><span class="nb">b</span><span class="s">$</span><span class="nb">}</span>;
+<span class="k">\node</span> (c) at (71bp,49bp) [draw,circle,] <span class="nb">{</span><span class="s">$</span><span class="nb">c</span><span class="s">$</span><span class="nb">}</span>;
+<span class="k">\draw</span> [] (a) -- (b);
+<span class="k">\draw</span> [] (b) -- (c);
+<span class="k">\draw</span> [] (c) -- (a);
+</pre></div>
+<p>The code is much more compact and it is quite easy to modify the graph.</p>
+</div>
+<div class="section" id="the-dot2texi-latex-package">
+<h3>The dot2texi LaTeX package</h3>
+<p>The dot2texi package allows you to embed DOT graphs directly in you LaTeX document. The package will automatically run <tt class="docutils literal">dot2tex</tt> for you and include the generated code. Example:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>dot2texi<span class="nb">}</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>shapes,arrows<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>dot2tex<span class="nb">}</span>[neato,options=-tmath]
+digraph G <span class="nb">{</span>
+    node [shape=&quot;circle&quot;];
+    a<span class="nb">_</span>1 -&gt; a<span class="nb">_</span>2 -&gt; a<span class="nb">_</span>3 -&gt; a<span class="nb">_</span>4 -&gt; a<span class="nb">_</span>1;
+    <span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>dot2tex<span class="nb">}</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<p>When the above code is run through LaTeX, the following will happen is shell escape is enabled:</p>
+<ul class="simple">
+<li>The graph is written to file.</li>
+<li><tt class="docutils literal">dot2tex</tt> is run on the DOT file.</li>
+<li>The generated code is included in the document.</li>
+</ul>
+<p>The whole process is completely automated. The generated graph will look like this:</p>
+<div class="figure">
+<img alt="Graph generated with dot2texi" src="img/dot2texiex1.png" />
+</div>
+<p>The <tt class="docutils literal">codeonly</tt> option is useful in conjunction with <tt class="docutils literal">dot2texi</tt>, especially when used with the <tt class="docutils literal">tikz</tt> output format. Here is an example that shows how to annotate a graph:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,shapes<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>dot2texi<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="c">% Define layers</span>
+<span class="k">\pgfdeclarelayer</span><span class="nb">{</span>background<span class="nb">}</span>
+<span class="k">\pgfdeclarelayer</span><span class="nb">{</span>foreground<span class="nb">}</span>
+<span class="k">\pgfsetlayers</span><span class="nb">{</span>background,main,foreground<span class="nb">}</span>
+
+<span class="c">% The scale option is useful for adjusting spacing between nodes.</span>
+<span class="c">% Note that this works best when straight lines are used to connect</span>
+<span class="c">% the nodes.</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=latex&#39;,scale=0.8]
+    <span class="c">% set node style</span>
+    <span class="k">\tikzstyle</span><span class="nb">{</span>n<span class="nb">}</span> = [draw,shape=circle,minimum size=2em,
+                        inner sep=0pt,fill=red!20]
+    <span class="k">\begin</span><span class="nb">{</span>dot2tex<span class="nb">}</span>[dot,tikz,codeonly,styleonly,options=-s -tmath]
+        digraph G  <span class="nb">{</span>
+            node [style=&quot;n&quot;];
+            A<span class="nb">_</span>1 -&gt; B<span class="nb">_</span>1; A<span class="nb">_</span>1 -&gt; B<span class="nb">_</span>2; A<span class="nb">_</span>1 -&gt; B<span class="nb">_</span>3;
+            B<span class="nb">_</span>1 -&gt; C<span class="nb">_</span>1; B<span class="nb">_</span>1 -&gt; C<span class="nb">_</span>2;
+            B<span class="nb">_</span>2 -&gt; C<span class="nb">_</span>2; B<span class="nb">_</span>2 -&gt; C<span class="nb">_</span>3;
+            B<span class="nb">_</span>3 -&gt; C<span class="nb">_</span>3; B<span class="nb">_</span>3 -&gt; C<span class="nb">_</span>4;
+        <span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>dot2tex<span class="nb">}</span>
+    <span class="c">% annotations</span>
+    <span class="k">\node</span><span class="na">[left=1em]</span> at (C<span class="nb">_</span>1.west)  (l3) <span class="nb">{</span>Level 3<span class="nb">}</span>;
+    <span class="k">\node</span> at (l3 |- B<span class="nb">_</span>1) (l2)<span class="nb">{</span>Level 2<span class="nb">}</span>;
+    <span class="k">\node</span> at (l3 |- A<span class="nb">_</span>1) (l1) <span class="nb">{</span>Level 1<span class="nb">}</span>;
+    <span class="c">% Draw lines to separate the levels. First we need to calculate</span>
+    <span class="c">% where the middle is.</span>
+    <span class="k">\path</span> (l3) -- coordinate (l32) (l2) -- coordinate (l21) (l1);
+    <span class="k">\draw</span><span class="na">[dashed]</span> (C<span class="nb">_</span>1 |- l32) -- (l32 -| C<span class="nb">_</span>4);
+    <span class="k">\draw</span><span class="na">[dashed]</span> (C<span class="nb">_</span>1 |- l21) -- (l21 -| C<span class="nb">_</span>4);
+    <span class="k">\draw</span><span class="na">[&lt;-&gt;,red]</span> (A<span class="nb">_</span>1) to[out=-120,in=90] (C<span class="nb">_</span>2);
+    <span class="c">% Highlight the A_1 -&gt; B_1 -&gt; C_2 path. Use layers to draw</span>
+    <span class="c">% behind everything.</span>
+    <span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>background<span class="nb">}</span>
+        <span class="k">\draw</span><span class="na">[rounded corners=2em,line width=3em,blue!20,cap=round]</span>
+                (A<span class="nb">_</span>1.center) -- (B<span class="nb">_</span>1.west) -- (C<span class="nb">_</span>2.center);
+    <span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+<div class="figure">
+<img alt="Annotated graph" src="img/dot2texiex2.png" />
+</div>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you don't want to include the dot directly in your document, you can use the <tt class="docutils literal"><span class="pre">\input{..}</span></tt> command. See the section <a class="reference internal" href="#including-external-dot-files">Including external dot files</a> for more details.</p>
+</div>
+</div>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements</h2>
+<p>The dot parser used by dot2tex is based on code from the <a class="reference external" href="http://dkbza.org/pydot.html">pydot</a> project.</p>
+</div>
+</div>
+</body>
+</html>
