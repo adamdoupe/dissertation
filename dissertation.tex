@@ -2,7 +2,7 @@
 %
 %
 
-\documentclass[12pt,twoside,draft]{ucthesis}
+\documentclass[12pt,oneside,draft]{ucthesis}
 % \documentclass[12pt,oneside,final]{ucthesis}
 % todo: final options: [12pt,oneside,final]
 
@@ -71,6 +71,10 @@ morekeywords={*,...},           % if you want to add more keywords to
 % macro to use a local reference
 \newcommand\localref[1]{\ref{\currentprefix:#1}}
 
+% This is to add space between chapters to the list of listings
+% http://tex.stackexchange.com/questions/10159/grouping-the-list-of-listings-by-chapter
+\let\Chapter\chapter
+\def\chapter{\addtocontents{lol}{\protect\addvspace{10pt}}\Chapter}
 
 % Commands for the scanners used in the papers:
 \newcommand{\acunetix}{Acunetix}
