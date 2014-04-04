@@ -7,22 +7,21 @@
 
 Web applications are a fundamental part of our lives and culture. We
 use web applications in almost every facet of society: socializing,
-banking, health, taxes, learning, and news, to name a few. These web
-applications are always available from anywhere with an Internet
+banking, health care, taxes, education, and news, to name a few. These
+web applications are always available from anywhere with an Internet
 connection, and they enable us to communicate and collaborate at a
 speed that was unthinkable just a few decades ago.
 
-The shift to have more and more of our lives and data move to web
-applications unfortunately motivates hackers to attack web
-applications. In 2011, hackers stole 1 million usernames and passwords
-from Sony. In 2008, hackers stole 45 million customer credit cards
-from TJ Maxx. In 2009, hackers stole 100 million customer credit cards
-from Heartland Payment Systems. In 2012, hackers stole 24,000
-Bitcoins\footnote{These Bitcoins are worth about \$10 million at this
-  time of writing.} from BitFloor, a major Bitcoin exchange. What all
-of these instances have in common is that hackers exploited
-vulnerabilities in a web application in order to steal either
-usernames and passwords, credit cards, or Bitcoins.
+The shift of having more and more of our lives and data move to web
+applications unfortunately attracts hackers. In 2011, hackers stole 1
+million usernames and passwords from Sony. In 2008, hackers stole 45
+million customer credit cards from TJ Maxx. In 2009, hackers stole 100
+million customer credit cards from Heartland Payment Systems. In 2012,
+hackers stole 24,000 Bitcoins\footnote{These Bitcoins are worth about
+  \$10 million at this time of writing.} from BitFloor, a major
+Bitcoin exchange. What all of these instances have in common is that
+hackers exploited vulnerabilities in a web application in order to
+steal either usernames and passwords, credit cards, or Bitcoins.
 
 It is insightful to turn our attention to \emph{why} web applications
 have so many vulnerabilities. Those same properties that make web
@@ -31,10 +30,9 @@ application never closes, so they are always available for hackers.
 Web applications also house a vast treasure-trove of data, which
 hackers can use for monetary gain. Finally, as we will explore in the
 next section, web applications are a complex hodgepodge of various
-technologies. This complexity, combined with the intense time-to-market
-pressure of web applications\footnote{Facebook's moto is: Move fast
-  and break things.}, is a breeding ground for bugs and
-vulnerabilities. 
+technologies. This complexity, combined with the intense
+time-to-market pressure of web applications, is a breeding ground for
+bugs and vulnerabilities.
 
 The situation is dire. We must focus on new ways to secure web
 applications from attack. We must develop new tools in order to find
@@ -50,12 +48,13 @@ quickly exploded in popularity over the proceeding years.
 
 The core of the web has remained relatively the same throughout the
 years: a web browser (operated by a user) connects to a web server
-using the Hypertext Transfer Protocol (HTTP). The web server then
-sends back a response, typically in the form of a HyperText Markup
-Language (HTML) page. The web browser then parses the raw HTML page to
-turn it into a GUI that is displayed to the user. The fundamental
-underlying principle, and the definition of HyperText, is that an HTML
-page contains links to \emph{other} HTML pages.
+using the Hypertext Transfer Protocol (HTTP)~\cite{fielding99:http11}.
+The web server then sends back a response, typically in the form of a
+HyperText Markup Language (HTML) page~\cite{berjon14:html5}. The web
+browser then parses the raw HTML page to turn it into a GUI that is
+displayed to the user. The fundamental underlying principle, and the
+definition of HyperText, is that an HTML page contains links to
+\emph{other} HTML pages.
 
 The beginning of the web was envisioned as a set of documents with
 links pointing to other documents. In other words, the web was mostly
