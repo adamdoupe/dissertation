@@ -14,14 +14,15 @@ speed that was unthinkable just a few decades ago.
 
 The shift of having more and more of our lives and data move to web
 applications unfortunately attracts hackers. In 2011, hackers stole 1
-million usernames and passwords from Sony. In 2008, hackers stole 45
-million customer credit cards from TJ Maxx. In 2009, hackers stole 100
-million customer credit cards from Heartland Payment Systems. In 2012,
-hackers stole 24,000 Bitcoins\footnote{These Bitcoins are worth about
-  \$10 million at this time of writing.} from BitFloor, a major
-Bitcoin exchange. What all of these instances have in common is that
-hackers exploited vulnerabilities in a web application in order to
-steal either usernames and passwords, credit cards, or Bitcoins.
+million usernames and passwords from Sony~\cite{bilton11:sony}. In
+2008, hackers stole 45 million customer credit cards from TJ Maxx. In
+2009, hackers stole 100 million customer credit cards from Heartland
+Payment Systems. In 2012, hackers stole 24,000 Bitcoins\footnote{These
+  Bitcoins are worth about \$10 million at this time of writing.} from
+BitFloor, a major Bitcoin exchange. What all of these instances have
+in common is that hackers exploited vulnerabilities in a web
+application in order to steal either usernames and passwords, credit
+cards, or Bitcoins.
 
 It is insightful to turn our attention to \emph{why} web applications
 have so many vulnerabilities. Those same properties that make web
@@ -96,15 +97,83 @@ confidentially or integrity of the web application's data.
 
 \subsection{Injection Vulnerabilities}
 
+Injection vulnerabilities are to web applications as memory-corruption
+vulnerabilities are to binary applications. 
+
+This class of vulnerabilities occur when an attacker is able to
+control or influence the value of parameters that are used as part of
+an outside (to the language) query, command, or language. If the
+attacker can manipulate and change the semantics of the query,
+command, or language, and this compromises the security of the
+application, then that is an injection vulnerabilities.
+
+There are many types of injection vulnerabilities in web applications,
+and the types depend on the query, command, or language that is being
+injected. These include SQL queries, HTML responses, OS commands,
+email headers, HTTP headers, and many more. Next we will focus on two
+of the most serious and prevalent classes of injection
+vulnerabilities: SQL injection and Cross-Site Scripting (XSS).
+
 \subsubsection{SQL Injection}
 
+SQL injection vulnerabilities, while declining in the number reported
+when compared to XSS vulnerabilities, are sill numerous and are
+incredibly critical when they occur.
+
+The root cause of SQL injection vulnerabilities is that the
+server-side code of the web application, in order to issue an SQL
+query to the SQL database, concatenates strings together. This form
+allows the queries to be parameterized, and therefore the server-side
+code can be more general. The problem is that, according to the
+server-side language, the resulting query is simply a string, whereas
+when that string is passed to the SQL server, the SQL server parses
+the string into a SQL query. Therefore, what the server-side code
+treats as a simple string is in fact a complex language. 
+
+\textbf{Need example}
+
+Thus, in order for an attacker to not alter the semantics of the SQL
+query, a web developer must be careful to properly \emph{sanitize} all
+potentially attacker-control input. Here sanitize means to transform
+the input from the user to a form that renders it neutral for the
+target language. In the case of SQL, this typically means converting
+any \texttt{\textquotesingle} (which are used by an attacker to escape
+out of an SQL query) to the inert
+\texttt{\textbackslash\textquotesingle}.
+
+So what damage can an attacker cause by exploiting an SQL injection
+vulnerability? An attacker can violate both the confidentially and
+integrity of the application's data. An attacker can insert arbitrary
+data into the database, potentially adding a new admin user to the web
+application. Also, an attacker can exfiltrate any data that the
+database user can access (typically all data that the application can
+access). Finally, the attacker can also delete all of the data that
+the web application has access to. These consequences of a single SQL
+injection vulnerability are why SQL injection vulnerabilities are so
+severe.
+
+To prevent SQL injections with sanitization, a developer must be
+extremely careful that no user-supplied data is used in an SQL
+statement, including any paths that the data could have taken through
+the web application. In practice, this is (understandably) difficult
+for developers to always accomplish. Therefore, developers should use
+\emph{prepared statements,} which is a way to tell the database the
+structure of an SQL query \emph{before} the data is given. In this
+way, the database already knows the structure of the SQL query, and
+therefore there is no way for an attacker to alter the structure and
+semantics of the query. Almost every server-side language or framework
+has support for prepared statements.
+
 \subsubsection{Cross-Site Scripting}
+
+Cross-Site Scripting (XSS) vulnerabilities are similar in spirit to
+SQL injection vulnerabilities. 
 
 \subsection{Logic Flaws}
 
 \section{Securing Web Applications}
 
-\subsection{Anomaly Detecdtion}
+\subsection{Anomaly Detection}
 
 \subsection{Secure Construction}
 
