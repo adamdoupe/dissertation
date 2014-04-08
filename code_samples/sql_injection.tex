@@ -1,0 +1,11 @@
+{\ssp
+\begin{lstlisting}[language=php, caption={[Example of an SQL injection
+        vulnerability.]Example of an SQL injection vulnerability in a
+      PHP web application. The attacker-controlled \texttt{\$name} parameter is used
+      unsanitized in the SQL query created on Line~2 and issued on Line~3.},
+    label=\currentprefix:sql-injection, float,]
+$name = $_GET['name'];
+$q = "select * from users where name = '" . $name . "';";
+$result = mysql_query($q);
+\end{lstlisting}
+}

@@ -1,3 +1,13 @@
+\def\currentprefix{intro}
+
+\lstset{ %
+language=Php,                % the language of the code
+basicstyle=\ttfamily,       % the size of the fonts that are used for the code
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+morekeywords={*,...},           % if you want to add more keywords to
+}
+
+
 %
 %  Introduction
 %
@@ -15,14 +25,15 @@ speed that was unthinkable just a few decades ago.
 The shift of having more and more of our lives and data move to web
 applications unfortunately attracts hackers. In 2011, hackers stole 1
 million usernames and passwords from Sony~\cite{bilton11:sony}. In
-2008, hackers stole 45 million customer credit cards from TJ Maxx. In
-2009, hackers stole 100 million customer credit cards from Heartland
-Payment Systems. In 2012, hackers stole 24,000 Bitcoins\footnote{These
-  Bitcoins are worth about \$10 million at this time of writing.} from
-BitFloor, a major Bitcoin exchange. What all of these instances have
-in common is that hackers exploited vulnerabilities in a web
-application in order to steal either usernames and passwords, credit
-cards, or Bitcoins.
+2007, hackers stole 45 million customer credit cards from TJ
+Maxx~\cite{jewell07:tjmaxx}. In 2009, hackers stole 100 million
+customer credit cards from Heartland Payment
+Systems~\cite{acohido09:heartland}. In 2012, hackers stole 24,000
+Bitcoins\footnote{These Bitcoins are worth about \$10 million at this
+  time of writing.} from BitFloor, a major Bitcoin
+exchange~\cite{kirk12:bitfloor}. What all of these instances have in
+common is that hackers exploited vulnerabilities in a web application
+to steal either usernames and passwords, credit cards, or Bitcoins.
 
 It is insightful to turn our attention to \emph{why} web applications
 have so many vulnerabilities. Those same properties that make web
@@ -38,13 +49,13 @@ bugs and vulnerabilities.
 The situation is dire. We must focus on new ways to secure web
 applications from attack. We must develop new tools in order to find
 the vulnerabilities before a hacker does. We must, because web
-applications and they data we store on them are too important.
+applications and the data they store are too important.
 
 \section{History of Web Applications}
 
 The World Wide Web was created by Sir.\ Tim Berners-Lee in 1989 as a
 means of sharing information for the CERN research organization. What
-began is a means of sharing simple hyper-linked textual documents,
+began as a means of sharing simple hyper-linked textual documents
 quickly exploded in popularity over the proceeding years.
 
 The core of the web has remained relatively the same throughout the
@@ -52,37 +63,37 @@ years: a web browser (operated by a user) connects to a web server
 using the Hypertext Transfer Protocol (HTTP)~\cite{fielding99:http11}.
 The web server then sends back a response, typically in the form of a
 HyperText Markup Language (HTML) page~\cite{berjon14:html5}. The web
-browser then parses the raw HTML page to turn it into a GUI that is
-displayed to the user. The fundamental underlying principle, and the
-definition of HyperText, is that an HTML page contains links to
+browser then parses the raw HTML page create a graphical web page that
+is displayed to the user. The fundamental underlying principle, and
+the definition of HyperText, is that an HTML page contains links to
 \emph{other} HTML pages.
 
 The beginning of the web was envisioned as a set of documents with
 links pointing to other documents. In other words, the web was mostly
 a set of read-only documents (from the perspective of the user with
-the web browser). This is where the term \emph{web sites} comes from:
-a web site is typically thought of as a collection of documents that
+the web browser). This is where the term \emph{web site} comes from: a
+web site is typically thought of as a collection of documents that
 exist under the same domain name.
 
 As the web evolved, web sites started to shift from static, read-only
 documents. Developers realized that the HTML response returned to the
 client could be dynamic---that is, the content of the HTML response
-could vary pragmatically. This shift in thinking caused web sites to
+could vary programmatically. This shift in thinking caused web sites to
 transition to \emph{web applications} which emulated features of
 traditional desktop applications. Web applications enabled scenarios
 that caused the web's popular to increase: e-commerce, news sites, and
 web-based email. It is hard to overstate the impact that web
 applications had on the uptake of the web. 
 
-Now, with web applications, the architecture of the web changed
-slightly. When the web browser makes an HTTP request to the server,
-instead of returning a static HTML response, the web server typically
-will invoke server-side code. This server-side code is responsible for
-returning a response, typically HTML, to the browser. The server-side
-code can use any number of inputs to determine the response, but the
-typical set-up is that the server-side reads the parameters sent in
-the browser's HTTP request, consults an SQL database, and returns an
-HTML response. 
+Now, with web applications, the architecture of the web changed. When
+the web browser makes an HTTP request to the server, instead of
+returning a static HTML response, the web server typically will invoke
+server-side code. This server-side code is responsible for returning a
+response, typically HTML, to the browser. The server-side code can use
+any number of inputs to determine the response, but the typical set-up
+is that the server-side code reads the parameters sent in the
+browser's HTTP request, consults an SQL database, and returns an HTML
+response.
 
 This architecture of a web application is what we will use throughout
 this chapter to discuss the security aspects of web applications.
@@ -90,7 +101,7 @@ this chapter to discuss the security aspects of web applications.
 \section{Web Application Vulnerabilities}
 
 The security properties of a web application are similar to the
-security of any other application: confidentially of the data,
+security of any other software system: confidentially of the data,
 integrity of the data, and availability of the application. In this
 dissertation, we will focus on attacks that compromise the
 confidentially or integrity of the web application's data.
@@ -105,7 +116,7 @@ control or influence the value of parameters that are used as part of
 an outside (to the language) query, command, or language. If the
 attacker can manipulate and change the semantics of the query,
 command, or language, and this compromises the security of the
-application, then that is an injection vulnerabilities.
+application, then that is an injection vulnerability.
 
 There are many types of injection vulnerabilities in web applications,
 and the types depend on the query, command, or language that is being
@@ -117,20 +128,48 @@ vulnerabilities: SQL injection and Cross-Site Scripting (XSS).
 \subsubsection{SQL Injection}
 
 SQL injection vulnerabilities, while declining in the number reported
-when compared to XSS vulnerabilities, are sill numerous and are
-incredibly critical when they occur.
+compared to XSS vulnerabilities, are still numerous and are incredibly
+critical when they occur.
 
 The root cause of SQL injection vulnerabilities is that the
 server-side code of the web application, in order to issue an SQL
-query to the SQL database, concatenates strings together. This form
+query to the SQL database, concatenates strings together. This format
 allows the queries to be parameterized, and therefore the server-side
-code can be more general. The problem is that, according to the
-server-side language, the resulting query is simply a string, whereas
-when that string is passed to the SQL server, the SQL server parses
-the string into a SQL query. Therefore, what the server-side code
-treats as a simple string is in fact a complex language. 
+code can be more general. 
 
-\textbf{Need example}
+\input{code_samples/sql_injection.tex}
+
+The code in Listing~\localref{sql-injection} shows a sample PHP web
+application that contains an SQL injection vulnerability. In Line~1 of
+this sample, the variable \texttt{\$name} is set based on the value of
+the query parameter called \texttt{name}. The \texttt{\$name} variable
+is used in Line~2 to construct an SQL query to look up the given user
+by name in an SQL table. The web application issues the query on Line~3.
+
+The problem is that, according to the server-side language, the
+resulting query is simply a string, whereas when that string is passed
+to the SQL server, the SQL server parses the string into a SQL query.
+Therefore, what the server-side code treats as a simple string is in
+fact a complex language. 
+
+In Listing~\localref{sql-injection}, the vulnerability comes from the
+fact that the query parameter \texttt{name} comes from the user and is
+untrusted. As seen in the example, the \texttt{\$name} variable is
+used in the SQL query to select based on the SQL \texttt{name} column.
+In order to do this, the programmer constrains the value to be
+in between matching \texttt{\textquotesingle}. Therefore, for the
+attacker to alter the semantics of the query, the attacker need only
+input something like the following: \texttt{\textquotesingle or 1=1;
+  \#}. This would cause the resulting query that the web application
+issues to the database to be the following:
+
+\texttt{select * from users where name =
+  \textquotesingle\textquotesingle or 1=1; \#\textquotesingle;}
+
+The \texttt{\#} is an SQL comment which means that everything after
+that in the query is ignored. Now the attacker has been able to alter
+the semantics of the SQL query, in this case by adding another SQL
+clause that was not in the original statement. 
 
 Thus, in order for an attacker to not alter the semantics of the SQL
 query, a web developer must be careful to properly \emph{sanitize} all
@@ -167,7 +206,7 @@ has support for prepared statements.
 \subsubsection{Cross-Site Scripting}
 
 Cross-Site Scripting (XSS) vulnerabilities are similar in spirit to
-SQL injection vulnerabilities. 
+SQL injection vulnerabilities.
 
 \subsection{Logic Flaws}
 
