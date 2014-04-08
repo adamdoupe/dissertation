@@ -5,7 +5,7 @@ BIBTEX = bibtex
 RERUN = "(There were undefined (references|citations)|Rerun to get (cross-references|the bars) right)"
 RERUNBIB = "No file.*\.bbl|Citation.*undefined"
 TARDIR = $(DOC:.tex=-src)
-SED_MATCH = "s/Toward Preventing Server-Side XSS via Automatic Code and Data Separation/Toward Preventing Server-Side XSS/g"
+PERL_MATCH = "s,Toward Preventing Server-Side XSS via Automatic Code and Data Separation,Toward Preventing Server-Side XSS,g"
 
 .PHONY: pdf clean
 
@@ -17,11 +17,11 @@ all: pdf
 	rm -f $(DOC_BASE).bbl
 	${PDFLATEX} $<
 	echo "TERRIBLE HACK TO FIX TOC HEADER"
-	sed -i $(SED_MATCH) $(DOC_BASE).toc
+	perl -pi -e $(PERL_MATCH) $(DOC_BASE).toc
 	egrep -c $(RERUNBIB) $*.log && ($(BIBTEX) $*;$(PDFLATEX) $<) ; true
-	sed -i $(SED_MATCH) $(DOC_BASE).toc
+	perl -pi -e $(PERL_MATCH) $(DOC_BASE).toc
 	egrep $(RERUN) $*.log && ($(PDFLATEX) $<) ; true
-	sed -i $(SED_MATCH) $(DOC_BASE).toc
+	perl -pi -e $(PERL_MATCH) $(DOC_BASE).toc
 	egrep $(RERUN) $*.log && ($(PDFLATEX) $<) ; true
 	egrep -i "(Reference|Citation).*undefined" $*.log ; true
 	dvips -o $(DOC_BASE).ps -t letter $(DOC_BASE).dvi
