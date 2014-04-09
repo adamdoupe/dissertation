@@ -335,22 +335,148 @@ flaw vulnerabilities called Execution After Redirect.
 
 \section{Securing Web Applications}
 
+Given the rise in popularity, ensuring that web applications are
+secure is critical. Security flaws in a web application could allow an
+attacker unprecedented access to secret data. 
+
+One approach is to either prevent vulnerabilities in web applications
+in the first place, or to detect when an attack takes place. 
+
 \subsection{Anomaly Detection}
+
+One way to secure web applications is to have tools and approaches
+that look for attack traffic on against the web application. These
+approaches typically 
 
 \subsection{Secure Construction}
 
 \section{Vulnerability Analysis Tools}
 
+Vulnerability analysis is the art of actively finding vulnerabilities
+in software. The idea here is to find vulnerabilities either before an
+application is deployed or before a hacker is able to find the
+vulnerability. 
+
+Manual vulnerability analysis is when a team of humans manually
+analyze an application for vulnerabilities. These vulnerability
+analyses, frequently called \emph{pentesting,} are great at finding
+vulnerabilities in software. However, the downside is that a expert's
+time is costly, therefore, due to the cost, a company very
+infrequently does pentesting of its applications.
+
+Vulnerability analysis tools are automated approaches to find
+vulnerabilities in software. The goal of this type of software is to
+find all possible vulnerabilities in an application. The idea is to
+encapsulate a human security expert's knowledge into a program that
+can be reused. 
+
+Because vulnerability analysis tools are automated, they can be used
+against a variety of applications. Furthermore, they are much less
+expensive than hiring a human expert, so they can be used much more
+frequently throughout the software development process.
+
+Vulnerability analysis tools can be categorized based on what
+information of the web application they use. In the following
+sections we will describe the difference between a white-box,
+black-box, and grey-box vulnerability analysis tools. 
+
 \subsection{White-Box}
+
+A white-box vulnerability analysis tool looks at the source code of
+the web application to find vulnerabilities. By analyzing the source
+code of the web application, a white-box tool can see \emph{all}
+program paths throughout the application. This enables a white-box
+tool to potentially find vulnerabilities along all program paths.
+Typically approaches leverage ideas and techniques from the program
+analysis and static analysis communities to find vulnerabilities.
+
+\textbf{How do they actually find vulns?}
+
+The biggest strength of white-box tools is that they are able to see
+all possible program paths through the application. However, as
+precisely finding all vulnerabilities in an application via static
+analysis is equivalent to the halting problem, trade-offs must be made
+in order to create functional tools. The trade-off that is often made
+in white-box tools is one of being complete rather than precise. What
+this means is that a white-box tool will report vulnerabilities that
+are not actual vulnerabilities. This is usually because static
+analysis will over-approximate the program paths that the application
+can take. Thus, there will be vulnerabilities reported that cannot
+occur in practice. 
+
+The downside of white-box tools is that they are tied to the specific
+language or framework. A white-box vulnerability analysis tool written
+for PHP will not work for Ruby on Rails without significant
+engineering work. These tools are tightly coupled to not only language
+features, but also framework features. 
 
 \subsection{Black-Box}
 
+In contrast to white-box tools, black-box vulnerability analysis tools
+assume no knowledge of the source-code of the web application. Instead
+of using the source code, black-box tools interact with the web
+application being tested just as a user with a browser would.
+Specifically, this means that the black-box tools issue HTTP requests
+to the web application, and receive back HTTP responses containing
+HTML. These HTML pages tell the black-box tool how to generate new
+HTTP requests to the application. 
+
+Black-box tools first will crawl the web application looking for all
+possible \emph{injection vectors} into the web application. An
+injection vector is any way that an attacker can get input into the
+web application. In practice, web application injection vectors are
+things like URL parameters, HTML form parameters, HTTP cookies, HTTP
+headers, URL path, and so on. 
+
+Once the black-box tool has enumerated all possible injection vectors
+in the application, the next step is to give the web application input
+which is intended to trigger or expose a vulnerability in the web
+application. This process is typically called \emph{fuzzing.} The
+specifics of choosing which injection vectors to fuzz and when are
+specific to each black-box tool. 
+
+Finally, the black-box tool will judge the HTML and HTTP response to
+the fuzzing attempts in order to tell if they were successful. If they
+are, the black-box tool will report it as a vulnerability. 
+
+There are two major benefits of black-box tools as opposed to
+white-box tools. The first is that black-box tools are general and can
+find vulnerabilities in \emph{any} web application, regardless of what
+language the server-side code is written in. In this way, black-box
+tools emulate an external hacker who has no access to the source code
+of the application. Therefore, black-box tools are applicable to a
+much larger number of web applications. 
+
+The second major benefit is that black-box tools have significantly
+lower false positives than white-box tools. This is because the
+fuzzing attempt actually tries to trigger the vulnerability, and, for
+most web vulnerabilities, a successful exploitation will be evident in
+the resulting HTML page. Ultimately, what this means is that
+developers who run these tools against their own web applications
+trust the output of a black-box tool than a white-box tool. 
+
+The drawback of a black-box tool is that it is not guaranteed to find
+all vulnerabilities in your web application. This is because a
+black-box tool can only find vulnerabilities along program paths that
+it executes, whereas a white-box tool can see all program paths
+through an application. 
+
 \subsection{Grey-Box}
 
+As the name suggests, grey-box tools are a combination of white-box
+techniques and black-box techniques. The main idea is to use white-box
+static analysis techniques to generate possible vulnerabilities. Then,
+there is a confirmation step where the tool will actually try to
+exploit the vulnerability. Only if this step is successful will the
+tool report the vulnerability.
 
-
-New section without a title, this is what this dissertation is going
-to be about.
+Grey-box tools inherit the pros of white-box tools: ability to find
+vulnerabilities in all program paths along with the low false positive
+rate associate with black-box tools (as the vulnerabilities are
+verified by black-box techniques). However, grey-box tools also
+inherit the cons of white-box tools: applicability to a single web
+application language or framework. Therefore, these types of tools are
+not very popular.
 
 
 
