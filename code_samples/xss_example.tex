@@ -1,0 +1,10 @@
+{\ssp
+\begin{lstlisting}[language=php, caption={[Example of a XSS 
+        vulnerability.]Example of a XSS vulnerability in a
+      PHP web application. The attacker-controlled \texttt{\$name} parameter is used
+      unsanitized in the HTML output on Line~2.},
+    label=\currentprefix:xss-example, float,]
+$name = $_GET['name'];
+echo "Hello <b>" . $name . "</b>";
+\end{lstlisting}
+}

@@ -206,9 +206,132 @@ has support for prepared statements.
 \subsubsection{Cross-Site Scripting}
 
 Cross-Site Scripting (XSS) vulnerabilities are similar in spirit to
-SQL injection vulnerabilities.
+SQL injection vulnerabilities. Instead of injection into a SQL
+queries, XSS vulnerabilities are injections into the HTML output that
+the web application generates. XSS vulnerabilities are frequently in
+the top three of all reported vulnerabilities in \emph{all} software
+systems.
+
+The root cause of XSS vulnerabilities is that the server-side code of
+a web application, in order to create the web application's HTML
+response, essentially concatenates strings together.
+
+\input{code_samples/xss_example.tex}
+
+Listing~\localref{xss-example} shows an example PHP web application
+that has an XSS vulnerability. In Line~1, the variable \texttt{\$name}
+is retrieved from the query parameter \texttt{name}. Then,
+\texttt{\$name} is used in Line~2 as an argument to PHP's
+\texttt{echo} function, which sends its string argument to the HTTP
+response. The goal of this code is to output the user's name in bold.
+This is accomplished in HTML by wrapping the user's name in a bold tag
+(\texttt{<b>}).
+
+If an attacker is able to control the HTML output of the web
+application, as the \texttt{\$name} parameter in
+Listing~\localref{xss-example}, then the attacker can trick the user's
+web browser into executing the attacker's JavaScript. This can be
+accomplished in a variety of ways, one example would be inputting the
+following for the \texttt{name} query parameter:
+
+\texttt{<script>alert('xss');</script>}
+
+This input is the way for the web application to tell the user's
+browser to execute JavaScript. 
+
+The fundamental building block of JavaScript security in the web
+browser is the \emph{Same Origin Policy}. In essence, this security
+policy means that only JavaScript that comes from the same
+origin\footnote{Here, we leave the exact description of same origin to
+  be imprecise. We will define it later when necessary.} can interact.
+In practice, what this means is that JavaScript running on the browser
+from \texttt{hacker.com} cannot interact with or affect JavaScript
+running on the browser from \texttt{example.com}.
+
+The name \emph{Cross-Site Scripting} is derived from the fact that XSS
+circumvents the browser's Same Origin Policy. By using an XSS
+vulnerability, an attacker is able to trick a user's browser to
+execute JavaScript code of their chosen in the web application's
+origin. This is because, from the browser's perspective, the
+JavaScript came from the web application, so the browser happily
+executes it along with the web application's JavaScript.
+
+Armed with an XSS vulnerability, a hacker can wreck havoc to
+compromise a web application. A popular XSS exploitation technique is
+to steal the web application's cookies and send them to the attacker.
+Typically the web application's cookies are used to authenticate and
+keep state with the web application, which might allow the attacker to
+impersonate the user. 
+
+By executing JavaScript in the same origin as the web application, the
+attacker's JavaScript has total control over the DOM of the web page.
+What this means is that the attacker can completely alter the look of
+the web page, and could, for instance, change the page into the web
+application's login form. However, once the user put their information
+into the form, the attacker's JavaScript could steal that information.
+In this way, the attacker is able to phish the user's credentials,
+except in this instance the user is actually on the correct domain
+name.
+
+The other insidious thing that an attacker's JavaScript can do if it
+executes in the user's browser is interact with the web application on
+behalf of the user. This defeats any CSRF protection that the web
+application has enabled, as the attacker's JavaScript can read all the
+CSRF tokens. In practice, what this means is that the attacker's
+JavaScript can interact with the web application, and the web
+application has no way of knowing that the requests did not come from
+the user. Imagine an attacker's JavaScript sending emails as you or
+initiating a bank transfer.
+
+XSS vulnerabilities can be fixed by proper sanitizaiton at all program
+points in the web application that output HTML. This sanitization
+process typically will convert entities that are significant in
+parsing HTML to their display equivalent. For instance, the HTML
+\texttt{<} character is transfer to its HTML entities equivalent
+\texttt{\&gt;}, which means to display a \texttt{<} character on the
+resulting web page, rather than starting an HTML tag.
+
+There are a number of practical difficulties that make properly
+sanitizing output for XSS vulnerabilities particularly challenging
+(especially when compared to SQL injection vulnerabilities). One is
+that, as shown by Saxena, Molnar, and
+Livshits~\cite{saxena11:scriptgard}, there are numerous types of
+sanitization for XSS vulnerabilities, and which type of sanitization
+to use depends on \emph{where} the output is used in the resulting
+HTML page. This means that the developer must reason not only about
+all program paths that a variable may take to get to a specific point
+(to see if an attacker can influence its value), but also about all
+the different places in the HTML output where the variable is used.
+With all this complexity, it is clear why XSS vulnerabilities are
+still the most frequent web vulnerability. 
+
+Unfortunately XSS vulnerabilities have no easy, widely supported fix,
+as prepared statements are to SQL injection vulnerabilities. However,
+in Chapter~\ref{dedacota} we will look at an approach to fundamentally
+solve XSS vulnerabilities.
 
 \subsection{Logic Flaws}
+
+As the name suggests, logic flaws are a vulnerability class that
+occurs when the logic of the web application does not match with the
+developer's intended logic of the web application. One popular example
+would be, on an ecommerce application, if a user is able to submit a
+coupon multiple times, until the price of the item is zero. 
+
+An injection vulnerability can affect any web application, and the
+remedy of the vulnerabilities will be the same, regardless of the
+underlying web application. In contrast, logic flaws are specific and
+unique to the web application. Behavior that appears in two web
+applications may be a logic flaw in one but a security vulnerability
+in the other. The distinguish feature of logic flaw vulnerabilities is
+that the web application code is functioning correctly, however that
+behavior violates the developer's security model of the application.
+Therefore, these vulnerabilities are incredibly difficult to detect in
+an automated fashion, as the automated tool must reverse engineer the
+developer's intended security model.
+
+In Chapter~\ref{fear-the-ear}, we will describe a novel class of logic
+flaw vulnerabilities called Execution After Redirect.
 
 \section{Securing Web Applications}
 
