@@ -1481,25 +1481,7 @@ moving inline JavaScript into separate files. The web server was a
 2008 R2, while the client was a similar VM running Windows 7. The physical
 server was an 8 GB, 3.16 GHz dual-core machine running Windows Server 2008 R2.
 
-\begin{table}[bt]
-\centering
-{\scriptsize
-\begin{tabular}{lrr}
-\hline
-Application & Page Size & Loading Time \\
-\hline
-ChronoZoom (original) & 50,827 & 0.65 \\
-ChronoZoom (transformed) & 20,784 & 0.63 \\
-BlogEngine.NET (original)  & 18,518 & 0.15 \\
-BlogEngine.NET (transformed) & 19,269 & 0.16 \\
-\hline
-\end{tabular}}
-\caption[Performance measurements after running \dedacota]{Performance measurements for two of the tested applications,
-  ChronoZoom. Page Size is the size (in bytes)
- of the main HTML page rendered by the browser, and Loading Time is the
-  time (in seconds) that the browser took to load and display the page.}
-\label{tab:perf_results}
-\end{table}
+\input{tables/performance}
 
 Table~\ref{tab:perf_results} shows test results for two web
 applications, summarizing performance data from page-loading tests on the
