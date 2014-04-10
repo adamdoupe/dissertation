@@ -339,18 +339,41 @@ Given the rise in popularity, ensuring that web applications are
 secure is critical. Security flaws in a web application could allow an
 attacker unprecedented access to secret data. 
 
-One approach is to either prevent vulnerabilities in web applications
-in the first place, or to detect when an attack takes place. 
+There are numerous approaches to secure web applications, depending on
+where one wants to focus. One approach is to detect attacks as they
+happen, and possible block the malicious traffic. Another approach is
+to construct the web application in a way such that it is not
+vulnerable to entire classes of security vulnerabilities. Finally, and
+the approach taken in the majority of this dissertation, is automated
+tools to automatically find vulnerabilities in web applications.
+
 
 \subsection{Anomaly Detection}
 
 One way to secure web applications is to have tools and approaches
-that look for attack traffic on against the web application. These
-approaches typically 
+that look for attacks against web
+applications~\cite{robertson09:dissertation}. There are many
+approaches in this area, but most of them first involve creating a
+model of the normal behavior of the web application. Then, after this
+model is created, a monitoring/detection process starts which analyzes
+traffic for the web application looking for anomalous requests which
+signify an attack. Depending on the anomaly detection system, the
+request can be blocked or prevented at that time. 
 
-\subsection{Secure Construction}
+Anomaly detection systems are good for preventing unknown
+exploits against the web application. However, the effectiveness of
+the anomaly detection depends on the creation of the web application
+model and the presence of extensive attack-free traffic. 
 
-\section{Vulnerability Analysis Tools}
+Modern web application can use firewalls and anomaly detection systems
+in production web applications as a defense-in-depth approach. 
+
+%% \subsection{Secure Construction}
+
+%% Another approach to secure web applications is to create them in such
+%% a way as 
+
+\subsection{Vulnerability Analysis Tools}
 
 Vulnerability analysis is the art of actively finding vulnerabilities
 in software. The idea here is to find vulnerabilities either before an
@@ -380,7 +403,7 @@ information of the web application they use. In the following
 sections we will describe the difference between a white-box,
 black-box, and grey-box vulnerability analysis tools. 
 
-\subsection{White-Box}
+\subsubsection{White-Box}
 
 A white-box vulnerability analysis tool looks at the source code of
 the web application to find vulnerabilities. By analyzing the source
@@ -410,7 +433,7 @@ for PHP will not work for Ruby on Rails without significant
 engineering work. These tools are tightly coupled to not only language
 features, but also framework features. 
 
-\subsection{Black-Box}
+\subsubsection{Black-Box}
 
 In contrast to white-box tools, black-box vulnerability analysis tools
 assume no knowledge of the source-code of the web application. Instead
@@ -461,7 +484,7 @@ black-box tool can only find vulnerabilities along program paths that
 it executes, whereas a white-box tool can see all program paths
 through an application. 
 
-\subsection{Grey-Box}
+\subsubsection{Grey-Box}
 
 As the name suggests, grey-box tools are a combination of white-box
 techniques and black-box techniques. The main idea is to use white-box
@@ -477,10 +500,59 @@ verified by black-box techniques). However, grey-box tools also
 inherit the cons of white-box tools: applicability to a single web
 application language or framework. Therefore, these types of tools are
 not very popular.
+\\
 
+\noindent{}Given the incredible usefulness of web applications, it is
+clear that securing web applications is incredibly important.
+Specifically, we must focus on the needs of the users: making sure
+that their data is safe, and that they are safe while browsing the
+web. To accomplish this, I believe that we must make the necessary
+strides to create automated tools that are able to automatically find
+security vulnerabilities. These tools can be used by developers with
+no security expertise, thus raising the security bar of the web. 
+\\
 
+\noindent{}In this dissertation, I make the following contributions to securing
+web applications from attack:
 
-% --------------------------------------------------------------------
+\begin{itemize}
+
+\item I first take a look at existing black-box web application
+  vulnerability scanners. We develop a known-vulnerable web
+  application, then evaluate several real-world black-box web
+  application vulnerability scanners to identify their strengths and
+  weaknesses. 
+
+\item Then, using the previously developed work as a guiding force, I
+  aim to solve the biggest problem holding back modern black-box web
+  application vulnerability scanners: they do not understand the web
+  application's state. I develop an approach to automatically
+  reverse-engineer the state machine of a web application only
+  interacting with the web application in a black-box manner.
+  Implementing this approach into a black-box web application
+  vulnerability scanner enables the scanner to test significantly more
+  of the web application. 
+
+\item I identify and study a novel class of web application
+  vulnerabilities, called Execution After Redirect, or EARs. These
+  logic flaw vulnerabilities can affect web applications written in a
+  number of languages or frameworks. In addition to studying these
+  vulnerabilities themselves, we developed a white-box static analysis
+  tool to automatically identify EARs in Ruby on Rails web
+  applications. Applying this tool to a large corpus of real-world
+  open-source web application, we find many vulnerabilities. 
+
+\item Finally, I propose a new approach to fundamentally solve
+  Cross-Site Scripting vulnerabilities. By using the fundamental
+  security principles of Code and Data separation, we can view XSS
+  vulnerabilities as a problem of Code and Data separation. To further
+  this goal, I created a tool to automatically perform Code and Data
+  separation for legacy web applications. After applying this tool,
+  the web applications are fundamentally secure from server-side XSS
+  vulnerabilities. 
+
+\end{itemize}
+
 % Thesis Statement
 % --------------------------------------------------------------------
 %% \pagebreak
