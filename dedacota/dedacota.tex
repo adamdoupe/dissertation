@@ -1,6 +1,18 @@
 \chapter[Toward Preventing Server-Side XSS]{Toward Preventing Server-Side XSS via Automatic Code and Data Separation}
 \label{dedacota}
 
-An introduction to the work that I've done on deDacota.
+Automatically finding vulnerabilities, as we have done in the previous
+chapters, is a great way to find vulnerabilities in web applications.
+However, there is always the risk that the automated tools do not find
+a vulnerability, and these tools give no guarantees that all
+vulnerabilities are found. Another avenue to secure web applications
+from attack is to write the application in such a way as to make
+vulnerabilities impossible. In this chapter, we examine Cross-Site
+Scripting vulnerabilities as having the root cause of Code and Data
+mixing. By properly applying the basic security principles of Code and
+Data separation we can automatically prevent a wide swath of
+Cross-Site Scripting vulnerabilities. 
+\\
 
 \subinputfrom{dedacota/}{dedacota-paper}
+

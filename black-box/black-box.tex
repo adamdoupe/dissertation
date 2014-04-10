@@ -1,16 +1,26 @@
 \chapter{An Analysis of Black-Box Web Application Vulnerability Scanners}
 \label{why-johnny-cant-pentest}
 
-An introduction to the work that I've done on black-box web
-application vulnerability scanners.
-
-First, the why Johnny Can't Pentest work.
+First, we will turn our attention to the problem of black-box web
+application vulnerabilities scanners---that is, automated tools that
+attempt to find security vulnerabilities in web applications. The goal
+of this chapter is study the current state of black-box web
+application vulnerability scanners. 
+\\
 
 \subinputfrom{why-johnny-cant-pentest/}{why-johnny-cant-pentest}
 
 
 \chapter{A State-Aware Black-Box Web Vulnerability Scanner}
 \label{enemy-of-the-state}
-An introduction into the Enemy of the State Work.
+
+We identified the biggest problem common to black-box web application
+vulnerability scanners in the previous chapter: The scanners treat the
+web application as if it was a web site, and ignore the fact that it
+is an \emph{application} with state. In this chapter, we describe
+methods and approaches to automatically infer the state of a web
+application in a black-box manner, and we apply this to a black-box
+web application vulnerability scanner.
+\\
 
 \subinputfrom{enemy-of-the-state/}{enemy-of-the-state}

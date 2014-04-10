@@ -1,45 +1,8 @@
-
-\begin{tikzpicture}[>=latex,line join=bevel,]
-%%
-\node (11) at (259bp,224bp) [draw,ellipse] {(/html/body/div/span/a, /html/body/div/form)};
-  \node (51) at (96bp,12bp) [draw,ellipse] {((0), (0, 1), (5), (NULL), (5))};
-  \node (13) at (624bp,224bp) [draw,ellipse] {(/html/body/table/div/a)};
-  \node (12) at (477bp,224bp) [draw,ellipse] {REDIRECT};
-  \node (21) at (259bp,171bp) [draw,ellipse] {(/user, /post)};
-  \node (22) at (477bp,171bp) [draw,ellipse] {/messages};
-  \node (23) at (624bp,171bp) [draw,ellipse] {(/comments)};
-  \node (33) at (624bp,118bp) [draw,ellipse] {(all.php)};
-  \node (32) at (477bp,118bp) [draw,ellipse] {show.php};
-  \node (31) at (259bp,118bp) [draw,ellipse] {(profile.php, edit.php)};
-  \node (56) at (686bp,12bp) [draw,ellipse] {(DSC)};
-  \node (42) at (477bp,65bp) [draw,ellipse] {(id)};
-  \node (43) at (624bp,65bp) [draw,ellipse] {(sorted)};
-  \node (APT) at (477bp,275bp) [draw,ellipse] {APT};
-  \node (41) at (259bp,65bp) [draw,ellipse] {((id, page), (all, sorted), (text, email, id))};
-  \node (55) at (618bp,12bp) [draw,ellipse] {(ASC)};
-  \node (53) at (477bp,12bp) [draw,ellipse] {(1)};
-  \node (54) at (546bp,12bp) [draw,ellipse] {(NULL)};
-  \node (52) at (305bp,12bp) [draw,ellipse] {((5), (5, 3), (1), (YES), (10))};
-  \node (57) at (761bp,12bp) [draw,ellipse] {(RAND)};
-  \draw [->] (13) ..controls (624bp,206.45bp) and (624bp,199.65bp)  .. (23);
-  \draw [->] (41) ..controls (199.83bp,45.487bp) and (165.74bp,34.82bp)  .. (51);
-  \draw [->] (22) ..controls (477bp,153.23bp) and (477bp,146.09bp)  .. (32);
-  \draw [->] (21) ..controls (259bp,153.45bp) and (259bp,146.65bp)  .. (31);
-  \draw [->] (42) ..controls (477bp,47.454bp) and (477bp,40.647bp)  .. (53);
-  \draw [->] (43) ..controls (666.92bp,48.023bp) and (704.02bp,34.211bp)  .. (57);
-  \draw [->] (43) ..controls (622.05bp,47.454bp) and (621.25bp,40.647bp)  .. (55);
-  \draw [->] (31) ..controls (259bp,100.45bp) and (259bp,93.647bp)  .. (41);
-  \draw [->] (11) ..controls (259bp,206.45bp) and (259bp,199.65bp)  .. (21);
-  \draw [->] (APT) ..controls (428.68bp,263.14bp) and (363.33bp,248.45bp)  .. (11);
-  \draw [->] (12) ..controls (477bp,208.36bp) and (477bp,200.61bp)  .. (22);
-  \draw [->] (43) ..controls (598bp,46.999bp) and (582.11bp,36.608bp)  .. (54);
-  \draw [->] (APT) ..controls (477bp,259.5bp) and (477bp,251.29bp)  .. (12);
-  \draw [->] (33) ..controls (624bp,100.45bp) and (624bp,93.647bp)  .. (43);
-  \draw [->] (APT) ..controls (513.85bp,261.72bp) and (553.25bp,248.58bp)  .. (13);
-  \draw [->] (23) ..controls (624bp,153.45bp) and (624bp,146.65bp)  .. (33);
-  \draw [->] (41) ..controls (274.53bp,46.785bp) and (281.58bp,38.967bp)  .. (52);
-  \draw [->] (32) ..controls (477bp,101.03bp) and (477bp,93.806bp)  .. (42);
-  \draw [->] (43) ..controls (644.85bp,46.848bp) and (656.54bp,37.234bp)  .. (56);
-%
-\end{tikzpicture}
-
+\begin{figure*}[tb]
+  \centering
+  \includegraphics{figures/abstract_page_tree.ps}
+  \caption{Abstract Page Tree. Every page's link vector is stored
+    in this prefix tree. There are seven pages in this tree. The page link vector
+    from Figure~\ref{page-prefix-tree} is highlighted in bold.}
+  \label{abstract-page-tree}
+\end{figure*}

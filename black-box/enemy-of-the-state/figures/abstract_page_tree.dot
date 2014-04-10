@@ -1,8 +1,6 @@
 digraph G{
 	rankdir=TB;
 	size="5,100";
-	ranksep=".4";
-	
 	
 	APT [label="APT"];
 	11 [penwidth="4", label="(/html/body/div/span/a, /html/body/div/form)"];
