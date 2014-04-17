@@ -1,112 +1,128 @@
 \chapter{Related Work}
 
-\section{Why Johnny Can't Pentest Related Work}
+Automated web application vulnerability analysis tools are an area of
+research that has received considerable study. In this chapter, we
+will discuss works related to different areas of web application
+vulnerability scanners: how black-box web vulnerability scanners are
+evaluated, the history of black-box and white-box tools, and finally
+the various proposed defenses for Cross-Site Scripting
+vulnerabilities.
+
+\section{Evaluating Black-Box Web Vulnerability Scanners}
 \label{sec:related_work}
 
-Our work is related to two main areas of research: the design of 
-web applications for assessing vulnerability analysis tools and the
-evaluation of web scanners.
+Our work on evaluating black-box vulnerability scanners in
+Chapter~\ref{why-johnny-cant-pentest} is related to two main areas of
+research: the design of web applications for assessing vulnerability
+analysis tools and the evaluation of web scanners.
 
-\noindent {\bf Designing test web applications.} 
-Vulnerable test applications are required to assess 
-web vulnerability scanners. Unfortunately, no standard
-test suite is currently available or accepted by the industry. 
-HacmeBank~\cite{hacme_bank} and WebGoat~\cite{owasp-webgoat} are two
+\noindent {\bf Designing test web applications.} Vulnerable test
+applications are required to assess web vulnerability scanners.
+Unfortunately, no standard test suite is currently available or
+accepted by the industry and research community.
+HacmeBank~\cite{hacme_bank} and Web\-Goat~\cite{owasp-webgoat} are two
 well-known, publicly-available, vulnerable web applications, but their
 design is focused more on teaching web application security rather
-than testing automated scanners. 
-SiteGenerator~\cite{owasp_sitegenerator} is a tool to
-generate sites with certain characteristics (e.g., classes of
-vulnerabilities) according to its input configuration. 
-While SiteGenerator is useful to automatically produce different vulnerable
-sites, we found it easier to manually introduce in Wacko\-Picko the
-vulnerabilities with the characteristics that we wanted to test.
+than testing automated scanners.
 
-\noindent {\bf Evaluating web vulnerability scanners.}
-There exists a growing body of literature on the evaluation of web
-vulnerability scanners. For example, 
-Suto compared three scanners against three different applications and
-used code coverage, among other metrics, as a measure of the
-effectiveness of each scanner~\cite{suto07}. In a recent follow-up study,
-Suto~\cite{suto10:webscanners} assessed seven scanners and compared
-their detection capabilities and the time required to run them.
-Wiegenstein et al. ran five unnamed scanners against a custom
-benchmark~\cite{wiegenstein06}. Unfortunately, the authors do not discuss in
-detail the reasons for detections or spidering failures.
-In their survey of web security assessment tools, Curphey
-and Araujo reported that black-box scanners perform
-poorly~\cite{curphey06}.
-Peine examined in depth the functionality and user interfaces of seven
-scanners (three commercial) that were run against WebGoat
-and one real-world application~\cite{peine06}.
-Kals et al. developed a new web vulnerability scanner and tested it on
-about 25,000 live web pages~\cite{kals06:secubat}. Since no ground
-truth is available for these sites, the authors cannot discuss false
-negative rate or failures of their tool.
-More recently, AnantaSec released an evaluation of three scanners against
-13 real-world applications, three web applications provided by the 
-scanners vendors, and a series of JavaScript tests~\cite{anantasec09}. 
-While this experiment assesses a large number of real-world
-applications, only a limited number of scanners are tested and no
-explanation is given for the results.
-In addition, Vieira et al. tested four web scanners on 300 web
-services~\cite{vieira09}. They also report high rates of false
+SiteGenerator~\cite{owasp_sitegenerator} is a tool to generate sites
+with certain characteristics (e.g., classes of vulnerabilities)
+according to its input configuration. While SiteGenerator is useful to
+automatically produce different vulnerable sites, we found it easier
+to manually introduce in Wacko\-Picko the vulnerabilities with the
+characteristics that we wished to test.
+
+\noindent {\bf Evaluating web vulnerability scanners.} There exists a
+growing body of literature on the evaluation of web vulnerability
+scanners. For example, Suto compared three scanners against three
+different applications and used code coverage, among other metrics, as
+a measure of the effectiveness of each scanner~\cite{suto07}. In a
+follow-up study, Suto~\cite{suto10:webscanners} assessed seven
+scanners and compared their detection capabilities and the time
+required to run them. Wiegenstein et al. ran five unnamed scanners
+against a custom benchmark~\cite{wiegenstein06}. Unfortunately, the
+authors do not discuss in detail the reasons for detections or
+spidering failures. In their survey of web security assessment tools,
+Curphey and Araujo reported that black-box scanners perform
+poorly~\cite{curphey06}. Peine examined in depth the functionality and
+user interfaces of seven scanners (three commercial) that were run
+against WebGoat and one real-world application~\cite{peine06}. Kals et
+al.\ developed a new web vulnerability scanner and tested it on
+approximately 25,000 live web pages~\cite{kals06:secubat}. Because no
+ground truth is available for these sites, the authors did not discuss
+false negative rate or failures of their tool. AnantaSec released an
+evaluation of three scanners against 13 real-world applications, three
+web applications provided by the scanner vendors, and a series of
+JavaScript tests~\cite{anantasec09}. While this experiment assessed a
+large number of real-world applications, only a limited number of
+scanners are tested and no explanation is given for the results. In
+addition, Vieira et al.\ tested four web vulnerability scanners on 300
+web services~\cite{vieira09}. They also report high rates of false
 positives and false negatives.
 
-In comparison, our work, to the best of our knowledge, performs the largest evaluation of web
-application scanners in terms of the number of tested tools (eleven,
-both commercial and open-source), and the class of vulnerabilities analyzed.
-In addition, we discuss the effectiveness of different
-configurations and levels of manual intervention, and examine in detail
-the reasons for a scanner's success or failure.
+%% In comparison, our work, to the best of our knowledge, performs the
+%% largest evaluation of web application scanners in terms of the number
+%% of tested tools (eleven, both commercial and open-source), and the
+%% class of vulnerabilities analyzed. In addition, we discuss the
+%% effectiveness of different configurations and levels of manual
+%% intervention, and examine in detail the reasons for a scanner's
+%% success or failure.
 
-Furthermore, we provide a discussion of challenges (i.e., critical
-limitations) of current web vulnerability scanners. While some of these
-problem areas were discussed before ~\cite{grossman04,mcallister08}, we provide quantitative
-evidence that these issues are actually limiting the performance of
-today's tools.
-We believe that this discussion will provide useful insight into
-how to improve state-of-the-art of black-box web vulnerability scanners.
+%% Furthermore, we provide a discussion of challenges (i.e., critical
+%% limitations) of current web vulnerability scanners. While some of these
+%% problem areas were discussed before ~\cite{grossman04,mcallister08}, we provide quantitative
+%% evidence that these issues are actually limiting the performance of
+%% today's tools.
+%% We believe that this discussion will provide useful insight into
+%% how to improve state-of-the-art of black-box web vulnerability scanners.
 
-\section{Enemy of the State Related Work}
+\section{Black-Box Vulnerability Scanners}
 
-Automatic or semi-automatic web application vulnerability scanning has been a
-hot topic in research for many years because of its relevance and its
-complexity. 
+Automatic or semi-automatic web application vulnerability scanning has
+been a hot topic in research for many years because of its relevance
+and its complexity. In Chapter~\ref{enemy-of-the-state} we will
+discuss the creation of a new black-box vulnerability scanner
+technique. Here, we review the relevant literature.
 
 Huang et al.\ developed a tool (WAVES) for assessing web application
-security with which we share many points~\cite{huang03:web}. Similarly to us, they have a scanner
-for finding the entry points in the web application by mimicking the behavior of
-a web browser. They employ a learning mechanism to sensibly fill
-web form fields and allow deep crawling of pages behind forms. Attempts to
-discover vulnerabilities are carried out by submitting the same form multiple
-times with valid, invalid, and faulty inputs, and comparing the result pages.
-Differently from WAVES, we are using the knowledge gathered by the first-phase
-scanner to help the fuzzer detect the effect of a given input. Moreover,
-our first-phase scanner aims not only at finding relevant entry-points, but
-rather at building a complete state-aware navigational map of the web
+security with which we share many points~\cite{huang03:web}. Similarly
+to our work, they have a scanner for finding the entry points in the
+web application by mimicking the behavior of a web browser. They
+employ a learning mechanism to sensibly fill web form fields and allow
+deep crawling of pages behind forms. Attempts to discover
+vulnerabilities are carried out by submitting the same form multiple
+times with valid, invalid, and faulty inputs, and comparing the result
+pages. Differently from WAVES, we are using the knowledge gathered by
+the understanding of the web application's state to help the fuzzer
+detect the effect of a given input. Moreover, black-box vulnerability
+scanner aims not only at finding relevant entry-points, but rather at
+building a complete state-aware navigational map of the web
 application.
 
 A number of tools have been developed to try to automatically discover
 vulnerabilities in web applications, produced as academic
-prototypes~\cite{kals06:secubat, halfond09:penetration, jovanovic10:static,
-huang04:securing, balzarotti08:saner, felmetsger10:logic, li12:sentinel}, as open-source
+prototypes~\cite{kals06:secubat, halfond09:penetration,
+  jovanovic10:static, huang04:securing, balzarotti08:saner,
+  felmetsger10:logic, li12:sentinel}, as open-source
 projects~\cite{w3af, grendelscan, paros}, or as commercial
 products~\cite{acunetix, appscan, burp, webinspect}.
 
-Multiple projects~\cite{bau10:state, suto10:webscanners,
-  vieira09} tackled the task of evaluating the effectiveness of popular
-black-box scanners (in some cases also called \emph{point-and-shoot} scanners).
-The common theme in their results is a relevant discrepancy in vulnerabilities
-found across scanners, along with low accuracy. Authors of these evaluations
+Multiple projects~\cite{bau10:state, suto10:webscanners, vieira09}, as
+well as Chapter~\ref{why-johnny-cant-pentest} tackled the task of
+evaluating the effectiveness of popular black-box scanners (in some
+cases also called \emph{point-and-shoot} scanners). The common theme
+in their results is a relevant discrepancy in vulnerabilities found
+across scanners, along with low accuracy. Authors of these evaluations
 acknowledge the difficulties and challenges of the
-task~\cite{grossman04, vieira09}. In particular, we
-highlighted how more deep crawling and reverse engineering capabilities of web
-applications are needed in black-box scanners, and we also developed the
-\emph{WackoPicko} web application which contains known vulnerabilities described in Chapter~\ref{why-johnny-cant-pentest}. Similarly, Bau
-et al.\ investigated the presence of room for research in this area, and found
-improvement is needed, in particular for detecting second-order XSS and SQL
-injection attacks~\cite{bau10:state}.
+task~\cite{grossman04, vieira09}. In particular, we highlighted how
+more deep crawling and reverse engineering capabilities of web
+applications are needed in black-box scanners, and we also developed
+the \emph{WackoPicko} web application which contains known
+vulnerabilities described in Chapter~\ref{why-johnny-cant-pentest}.
+Similarly, Bau et al.\ investigated the presence of room for research
+in this area, and found improvement is needed, in particular for
+detecting second-order XSS and SQL injection
+attacks~\cite{bau10:state}.
 
 %\cite{doupe2010johnny} evaluation of blackbox scanners again wackopicko:
 %challenging task, many vulnerbailities are overlooked, more deep crawling and
@@ -124,105 +140,120 @@ injection attacks~\cite{bau10:state}.
 %\cite{grossman04} presentation about the challenges
 
 Reverse engineering of web applications has not been widely explored
-in the literature, to our knowledge. Some approaches~\cite{di02:ware} perform static analysis on the code to create UML
-diagrams of the application.
+in the literature, to our knowledge. Some approaches~\cite{di02:ware}
+perform static analysis on the code to create UML diagrams of the
+application.
 
-Static analysis, in fact, is the technique mostly employed for automatic
-vulnerability detection, often combined with dynamic analysis.
+Static analysis, in fact, is the technique mostly employed for
+automatic vulnerability detection, often combined with dynamic
+analysis.
 
 Halfond et al.\ developed a traditional black-box vulnerability
-scanner, but improved its result by leveraging a static analysis technique to
-better identify input vectors~\cite{halfond09:penetration}.
+scanner, but improved its results by leveraging a static analysis
+technique to better identify input
+vectors~\cite{halfond09:penetration}.
 
 \emph{Pixy}~\cite{jovanovic10:static} employed static analysis with
-taint propagation in order to detect SQL injection, XSS and shell command
-injection, while \emph{Saner}~\cite{balzarotti08:saner} used sound
-static analysis to detect failures in sanitization routines. Saner
-also takes advantage of a second phase of dynamic analysis to reduce
-false positives. Similarly, \emph{WebSSARI}~\cite{huang04:securing}
-also employed static analysis for detecting injection vulnerabilities,
-but, in addition, it proposed a technique for runtime
-instrumentation of the web application through the insertion of proper
-sanitization routines.
+taint propagation in order to detect SQL injection, XSS, and shell
+command injection, while \emph{Saner}~\cite{balzarotti08:saner} used
+sound static analysis to detect failures in sanitization routines.
+Saner also takes advantage of a second phase of dynamic analysis to
+reduce false positives. Similarly,
+\emph{WebSSARI}~\cite{huang04:securing} also employed static analysis
+for detecting injection vulnerabilities, but, in addition, it proposed
+a technique for runtime instrumentation of the web application through
+the insertion of proper sanitization routines.
 
-Felmetsger et al.\ investigated an approach for detecting a different type of
-vulnerability (some categories of logic flaws) by combining
-execution traces and symbolic model checking~\cite{felmetsger10:logic}. Similar
-approaches are also used for generic bug finding (in fact, vulnerabilities
-could be considered a subset of the general bug category). Csallner et
-al.\ employ dynamic traces for bug finding and for dynamic verification of the
-alerts generated by the static analysis phase~\cite{csallner08:dsd}. Artzi et
-al., on the other hand, use symbolic execution and model checking for finding
-general bugs in web applications~\cite{artzi10:finding}.
+Felmetsger et al.\ investigated an approach for detecting logic flaw
+vulnerabilities by combining execution traces and symbolic model
+checking~\cite{felmetsger10:logic}. Similar approaches are also used
+for generic bug finding (in fact, vulnerabilities are considered to be
+a subset of the general bug category). Csallner et al.\ employ dynamic
+traces for bug finding and for dynamic verification of the alerts
+generated by the static analysis phase~\cite{csallner08:dsd}. Artzi et
+al., on the other hand, use symbolic execution and model checking for
+finding general bugs in web applications~\cite{artzi10:finding}.
 
-On a completely separate track, efforts to improve web application security
-push the developers toward writing secure code in the first place. Security
-experts are tying to achieve this goal by either educating the
-developers~\cite{spi02:complete} or designing frameworks which prohibit the use
-of bad programming practices and enforce some security constraints in the code.
-Robertson and Vigna developed a strongly-typed framework which statically
-enforces separation between structure and content of a web page, preventing XSS
-and SQL injection~\cite{robertson09}. Also Chong et al.\ designed their
-language for developers to build web applications with strong confidentiality
-and integrity guarantees, by means of compile-time and run-time checks~\cite{chong07}.
+On a completely separate track, efforts to improve web application
+security push developers toward writing secure code in the first
+place. Security experts are tying to achieve this goal by either
+educating the developers~\cite{spi02:complete} or designing frameworks
+which either prohibit the use of bad programming practices or enforce
+some security constraints in the code. Robertson and Vigna developed a
+strongly-typed framework which statically enforces separation between
+structure and content of a web page, preventing XSS and SQL
+injection~\cite{robertson09}. Also Chong et al.\ designed their
+language for developers to build web applications with strong
+confidentiality and integrity guarantees, by means of compile-time and
+run-time checks~\cite{chong07}.
 
-Alternatively, consequences of vulnerabilities in web applications can be
-mitigated by trying to prevent the attacks before they reach some potentially
-vulnerable code, like, for example, in the already mentioned
-\emph{WebSSARI}~\cite{huang04:securing} work. A different approach for
-blocking attacks is followed by Scott and Sharp, who developed a language for
-specifying a security policy for the web application; a gateway will then
-enforce these policies~\cite{scott02}.
+Alternatively, consequences of vulnerabilities in web applications can
+be mitigated by attempting to prevent the attacks before they reach
+potentially vulnerable code, such as, for example, in the already
+mentioned \emph{WebSSARI}~\cite{huang04:securing} work. A different
+approach for blocking attacks is followed by Scott and Sharp, who
+developed a language for specifying a security policy for the web
+application; a gateway will then enforce these
+policies~\cite{scott02}.
 
-Another interesting research track deals with the problem of how to explore web
-pages behind forms, also called the \emph{hidden
+Another interesting research track deals with the problem of how to
+explore web pages behind forms, also called the \emph{hidden
   web}~\cite{raghavan01:hidden-web}. McAllister et al.\ monitor user
-interactions with a web application to collect sensible values for HTML form
-submission and generate test cases that can be replayed to increase code
-coverage~\cite{mcallister08}. Although not targeted to security
-goals, the work of Raghavan and Garcia-Molina is relevant for our project for
-their contribution in classification of different types of dynamic content and
-for their novel approach for automatically filling forms by deducing the domain
-of form fields~\cite{raghavan01:hidden-web}. Raghavan and Garcia-Molina carried
-out further research in this direction, by reconstructing complex and
-hierarchical query interfaces exposed by web applications.
+interactions with a web application to collect sensible values for
+HTML form submission and generate test cases that can be replayed to
+increase code coverage~\cite{mcallister08}. Although not targeted to
+security goals, the work of Raghavan and Garcia-Molina is relevant for
+their contribution in classification of different types of dynamic
+content and for their novel approach for automatically filling forms
+by deducing the domain of form fields~\cite{raghavan01:hidden-web}.
+Raghavan and Garcia-Molina carried out further research in this
+direction, by reconstructing complex and hierarchical query interfaces
+exposed by web applications.
 
-Moreover, Amalfitano et al.\ started tackling the problem of reverse engineering
-the state machine of client-side AJAX code, which will help in finding the web
-application server-side entry points and in better understating complex and
-hierarchical query interfaces~\cite{amalfitano08}.
+Moreover, Amalfitano et al.\ started tackling the problem of reverse
+engineering the state machine of client-side AJAX code, which will
+help in finding the web application server-side entry points and in
+better understating complex and hierarchical query
+interfaces~\cite{amalfitano08}.
 
-Finally, we need to mention the work by Berg et al.\ in reversing state
-machines into a \emph{Symbolic Mealy Machine} (SMM)
-model~\cite{berg08}. Their approach for reversing machines
-cannot be directly applied to our case because of the infeasibility of fully
-exploring all pages for all the states, even for a small subset of the possible
-states. Nevertheless, the model they propose for a SMM fits our needs.
+Finally, there is the work by Berg et al.\ in reversing state machines
+into a \emph{Symbolic Mealy Machine} (SMM) model~\cite{berg08}. Their
+approach for reversing machines cannot be directly applied to the case
+of web applications because of the infeasibility of fully exploring
+all pages for all the states, even for a small subset of the possible
+states. Nevertheless, the model they propose for a SMM is a good
+starting point to model the web application's state.
 
-\section{Fear the EAR Related Work}
+\section{Automated Discovery of Logic Flaws}
 
-Specific instances of Execution After Redirect vulnerabilities have
-been previously identified. Hofstetter
-wrote a blog post alerting people to not forget to exit after a
-redirect when using the PHP framework CakePHP~\cite{hofstetter06:redirect}. This discussion
+In Chapter~\ref{fear-the-ear}, we discuss and analyze a novel class of
+web application vulnerabilities, called Execution After Redirect. In
+this section, we review the relevant literature applicable to
+Execution After Redirect vulnerabilities and, more generally, logic
+flaws.
+
+Isolated instances of Execution After Redirect (EAR) vulnerabilities
+have been previously identified. Hofstetter wrote a blog post alerting
+people to not forget to exit after a redirect when using the PHP
+framework CakePHP~\cite{hofstetter06:redirect}. This discussion
 resulted in a bug being filed with the CakePHP
-team~\cite{cake-ear-bug:06}. This bug was resolved by updating the CakePHP
-documentation to indicate the redirect method
-did not end execution~\cite{cake-doc-bug:06}.
+team~\cite{cake-ear-bug:06}. This bug was resolved by updating the
+CakePHP documentation to indicate the redirect method did not end
+execution~\cite{cake-doc-bug:06}.
 
 Felmetsger et al.\ presented a white-box static analysis tool for J2EE
-servlets to automatically detect logic flaws in web applications. The tool,
-Waler, found Execution After Redirect vulnerabilities in a web application
-called Global Internship Management System
+servlets to automatically detect logic flaws in web applications. The
+tool, Waler, found Execution After Redirect vulnerabilities in a web
+application called Global Internship Management System
 (GIMS)~\cite{felmetsger10:logic}. However, neither Felmetsger nor
 Hofstetter identified EARs as a systemic flaw among web applications.
 
-Wang et al.\ manually discovered logic flaws in the
-interaction of Cashier-as-a-Service (CaaS) APIs and the web
-applications that use them~\cite{wang11:caas}. This is interesting because there is a
-three-way interaction between the users, the CaaS, and the web application. In
-our work, we consider one specific type of logic flaw across many
-applications.
+Wang et al.\ manually discovered logic flaws in the interaction of
+Cashier-as-a-Service (CaaS) APIs and the web applications that use
+them~\cite{wang11:caas}. This work is interesting because there is a
+three-way interaction between the users, the CaaS, and the web
+application. In Chapter~\ref{fear-the-ear}, we consider one specific
+type of logic flaw across many applications.
 
 Our white-box EAR detection tool uses the Ruby Intermediate Language
 (RIL) developed by Furr et al.~\cite{furr09:ril}. RIL was used by An
@@ -232,57 +263,62 @@ statically discover type errors. DRails parses Rails applications by
 compiling them to equivalent Ruby code, making implicit Rails
 conventions explicit. This differs from our tool, which operates
 directly on the Rails application's control flow graph. Moreover, we
-are looking at a specific logic flaw, while DRails is looking for type
-errors.
+are looking for a specific logic flaw, while DRails is looking for
+type errors.
 
-Chaudhuri and Foster built a symbolic analysis engine on top of DRails,
-called Rubyx~\cite{chaudhuri10:ssarorwa}. They are able to analyze the
-security properties of Rails applications using symbolic execution. Rubyx
-detected XSS, XSRF, session manipulation, and unauthorized access in the
-seven applications tested. Due to the symbolic execution and verifying of
-path conditions, false positives are reduced. However, Rubyx requires the
-developer to manually specify an analysis script that defines invariants on
-used objects, as well as the security requirements of the applications. Our
-tool, on the other hand, operates on raw, unmodified Rails applications,
-and does not require any developer input. This is due to the different
-focus; we are focusing on one specific type of flaw, while Rubyx is broader
-and can verify different types of security violations.
+Chaudhuri and Foster built a symbolic analysis engine on top of
+DRails, called Rubyx~\cite{chaudhuri10:ssarorwa}. They are able to
+analyze the security properties of Rails applications using symbolic
+execution. Rubyx detected XSS, CSRF, session manipulation, and
+unauthorized access in the seven applications tested. Due to the
+symbolic execution and verifying of path conditions, false positives
+are reduced. However, Rubyx requires the developer to manually specify
+an analysis script that defines invariants on used objects, as well as
+the security requirements of the applications. Our tool, on the other
+hand, operates on raw, unmodified Rails applications, and does not
+require any developer input. This is due to the different focus; we
+are focusing on one specific type of flaw, while Rubyx is broader and
+can verify different types of security violations.
 
-Our work is also related to numerous white-box tools that have previously
-been published. Huang et al.\ were one of the first to propose a static
-analysis tool for a server-side scripting language, specifically PHP. They
-implemented taint propagation to detect XSS, SQL injection, and general
+The static analysis EAR detection tool that we develop and describe in
+Chapter~\ref{fear-the-ear} is also related to numerous white-box tools
+that have previously been published. Huang et al.\ were one of the
+first to propose a static analysis tool for a server-side scripting
+language, specifically PHP. They implemented taint propagation to
+detect XSS, SQL injection, and general
 injection~\cite{huang04:securing}. Livshits and Lam proposed a static
-analysis technique for Java web applications that used points-to analysis
-for improved precision~\cite{livshits05:java-static}. Their tool detected
-29 instances of SQL injection, XSS, HTTP response splitting, and command
-injection in nine open-source applications. Jovanovic et al.\ developed
-Pixy, an open-source static analysis tool to discover XSS attacks by
-performing flow-sensitive, inter-procedural, and context-sensitive data flow
-analysis on PHP web applications~\cite{jovanovic06:pixy-improved}. They
-later improved Pixy, adding precise alias analysis, to discover hundreds of
-XSS vulnerabilities in three PHP applications, half of which were false
-positives~\cite{jovanovic06:pixy-short}. Balzarotti et al.\ used static and
-dynamic analysis to develop MiMoSa, a tool that performs inter-module data
-flow analysis to discover attacks that leverage several modules, such as
-stored XSS. They found 27 data flow violations in five PHP web
-applications~\cite{balzarotti07:mimosa}.
+analysis technique for Java web applications that used points-to
+analysis for improved precision~\cite{livshits05:java-static}. Their
+tool detected 29 instances of SQL injection, XSS, HTTP response
+splitting, and command injection in nine open-source applications.
+Jovanovic et al.\ developed Pixy, an open-source static analysis tool
+to discover XSS attacks by performing flow-sensitive,
+inter-procedural, and context-sensitive data flow analysis on PHP web
+applications~\cite{jovanovic06:pixy-improved}. They later improved
+Pixy, adding precise alias analysis, to discover hundreds of XSS
+vulnerabilities in three PHP applications, half of which were false
+positives~\cite{jovanovic06:pixy-short}. Balzarotti et al.\ used
+static and dynamic analysis to develop MiMoSa, a tool that performs
+inter-module data flow analysis to discover attacks that leverage
+several modules, such as stored XSS. They found 27 data flow
+violations in five PHP web applications~\cite{balzarotti07:mimosa}.
 
-All of these static analysis tools differ from our white box tool
-because we are not looking for unsanitized input
-vulnerabilities, but rather for unexpected execution that a developer
-did not intend. We also performed our analysis on a large corpus of
-real-world applications, and found a correspondingly large number of true
-vulnerable EARs.
+All of these static analysis tools differ from our white-box tool
+because we are not looking for injection vulnerabilities, but rather
+for unexpected execution that a developer did not intend.
 
-\section{\dedacota{} Related Work}
+\section{Cross-Site Scripting Defense}
 
-A broad variety of approaches have been proposed to address different types of XSS, though no standard taxonomy exists to classify these attacks and defenses. In general, XSS defenses employ schemes for input sanitization or restrictions on script generation and execution.  Differences among various techniques involve client- or server-side implementation and static or dynamic operation. We group and review XSS defenses in this context.
+A broad variety of approaches have been proposed to address different
+types of XSS, though no standard taxonomy exists to classify these
+attacks and defenses. In general, XSS defenses employ schemes for
+input sanitization or restrictions on script generation and execution.
+Differences among various techniques involve client- or server-side
+implementation and static or dynamic operation. We group and review
+XSS defenses in this context.
 
 \subsection{Server-Side Methods}
 
-While CSP itself is enforced by browsers~\cite{stamm10:csp}, our
-approach for leveraging CSP is a static, server-side XSS defense.
 There has been much previous research in server-side XSS
 defenses~\cite{saxena11:scriptgard,balzarotti08:saner,samuel11:templating,google13:autoescape,bisht08:xssguard,nguyen05:hardening,pietraszek05,su06:sqlcheck,jovanovic06:pixy-improved,louw09:blueprint,vangundy09:noncespaces}.
 Server-based techniques aim for dynamically generated pages free of
@@ -290,43 +326,91 @@ XSS vulnerabilities. This may involve validation or injection of
 appropriate sanitizers for user input, analysis of scripts to find XSS
 vulnerabilities, or automatic generation of XSS-free scripts.
 
-Server-side sanitizer defenses either check existing sanitization for correctness or generate input encodings automatically to match usage context. For example, Saner~\cite{balzarotti08:saner} uses static analysis to track unsafe inputs from entry to usage, followed by dynamic analysis to test input cases for proper sanitization along these paths. {\sc ScriptGard}~\cite{saxena11:scriptgard} is a complementary approach that assumes a set of \lq\lq{}correct\rq\rq{} sanitizers and inserts them to match the browser\rq{}s parsing context.  {\sc Bek}~\cite{hooimeijer11:bek} focuses on creating sanitization functions automatically analyzable for preciseness and correctness.  Sanitization remains the main industry-standard defense against XSS and related vulnerabilities.
+Server-side sanitizer defenses either check existing sanitization for
+correctness or generate input encodings automatically to match usage
+context. For example, Saner~\cite{balzarotti08:saner} uses static
+analysis to track unsafe inputs from entry to usage, followed by
+dynamic analysis to test input cases for proper sanitization along
+these paths. {\sc ScriptGard}~\cite{saxena11:scriptgard} is a
+complementary approach that assumes a set of ``correct'' sanitizers
+and inserts them to match the browser's parsing context. {\sc
+  Bek}~\cite{hooimeijer11:bek} focuses on creating sanitization
+functions that are automatically analyzable for preciseness and
+correctness. Sanitization remains the main industry-standard defense
+against XSS and related vulnerabilities.
 
 A number of server-side defenses restrict scripts included in
 server-generated pages. For example, XSS-GUARD~\cite{bisht08:xssguard}
 determines valid scripts dynamically and disallows unexpected scripts.
-The authors report performance overheads of up to 46\%  because of the dynamic evaluation of HTML and JavaScript.
- Templating approaches~\cite{samuel11:templating,google13:autoescape,robertson09} generate correct-by-construction scripts that incorporate correct sanitization based on context. In addition, schemes based on code isolation~\cite{livshits07,athanasopoulos09,akhawe12:privilege} mitigate XSS by limiting DOM access for particular scripts, depending on their context.
+The authors report performance overheads of up to 46\% because of the
+dynamic evaluation of HTML and JavaScript. Templating
+approaches~\cite{samuel11:templating,google13:autoescape,robertson09}
+generate correct-by-construction scripts that incorporate correct
+sanitization based on context. In addition, schemes based on code
+isolation~\cite{livshits07,athanasopoulos09,akhawe12:privilege}
+mitigate XSS by limiting DOM access for particular scripts, depending
+on their context.
 
 Certain XSS
 defenses~\cite{nguyen05:hardening,pietraszek05,xie06:static,jovanovic06:pixy-improved,martin08:autoxss,tripp09:taj,livshits05:java-static,johns07:smask,saxena10:kudzu}
 use data-flow analysis or taint tracking to identify unsanitized user
-input included in a generated web page. These approaches typically rely on
-sanitization, encoding, and other means of separating unsafe inputs
-from the script  code. Some schemes prevent XSS bugs dynamically, while others focus on static detection and elimination.
+input included in a generated web page. These approaches typically
+rely on sanitization, encoding, and other means of separating unsafe
+inputs from the script code. Some schemes prevent XSS bugs
+dynamically, while others focus on static detection and elimination.
 
-Other approaches~\cite{nadji08:structure-integrity,vangundy09:noncespaces,louw09:blueprint} combine server-side processing with various client-side components, such as confinement of untrusted inputs and markup randomization. Such schemes may parse documents on the server and prevent any modifications of the resulting parse trees on the client. In addition, randomization of XHTML tags can render foreign script code meaningless, defeating many code-injection attacks. 
+Other
+approaches~\cite{nadji08:structure-integrity,vangundy09:noncespaces,louw09:blueprint}
+combine server-side processing with various client-side components,
+such as confinement of untrusted inputs and markup randomization. Such
+schemes may parse documents on the server and prevent any
+modifications of the resulting parse trees on the client. In addition,
+randomization of XHTML tags can render foreign script code
+meaningless, defeating many XSS injection attacks.
 
 \subsection{Client-Side Methods}
 
-Client-side XSS defenses~\cite{kirda06:noxes,vogt07,jim07:beep,meyerovich10:conscript,stamm10:csp,weinberger11:client} mitigate XSS while receiving or rendering untrusted web content. Some of these schemes rely on browser modifications or plug-ins, often reducing their practical applicability. Others use custom JavaScript libraries or additional client-side monitoring software. CSP itself~\cite{stamm10:csp} is a browser-based approach, but its incorporation into WWW standards should facilitate wide acceptance and support by all popular browsers.
+Client-side XSS
+defenses~\cite{kirda06:noxes,vogt07,jim07:beep,meyerovich10:conscript,stamm10:csp,weinberger11:client}
+mitigate XSS while receiving or rendering untrusted web content. Some
+of these schemes rely on browser modifications or plug-ins, often
+reducing their practical applicability. Others use custom JavaScript
+libraries or additional client-side monitoring software.
+CSP~\cite{stamm10:csp} is a browser-based approach that allows only
+developer specified JavaScript to execute, and its incorporation into
+WWW standards should facilitate wide acceptance and support by all
+popular browsers.
 
-Some client-side XSS defenses focus on detecting and preventing leakage of sensitive data. For example, Noxes~\cite{kirda06:noxes} operates as a personal-firewall plug-in that extracts all static links from incoming web pages, prompting the user about disclosure of information via dynamically generated links. Vogt et al.~\cite{vogt07} also aim to address this problem, but use taint-tracking analysis within a browser to check for sensitive data released via XSS attacks. In contrast, \dedacota simply prevents any XSS exploits that could enable such leakage.
+Some client-side XSS defenses focus on detecting and preventing
+leakage of sensitive data. For example, Noxes~\cite{kirda06:noxes}
+operates as a personal-firewall browser plug-in that extracts all
+static links from incoming web pages, prompting the user about
+disclosure of information via dynamically generated links. Vogt et
+al.~\cite{vogt07} also aim to address this problem, but use
+taint-tracking analysis within a browser to check for sensitive data
+released via XSS attacks.
 
 Client-side HTML security policies mitigate XSS via content
 restrictions, such as disallowing unsafe features or executing only
-\lq\lq{}known good\rq\rq{} scripts. Using a browser\rq{}s HTML parser,
+``known good'' scripts. Using a browser's HTML parser,
 BEEP~\cite{jim07:beep} constructs whitelists of scripts, much like
-XSS-GUARD\rq{}s server-side approach~\cite{bisht08:xssguard}. BEEP
-assumes no dynamic scripts whose hashes cannot be pre-computed,
-limiting its practicality with modern web applications; moreover, it
-has been shown that even
-whitelisted scripts may be vulnerable to
-attacks~\cite{athanasopoulos09}. Another custom content security
-policy is {\sc Blueprint}\rq{}s page descriptions, which are
+XSS-GUARD's server-side approach~\cite{bisht08:xssguard}. BEEP assumes
+that the web application has no dynamic scripts whose hashes cannot be
+pre-computed, limiting its practicality with modern web applications;
+moreover, it has been shown that even whitelisted scripts may be
+vulnerable to attacks~\cite{athanasopoulos09}. Another custom content
+security policy is {\sc Blueprint}'s page descriptions, which are
 interpreted and rendered safely by a custom JavaScript
 library~\cite{louw09:blueprint}. Script policies enforced at
-runtime~\cite{hallaraker05,meyerovich10:conscript} are also
-useful for mitigating XSS exploits.
+runtime~\cite{hallaraker05,meyerovich10:conscript} are also useful for
+mitigating XSS exploits.
 
-In general, standardized HTML security policies~\cite{stamm10:csp,weinberger11:client} offer promise as a means of escaping the recent proliferation of complex, often ad hoc XSS defenses. CSP simplifies the problem by enforcing fairly strong restrictions, such as disabling \texttt{eval()} and other dangerous APIs, prohibiting inline JavaScript, and allowing only local script resources to be loaded. While new web applications can be designed with CSP in mind, legacy code may require significant rewriting. \dedacota works on both old and new applications, facilitating adoption of CSP by developers, primarily by automating the separation process.
+In general, standardized HTML security
+policies~\cite{stamm10:csp,weinberger11:client} offer promise as a
+means of escaping the recent proliferation of complex, often ad hoc
+XSS defenses. CSP simplifies the problem by enforcing fairly strong
+restrictions, such as disabling \texttt{eval()} and other dangerous
+APIs, prohibiting inline JavaScript, and allowing only local script
+resources to be loaded. While new web applications can be designed
+with CSP in mind, legacy code may require significant rewriting.
+
