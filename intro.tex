@@ -67,6 +67,15 @@ is displayed to the user. The fundamental underlying principle, and
 the definition of HyperText, is that an HTML page contains links to
 \emph{other} HTML pages.
 
+\input{figures/webserver_interaction_simple.tex}
+
+Figure~\localref{webserver-interaction-simple} shows a graphical
+representation of the interaction between the web browser and the web
+server. In (1), the web browser will make an HTTP request to the web
+server, to request a resource. Then, the web server will respond, as
+in (2), with an HTTP response which contains the HTML of the requested
+web page.
+
 The beginning of the web was envisioned as a set of documents with
 links pointing to other documents\footnote{This is where the name
   \emph{web} comes from, as each link forms a strand in the web.}. In
@@ -81,7 +90,7 @@ client could be dynamic---that is, the content of the HTML response
 could vary programmatically. This shift in thinking caused web sites to
 transition to \emph{web applications} which emulated features of
 traditional desktop applications. Web applications enabled scenarios
-that caused the web's popular to increase: e-commerce, news sites, and
+that caused the web's popularity to increase: e-commerce, news sites, and
 web-based email. It is hard to overstate the impact that web
 applications had on the uptake of the web. 
 
@@ -93,6 +102,18 @@ response, typically HTML, to the browser. The server-side code can use
 any number of inputs to determine the response, but the typically the
 server-side code reads the parameters sent in the browser's HTTP
 request, consults an SQL database, and returns an HTML response.
+
+\input{figures/webserver_interaction_complex.tex}
+
+Figure~\localref{webserver-interaction-complex} shows an example web
+application with a back-end SQL database. Now, when the web browser
+sends an HTTP request to the web application, as in (1), the web
+application's server-side code wills start to execute. Then, as (2)
+shows, the server-side code can make one or more request to the SQL
+database, when executes the queries and returns the data to the
+server-side code in (3). Finally, the web application finishes
+processing the request and sends an HTTP response with an HTML web
+page to the web browser in (4).
 
 The HTTP mechanism is, by design, stateless: Each HTTP request that
 the web server receives is, at the beginning, independent of any other
