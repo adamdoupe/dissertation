@@ -41,8 +41,9 @@ are always available for hackers. Web applications also house a vast
 treasure-trove of data, which hackers can use for monetary gain.
 Finally, as we will explore in the next section, web applications are
 a complex hodgepodge of various technologies. This complexity,
-combined with the intense time-to-market pressure of web applications,
-is a breeding ground for bugs and vulnerabilities.
+combined with the intense time-to-market pressure of companies and
+people that build web applications, is a breeding ground for bugs and
+vulnerabilities.
 
 The situation is dire. We must focus on new ways to secure web
 applications from attack. We must develop new tools in order to find
@@ -53,7 +54,7 @@ applications and the data they store are too important.
 
 The World Wide Web was created by Sir.\ Tim Berners-Lee in 1989 as a
 means of sharing information for the CERN research organization. What
-began as a means of sharing simple hyper-linked textual documents over
+began as a way to share simple hyper-linked textual documents over
 the nascent Internet quickly exploded in popularity over the
 proceeding years.
 
@@ -91,7 +92,7 @@ could vary programmatically. This shift in thinking caused web sites to
 transition to \emph{web applications} which emulated features of
 traditional desktop applications. Web applications enabled scenarios
 that caused the web's popularity to increase: e-commerce, news sites, and
-web-based email. It is hard to overstate the impact that web
+web-based email clients. It is hard to overstate the impact that web
 applications had on the uptake of the web. 
 
 Now, with web applications, the architecture of the web changed. When
@@ -99,7 +100,7 @@ the web browser makes an HTTP request to the server, instead of
 returning a static HTML response, the web server typically will invoke
 server-side code. This server-side code is responsible for returning a
 response, typically HTML, to the browser. The server-side code can use
-any number of inputs to determine the response, but the typically the
+any number of inputs to determine the response, but typically the
 server-side code reads the parameters sent in the browser's HTTP
 request, consults an SQL database, and returns an HTML response.
 
@@ -108,7 +109,7 @@ request, consults an SQL database, and returns an HTML response.
 Figure~\localref{webserver-interaction-complex} shows an example web
 application with a back-end SQL database. Now, when the web browser
 sends an HTTP request to the web application, as in (1), the web
-application's server-side code wills start to execute. Then, as (2)
+application's server-side code will start to execute. Then, as (2)
 shows, the server-side code can make one or more request to the SQL
 database, when executes the queries and returns the data to the
 server-side code in (3). Finally, the web application finishes
@@ -116,42 +117,41 @@ processing the request and sends an HTTP response with an HTML web
 page to the web browser in (4).
 
 The HTTP mechanism is, by design, stateless: Each HTTP request that
-the web server receives is, at the beginning, independent of any other
-request. It is difficult to build an interactive application on top of
-a stateless protocol, thus a standard was developed to add state to
-the HTTP process~\cite{kristol97:cookies}. This standard added the
+the web server receives is independent of any other request. It is
+difficult to build an interactive application on top of a stateless
+protocol, thus a standard was developed to add state to the HTTP
+protocol~\cite{kristol97:cookies}. This standard added the
 \emph{cookie} mechanism to the HTTP layer. In this way, a web server
 can ask the web browser to set a cookie, then, in subsequent requests,
 the web browser will include the cookie. Therefore, a web server or
 web application can link the requests into a \emph{session} based on
-the common cookie and thus develop state-full web applications.
+the common cookie and thus develop state-aware web applications.
 
 Even after the advent of web applications, the server-side code would
 return an HTML page that was statically rendered and displayed to the
 user. To change to content on the page or otherwise interact with the
 web application, the browser must perform another HTTP request and
-response round-trip based on a link the user clicked or a form the
-user submitted. In 1997, Brendan Eich, a programmer at Netscape,
-created a client-side scripting language called
-JavaScript~\cite{ecmascript97}. The user's web browser implemented an
-interpreter for this scripting language so that it could manipulate
-the web page. Now, with JavaScript, web developers could
-programmatically alter the content on the web page without making a
-request to the web server. The final linchpin which enabled web
-applications to truly rival traditional applications was the creation
-and standardization of the XMLHttpRequest JavaScript
-API~\cite{vankesteren06:xmlhttprequest}. This API allowed the
-client-side JavaScript code to make asynchronous requests to the web
-application, and then update the content of the web page according to
-the response from the web application. Combined together, these web
-application development technologies came to be known as
-AJAX~\cite{garrett05:ajax}, which rivaled traditional desktop
-applications in functionality. 
+receive a response based on a link the user clicked or a form the user
+submitted. In 1997, Brendan Eich, a programmer at Netscape, created a
+client-side scripting language called JavaScript~\cite{ecmascript97}.
+The user's web browser implemented an interpreter for this scripting
+language so that it could manipulate the web page. Now, with
+JavaScript, web developers could programmatically alter the content on
+the web page without making a request to the web server. The final
+linchpin which enabled web applications to truly rival traditional
+applications was the creation and standardization of the
+XMLHttpRequest JavaScript API~\cite{vankesteren06:xmlhttprequest}.
+This API allowed the client-side JavaScript code to make asynchronous
+requests to the web application and then update the content of the
+web page according to the response from the web application. Combined
+together, these web application development technologies came to be
+known as AJAX~\cite{garrett05:ajax}, which rivaled traditional desktop
+applications in functionality.
 
 This architecture of a web application is what we will use throughout
-this chapter to discuss the security aspects of web applications.
-Other details and complexities of web applications will be explained
-in the chapter where it is needed.
+this chapter to discuss the security aspects of web applications. In
+this dissertation, other details and complexities of web applications
+will be explained in the chapter where it is needed.
 
 \section{Web Application Vulnerabilities}
 
@@ -163,16 +163,13 @@ confidentially or integrity of the web application's data.
 
 \subsection{Injection Vulnerabilities}
 
-Injection vulnerabilities are to web applications as memory-corruption
-vulnerabilities are to binary applications. 
-
 This class of vulnerabilities occur when an attacker is able to
 control or influence the value of parameters that are used as part of
-an outside\footnote{to the web application's server-side language.}
-query, command, or language. If the attacker can manipulate and change
-the semantics of the query, command, or language, and this
-manipulation compromises the security of the application, then that is
-an injection vulnerability.
+an outside\footnote{Outside from the perspective of the web
+  application's server-side language.} query, command, or language. If
+the attacker can manipulate and change the semantics of the query,
+command, or language, and this manipulation compromises the security
+of the application, then that is an injection vulnerability.
 
 There are many types of injection vulnerabilities in web applications,
 and the types depend on the query, command, or language that is being
@@ -232,8 +229,8 @@ clause (\texttt{or 1=1}) that was not in the original statement.
 
 Thus, in order for an attacker to not alter the semantics of the SQL
 query, a web developer must be careful to properly \emph{sanitize} all
-potentially attacker-control input. Here sanitize means to transform
-the input from the user to a form that renders it neutral for the
+potentially attacker-controlled input. Here, sanitize means to transform
+the input from the user to a form that renders it neutral in the
 target language. In the case of SQL, this typically means converting
 any \texttt{\textquotesingle} (which are used by an attacker to escape
 out of an SQL query) to the inert
@@ -241,13 +238,14 @@ out of an SQL query) to the inert
 
 With an SQL injection vulnerability, an attacker can violate both the
 confidentially and integrity of the application's data. An attacker
-can insert arbitrary data into the database, possibly adding a new
+can insert arbitrary data into the database, potentially adding a new
 admin user to the web application. Also, an attacker can exfiltrate
 any data that the database user can access (typically all data that
 the web application can access). Finally, the attacker can also delete
-all of the web application's data. These consequences of a single SQL
-injection vulnerability are why SQL injection vulnerabilities are so
-severe.
+all of the web application's data. All of these consequences are the
+result of a single SQL injection vulnerability, and that is why SQL
+injection vulnerabilities can critically compromise a web
+application's security.
 
 To prevent SQL injections with sanitization, a developer must be
 extremely careful that no user-supplied data is used in an SQL
@@ -266,10 +264,10 @@ frequently found in web applications.
 \subsubsection{Cross-Site Scripting}
 
 Cross-Site Scripting (XSS) vulnerabilities are similar in spirit to
-SQL injection vulnerabilities. Instead of injection into a SQL
+SQL injection vulnerabilities. Instead of an injection into a SQL
 query, XSS vulnerabilities are injections into the HTML output that
 the web application generates. XSS vulnerabilities are frequently in
-the top three of all reported vulnerabilities in \emph{all} software
+the top three of reported vulnerabilities in \emph{all} software
 systems.
 
 The root cause of XSS vulnerabilities is that the server-side code of
@@ -349,7 +347,7 @@ XSS vulnerabilities can be fixed by proper sanitizaiton at all program
 points in the web application that output HTML. This sanitization
 process typically will convert entities that are significant in
 parsing HTML to their display equivalent. For instance, the HTML
-\texttt{<} character is transfer to its HTML entity equivalent
+\texttt{<} character is transformed to its HTML entity equivalent
 \texttt{\&gt;}, which means to display a \texttt{<} character on the
 resulting web page, rather than starting an HTML tag.
 
@@ -412,7 +410,7 @@ secure is critical. Security flaws in a web application can allow an
 attacker unprecedented access to secret and sensitive data. 
 
 There are numerous approaches to secure web applications, depending on
-where one wants to focus. One approach is to detect attacks as they
+where the defense is put into place. One approach is to detect attacks as they
 happen and block the attack traffic. Another approach is to construct
 the web application in a way such that it is not vulnerable to entire
 classes of security vulnerabilities. Finally, and the approach taken
@@ -575,7 +573,8 @@ are verified by the black-box techniques). However, grey-box tools also
 inherit the drawbacks of white-box tools: Applicability to a single web
 application language or framework. Therefore, these types of tools are
 not as popular as white-box and black-box tools. 
-\\
+
+\section{Securing the Web}
 
 \noindent{}Given the empowering nature of web applications, it is
 clear that securing web applications is important.
